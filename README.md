@@ -9,4 +9,3 @@ JavaScript client for connecting to the Bigcommerce REST APIs.
 
 
 * [Contributing](/docs/development.md)
-
