@@ -39,7 +39,7 @@
 
   /**
    * Constructs a new <code>ComplexRule</code>.
-   * Apply price, weight, image, or availabilty adjustments to product, based on a set of conditions. A complex rule&#39;s condition must either contain more than one modifier value, or else contain a modifier value and a variant ID. 
+   * Apply price, weight, image, or availabilty adjustments to product, based on a set of conditions. A complex rule's condition must either contain more than one modifier value, or else contain a modifier value and a variant ID. 
    * @alias module:Model/ComplexRule
    * @class
    * @implements module:Model/ComplexRuleBase

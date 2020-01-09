@@ -45,22 +45,16 @@
     this.apiClient = apiClient || ApiClient.instance;
 
 
-    /**
-     * Callback function to receive the result of the addItem operation.
-     * @callback module:Api/CartApi~addItemCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/CartResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Adds line item(s) to the cart.
      * @param {String} cartId 
      * @param {module:Model/CartRequestData} itemData 
-     * @param {module:Api/CartApi~addItemCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/CartResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/CartResponse} if callback is null
      */
-    this.addItem = function(cartId, itemData, callback) {
+    this.addItem = function(cartId, itemData, opts, callback) {
       var postBody = itemData;
 
       // verify the required parameter 'cartId' is set
@@ -96,21 +90,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the createCart operation.
-     * @callback module:Api/CartApi~createCartCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/CartResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Creates a cart and generates a cart ID.
      * @param {module:Model/CartCreateRequestData} cartData 
-     * @param {module:Api/CartApi~createCartCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/CartResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/CartResponse} if callback is null
      */
-    this.createCart = function(cartData, callback) {
+    this.createCart = function(cartData, opts, callback) {
       var postBody = cartData;
 
       // verify the required parameter 'cartData' is set
@@ -140,20 +128,14 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteCart operation.
-     * @callback module:Api/CartApi~deleteCartCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Removes the entire cart.
-     * @param {String} cartId This cart&#39;s unique ID.
-     * @param {module:Api/CartApi~deleteCartCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {String} cartId This cart's unique ID.
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deleteCart = function(cartId, callback) {
+    this.deleteCart = function(cartId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'cartId' is set
@@ -184,22 +166,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteItem operation.
-     * @callback module:Api/CartApi~deleteItemCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/CartResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Removes a line item from the cart.
      * @param {String} cartId 
      * @param {Number} itemId 
-     * @param {module:Api/CartApi~deleteItemCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/CartResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/CartResponse} if callback is null
      */
-    this.deleteItem = function(cartId, itemId, callback) {
+    this.deleteItem = function(cartId, itemId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'cartId' is set
@@ -236,21 +212,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getCart operation.
-     * @callback module:Api/CartApi~getCartCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/CartResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Returns information about a given &#x60;Cart&#x60;, specified by its ID.
+     * Returns information about a given `Cart`, specified by its ID.
      * @param {String} cartId The identifier of a specific cart.
      * @param {Object} opts Optional parameters
      * @param {String} opts.include Supports Physical and Digital product options as include param
-     * @param {module:Api/CartApi~getCartCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/CartResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/CartResponse} if callback is null
      */
     this.getCart = function(cartId, opts, callback) {
       opts = opts || {};
@@ -285,21 +255,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the setRedirectUrls operation.
-     * @callback module:Api/CartApi~setRedirectUrlsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/CartRedirectUrlsResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Creates a set of URLs to redirect the shopper to the BigCommerce store.
      * @param {String} cartId 
-     * @param {module:Api/CartApi~setRedirectUrlsCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/CartRedirectUrlsResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/CartRedirectUrlsResponse} if callback is null
      */
-    this.setRedirectUrls = function(cartId, callback) {
+    this.setRedirectUrls = function(cartId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'cartId' is set
@@ -330,22 +294,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the updateCart operation.
-     * @callback module:Api/CartApi~updateCartCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/Cart} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Modify a cart.
      * @param {String} cartId 
      * @param {module:Model/CartUpdateRequestData} cartUpdateData 
-     * @param {module:Api/CartApi~updateCartCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/Cart}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/Cart} if callback is null
      */
-    this.updateCart = function(cartId, cartUpdateData, callback) {
+    this.updateCart = function(cartId, cartUpdateData, opts, callback) {
       var postBody = cartUpdateData;
 
       // verify the required parameter 'cartId' is set
@@ -381,23 +339,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the updateItem operation.
-     * @callback module:Api/CartApi~updateItemCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/CartResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Updates an existing, single line item in the cart.
      * @param {String} cartId 
      * @param {Number} itemId 
      * @param {module:Model/CartUpdateRequest} lineItem 
-     * @param {module:Api/CartApi~updateItemCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/CartResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/CartResponse} if callback is null
      */
-    this.updateItem = function(cartId, itemId, lineItem, callback) {
+    this.updateItem = function(cartId, itemId, lineItem, opts, callback) {
       var postBody = lineItem;
 
       // verify the required parameter 'cartId' is set

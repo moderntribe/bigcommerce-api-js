@@ -39,7 +39,7 @@
 
   /**
    * Constructs a new <code>OrderProductAppliedDiscounts</code>.
-   * When applying a manual discount to an order (not a product level discount), the discount is distributed across products in proportion to the products price.  &#x60;(total_manual_discount*price_ex_tax)/subtotal_ex_tax&#x60;
+   * When applying a manual discount to an order (not a product level discount), the discount is distributed across products in proportion to the products price.  `(total_manual_discount*price_ex_tax)/subtotal_ex_tax`
    * @alias module:Model/OrderProductAppliedDiscounts
    * @class
    */

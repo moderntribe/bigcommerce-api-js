@@ -45,13 +45,6 @@
     this.apiClient = apiClient || ApiClient.instance;
 
 
-    /**
-     * Callback function to receive the result of the addWishlistItems operation.
-     * @callback module:Api/WishlistsApi~addWishlistItemsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/WishlistResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Add Wishlist Item
@@ -59,8 +52,9 @@
      * @param {Number} wishlistId ID of the Wishlist
      * @param {Object} opts Optional parameters
      * @param {module:Model/WishlistAddItemsRequest} opts.body 
-     * @param {module:Api/WishlistsApi~addWishlistItemsCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/WishlistResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/WishlistResponse} if callback is null
      */
     this.addWishlistItems = function(wishlistId, opts, callback) {
       opts = opts || {};
@@ -94,22 +88,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the createWishlist operation.
-     * @callback module:Api/WishlistsApi~createWishlistCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/WishlistResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Create a Wishlist
      * Creates a Wishlist and Wishlist Item. More than one item can be added in the POST.
      * @param {module:Model/WishlistRequest} body 
-     * @param {module:Api/WishlistsApi~createWishlistCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/WishlistResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/WishlistResponse} if callback is null
      */
-    this.createWishlist = function(body, callback) {
+    this.createWishlist = function(body, opts, callback) {
       var postBody = body;
 
       // verify the required parameter 'body' is set
@@ -139,21 +127,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteWishlist operation.
-     * @callback module:Api/WishlistsApi~deleteWishlistCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Delete a Wishlist
      * Deletes a Wishlist
      * @param {Number} wishlistId ID of the Wishlist
-     * @param {module:Api/WishlistsApi~deleteWishlistCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deleteWishlist = function(wishlistId, callback) {
+    this.deleteWishlist = function(wishlistId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'wishlistId' is set
@@ -184,22 +166,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteWishlistItem operation.
-     * @callback module:Api/WishlistsApi~deleteWishlistItemCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Delete Wishlist Item
      * Deletes a Wishlist Item
      * @param {Number} wishlistId ID of the Wishlist
      * @param {Number} itemId 
-     * @param {module:Api/WishlistsApi~deleteWishlistItemCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deleteWishlistItem = function(wishlistId, itemId, callback) {
+    this.deleteWishlistItem = function(wishlistId, itemId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'wishlistId' is set
@@ -236,22 +212,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getWishlist operation.
-     * @callback module:Api/WishlistsApi~getWishlistCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/WishlistResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Get a Wishlist
      * Returns a single Wishlist
      * @param {Number} wishlistId ID of the Wishlist
-     * @param {module:Api/WishlistsApi~getWishlistCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/WishlistResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/WishlistResponse} if callback is null
      */
-    this.getWishlist = function(wishlistId, callback) {
+    this.getWishlist = function(wishlistId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'wishlistId' is set
@@ -282,13 +252,6 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the listWishlists operation.
-     * @callback module:Api/WishlistsApi~listWishlistsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/WishlistCollectionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Get Wishlists
@@ -297,8 +260,9 @@
      * @param {Number} opts.customerId All wishlists relating to the customer.
      * @param {Number} opts.page The page number of results per page. 1 is the default and starts from record 0.
      * @param {Number} opts.limit The numbers of items to return per page. Default is 50 and maximum is 250.
-     * @param {module:Api/WishlistsApi~listWishlistsCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/WishlistCollectionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/WishlistCollectionResponse} if callback is null
      */
     this.listWishlists = function(opts, callback) {
       opts = opts || {};
@@ -329,23 +293,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the updateWishlist operation.
-     * @callback module:Api/WishlistsApi~updateWishlistCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/WishlistResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Update a Wishlist
      * Updates a Wishlist
      * @param {module:Model/WishlistRequest} body 
      * @param {Number} wishlistId ID of the Wishlist
-     * @param {module:Api/WishlistsApi~updateWishlistCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/WishlistResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/WishlistResponse} if callback is null
      */
-    this.updateWishlist = function(body, wishlistId, callback) {
+    this.updateWishlist = function(body, wishlistId, opts, callback) {
       var postBody = body;
 
       // verify the required parameter 'body' is set

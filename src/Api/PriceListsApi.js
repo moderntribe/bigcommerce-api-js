@@ -45,21 +45,15 @@
     this.apiClient = apiClient || ApiClient.instance;
 
 
-    /**
-     * Callback function to receive the result of the createPriceList operation.
-     * @callback module:Api/PriceListsApi~createPriceListCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/PriceListResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Creates a &#x60;Price List&#x60; in BigCommerce. 
-     * @param {module:Model/PriceListPost} priceList A BigCommerce &#x60;PriceList&#x60; object. 
-     * @param {module:Api/PriceListsApi~createPriceListCallback} callback The callback function, accepting three arguments: error, data, response
+     * Creates a `Price List` in BigCommerce. 
+     * @param {module:Model/PriceListPost} priceList A BigCommerce `PriceList` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/PriceListResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/PriceListResponse} if callback is null
      */
-    this.createPriceList = function(priceList, callback) {
+    this.createPriceList = function(priceList, opts, callback) {
       var postBody = priceList;
 
       // verify the required parameter 'priceList' is set
@@ -89,20 +83,14 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deletePriceList operation.
-     * @callback module:Api/PriceListsApi~deletePriceListCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Deletes one &#x60;Price List&#x60; object from BigCommerce by its ID. Also removes all associated Price Records. 
-     * @param {Number} priceListId The ID of the &#x60;Price List&#x60; requested. 
-     * @param {module:Api/PriceListsApi~deletePriceListCallback} callback The callback function, accepting three arguments: error, data, response
+     * Deletes one `Price List` object from BigCommerce by its ID. Also removes all associated Price Records. 
+     * @param {Number} priceListId The ID of the `Price List` requested. 
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deletePriceList = function(priceListId, callback) {
+    this.deletePriceList = function(priceListId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'priceListId' is set
@@ -133,22 +121,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deletePriceListRecord operation.
-     * @callback module:Api/PriceListsApi~deletePriceListRecordCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Deletes one &#x60;Price Record&#x60; object from BigCommerce, by &#x60;variant_id&#x60;. 
-     * @param {Number} priceListId The ID of the &#x60;Price List&#x60; requested. 
+     * Deletes one `Price Record` object from BigCommerce, by `variant_id`. 
+     * @param {Number} priceListId The ID of the `Price List` requested. 
      * @param {Number} variantId ID of the variant on a product, or on an associated Price List Record. 
      * @param {String} currencyCode The currency code associated with the price record being acted upon. 
-     * @param {module:Api/PriceListsApi~deletePriceListRecordCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deletePriceListRecord = function(priceListId, variantId, currencyCode, callback) {
+    this.deletePriceListRecord = function(priceListId, variantId, currencyCode, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'priceListId' is set
@@ -191,21 +173,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deletePriceListRecordsByFilter operation.
-     * @callback module:Api/PriceListsApi~deletePriceListRecordsByFilterCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/NoContent} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Deletes one or more &#x60;Price Record&#x60; objects from BigCommerce using a filter. 
-     * @param {Number} priceListId The ID of the &#x60;Price List&#x60; requested. 
+     * Deletes one or more `Price Record` objects from BigCommerce using a filter. 
+     * @param {Number} priceListId The ID of the `Price List` requested. 
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.variantId The ID of the &#x60;Variant&#x60; whose prices were requested. 
-     * @param {module:Api/PriceListsApi~deletePriceListRecordsByFilterCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {Number} opts.variantId The ID of the `Variant` whose prices were requested. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/NoContent}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/NoContent} if callback is null
      */
     this.deletePriceListRecordsByFilter = function(priceListId, opts, callback) {
       opts = opts || {};
@@ -240,21 +216,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deletePriceListRecordsByVariantId operation.
-     * @callback module:Api/PriceListsApi~deletePriceListRecordsByVariantIdCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Deletes the collection of &#x60;Price Record&#x60; objects associated with a certain price list and variant ID. 
-     * @param {Number} priceListId The ID of the &#x60;Price List&#x60; requested. 
+     * Deletes the collection of `Price Record` objects associated with a certain price list and variant ID. 
+     * @param {Number} priceListId The ID of the `Price List` requested. 
      * @param {Number} variantId ID of the variant on a product, or on an associated Price List Record. 
-     * @param {module:Api/PriceListsApi~deletePriceListRecordsByVariantIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deletePriceListRecordsByVariantId = function(priceListId, variantId, callback) {
+    this.deletePriceListRecordsByVariantId = function(priceListId, variantId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'priceListId' is set
@@ -291,20 +261,14 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deletePriceListsByFilter operation.
-     * @callback module:Api/PriceListsApi~deletePriceListsByFilterCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Deletes a set of &#x60;Price List&#x60; objects from BigCommerce using a filter. Also removes all associated Price Recordss. 
+     * Deletes a set of `Price List` objects from BigCommerce using a filter. Also removes all associated Price Recordss. 
      * @param {Object} opts Optional parameters
      * @param {Number} opts.id Filter items by id. 
      * @param {String} opts.name Filter items by name. 
-     * @param {module:Api/PriceListsApi~deletePriceListsByFilterCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
     this.deletePriceListsByFilter = function(opts, callback) {
       opts = opts || {};
@@ -334,21 +298,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getPriceList operation.
-     * @callback module:Api/PriceListsApi~getPriceListCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/PriceListResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Returns a &#x60;Price List&#x60; object from BigCommerce. 
-     * @param {Number} priceListId The ID of the &#x60;Price List&#x60; requested. 
-     * @param {module:Api/PriceListsApi~getPriceListCallback} callback The callback function, accepting three arguments: error, data, response
+     * Returns a `Price List` object from BigCommerce. 
+     * @param {Number} priceListId The ID of the `Price List` requested. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/PriceListResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/PriceListResponse} if callback is null
      */
-    this.getPriceList = function(priceListId, callback) {
+    this.getPriceList = function(priceListId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'priceListId' is set
@@ -379,16 +337,9 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getPriceListCollection operation.
-     * @callback module:Api/PriceListsApi~getPriceListCollectionCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/PriceListCollectionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Returns a paginated collection of &#x60;Price List&#x60; objects from BigCommerce. 
+     * Returns a paginated collection of `Price List` objects from BigCommerce. 
      * @param {Object} opts Optional parameters
      * @param {Number} opts.id Filter items by id. 
      * @param {String} opts.name Filter items by name. 
@@ -396,8 +347,9 @@
      * @param {Date} opts.dateModified Filter items by date_modified. 
      * @param {Number} opts.page Specifies the page number in a limited (paginated) list of products. 
      * @param {Number} opts.limit Controls the number of items per page in a limited (paginated) list of products. 
-     * @param {module:Api/PriceListsApi~getPriceListCollectionCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/PriceListCollectionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/PriceListCollectionResponse} if callback is null
      */
     this.getPriceListCollection = function(opts, callback) {
       opts = opts || {};
@@ -431,23 +383,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getPriceListRecord operation.
-     * @callback module:Api/PriceListsApi~getPriceListRecordCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/PriceRecordResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Returns a &#x60;Price Record&#x60; object from BigCommerce. 
-     * @param {Number} priceListId The ID of the &#x60;Price List&#x60; requested. 
+     * Returns a `Price Record` object from BigCommerce. 
+     * @param {Number} priceListId The ID of the `Price List` requested. 
      * @param {Number} variantId ID of the variant on a product, or on an associated Price List Record. 
      * @param {String} currencyCode The currency code associated with the price record being acted upon. 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.include Sub-resources to include on a price record, in a comma-separated list. Valid expansions currently include &#x60;bulk_pricing_tiers&#x60; and &#x60;sku&#x60;.  Other valies will be ignored. 
-     * @param {module:Api/PriceListsApi~getPriceListRecordCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {String} opts.include Sub-resources to include on a price record, in a comma-separated list. Valid expansions currently include `bulk_pricing_tiers` and `sku`.  Other valies will be ignored. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/PriceRecordResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/PriceRecordResponse} if callback is null
      */
     this.getPriceListRecord = function(priceListId, variantId, currencyCode, opts, callback) {
       opts = opts || {};
@@ -494,24 +440,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getPriceListRecordCollection operation.
-     * @callback module:Api/PriceListsApi~getPriceListRecordCollectionCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/PriceRecordCollectionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Fetches the &#x60;Price Records&#x60; associated with a particular Price List, using a filter. 
-     * @param {Number} priceListId The ID of the &#x60;Price List&#x60; requested. 
+     * Fetches the `Price Records` associated with a particular Price List, using a filter. 
+     * @param {Number} priceListId The ID of the `Price List` requested. 
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.variantId The ID of the &#x60;Variant&#x60; whose prices were requested. 
-     * @param {String} opts.productId A comma-separated list of ids of &#x60;Product&#x60;s whose prices were requested. 
+     * @param {Number} opts.variantId The ID of the `Variant` whose prices were requested. 
+     * @param {String} opts.productId A comma-separated list of ids of `Product`s whose prices were requested. 
      * @param {String} opts.currency Filter items by currency. 
      * @param {Number} opts.page Specifies the page number in a limited (paginated) list of products. 
      * @param {Number} opts.limit Controls the number of items per page in a limited (paginated) list of products. 
-     * @param {String} opts.include Sub-resources to include on a price record, in a comma-separated list. Valid expansions currently include &#x60;bulk_pricing_tiers&#x60; and &#x60;sku&#x60;.  Other valies will be ignored. 
+     * @param {String} opts.include Sub-resources to include on a price record, in a comma-separated list. Valid expansions currently include `bulk_pricing_tiers` and `sku`.  Other valies will be ignored. 
      * @param {Number} opts.price Filter items by price. 
      * @param {Number} opts.salePrice Filter items by sale_price. 
      * @param {Number} opts.retailPrice Filter items by retail_price. 
@@ -520,8 +459,9 @@
      * @param {Date} opts.dateCreated Filter items by date_created. 
      * @param {Date} opts.dateModified Filter items by date_modified. 
      * @param {String} opts.sku Filter items by sku. 
-     * @param {module:Api/PriceListsApi~getPriceListRecordCollectionCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/PriceRecordCollectionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/PriceRecordCollectionResponse} if callback is null
      */
     this.getPriceListRecordCollection = function(priceListId, opts, callback) {
       opts = opts || {};
@@ -569,22 +509,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getPriceListRecordsByVariantId operation.
-     * @callback module:Api/PriceListsApi~getPriceListRecordsByVariantIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/PriceRecordCollectionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Fetches an array of &#x60;Price Records&#x60; matching a particular Price List and Variant ID. Will contain any set price records by currency. 
-     * @param {Number} priceListId The ID of the &#x60;Price List&#x60; requested. 
+     * Fetches an array of `Price Records` matching a particular Price List and Variant ID. Will contain any set price records by currency. 
+     * @param {Number} priceListId The ID of the `Price List` requested. 
      * @param {Number} variantId ID of the variant on a product, or on an associated Price List Record. 
-     * @param {module:Api/PriceListsApi~getPriceListRecordsByVariantIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/PriceRecordCollectionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/PriceRecordCollectionResponse} if callback is null
      */
-    this.getPriceListRecordsByVariantId = function(priceListId, variantId, callback) {
+    this.getPriceListRecordsByVariantId = function(priceListId, variantId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'priceListId' is set
@@ -621,24 +555,18 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the setPriceListRecord operation.
-     * @callback module:Api/PriceListsApi~setPriceListRecordCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/PriceRecordResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Creates or updates a single &#x60;Price Record&#x60; object. 
-     * @param {Number} priceListId The ID of the &#x60;Price List&#x60; requested. 
+     * Creates or updates a single `Price Record` object. 
+     * @param {Number} priceListId The ID of the `Price List` requested. 
      * @param {Number} variantId ID of the variant on a product, or on an associated Price List Record. 
      * @param {String} currencyCode The currency code associated with the price record being acted upon. 
-     * @param {module:Model/PriceRecordPut} priceRecord A BigCommerce &#x60;Price Record&#x60; object. 
-     * @param {module:Api/PriceListsApi~setPriceListRecordCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:Model/PriceRecordPut} priceRecord A BigCommerce `Price Record` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/PriceRecordResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/PriceRecordResponse} if callback is null
      */
-    this.setPriceListRecord = function(priceListId, variantId, currencyCode, priceRecord, callback) {
+    this.setPriceListRecord = function(priceListId, variantId, currencyCode, priceRecord, opts, callback) {
       var postBody = priceRecord;
 
       // verify the required parameter 'priceListId' is set
@@ -686,22 +614,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the setPriceListRecordCollection operation.
-     * @callback module:Api/PriceListsApi~setPriceListRecordCollectionCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/SuccessBatchResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Creates or updates a batch of &#x60;Price Records&#x60; associated with a particular Price List. 
-     * @param {Number} priceListId The ID of the &#x60;Price List&#x60; requested. 
-     * @param {module:Model/PriceRecordCollectionPut} priceRecordBatch A BigCommerce &#x60;Price Record&#x60; request. 
+     * Creates or updates a batch of `Price Records` associated with a particular Price List. 
+     * @param {Number} priceListId The ID of the `Price List` requested. 
+     * @param {module:Model/PriceRecordCollectionPut} priceRecordBatch A BigCommerce `Price Record` request. 
      * @param {Object} opts Optional parameters
      * @param {Number} opts.xStrictMode Header that determines whether the Batch API operates in strict mode or not.  Strict mode will reject the entire request if any item in the batch has an error.  (default to 0)
-     * @param {module:Api/PriceListsApi~setPriceListRecordCollectionCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/SuccessBatchResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/SuccessBatchResponse} if callback is null
      */
     this.setPriceListRecordCollection = function(priceListId, priceRecordBatch, opts, callback) {
       opts = opts || {};
@@ -741,22 +663,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the updatePriceList operation.
-     * @callback module:Api/PriceListsApi~updatePriceListCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/PriceListResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Updates a single &#x60;Price List&#x60; object. 
-     * @param {Number} priceListId The ID of the &#x60;Price List&#x60; requested. 
-     * @param {module:Model/PriceListPut} priceList A BigCommerce &#x60;Price List&#x60; object. 
-     * @param {module:Api/PriceListsApi~updatePriceListCallback} callback The callback function, accepting three arguments: error, data, response
+     * Updates a single `Price List` object. 
+     * @param {Number} priceListId The ID of the `Price List` requested. 
+     * @param {module:Model/PriceListPut} priceList A BigCommerce `Price List` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/PriceListResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/PriceListResponse} if callback is null
      */
-    this.updatePriceList = function(priceListId, priceList, callback) {
+    this.updatePriceList = function(priceListId, priceList, opts, callback) {
       var postBody = priceList;
 
       // verify the required parameter 'priceListId' is set

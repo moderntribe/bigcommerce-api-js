@@ -45,21 +45,15 @@
     this.apiClient = apiClient || ApiClient.instance;
 
 
-    /**
-     * Callback function to receive the result of the getStore operation.
-     * @callback module:Api/StoreInfoApi~getStoreCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/StoreInformation} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Get Store Information
      * Returns metadata about a store.
-     * @param {module:Api/StoreInfoApi~getStoreCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/StoreInformation}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/StoreInformation} if callback is null
      */
-    this.getStore = function(callback) {
+    this.getStore = function(opts, callback) {
       var postBody = null;
 
 
@@ -84,21 +78,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getTime operation.
-     * @callback module:Api/StoreInfoApi~getTimeCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/TimeResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Get System Timestamp
      * Returns the system timestamp at the time of the request. The time resource is useful for validating API authentication details and testing client connections.
-     * @param {module:Api/StoreInfoApi~getTimeCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/TimeResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/TimeResponse} if callback is null
      */
-    this.getTime = function(callback) {
+    this.getTime = function(opts, callback) {
       var postBody = null;
 
 

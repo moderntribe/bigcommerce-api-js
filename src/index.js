@@ -14,12 +14,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'Model/Adjuster', 'Model/BaseError', 'Model/Brand', 'Model/BrandBase', 'Model/BrandCollectionResponse', 'Model/BrandPost', 'Model/BrandPut', 'Model/BrandResponse', 'Model/BulkPricingRule', 'Model/BulkPricingRuleBase', 'Model/BulkPricingRuleCollectionResponse', 'Model/BulkPricingRulePost', 'Model/BulkPricingRulePut', 'Model/BulkPricingRuleResponse', 'Model/CatalogSummary', 'Model/CatalogSummaryResponse', 'Model/Category', 'Model/CategoryBase', 'Model/CategoryCollectionResponse', 'Model/CategoryNode', 'Model/CategoryPost', 'Model/CategoryPut', 'Model/CategoryResponse', 'Model/CategoryTreeCollectionResponse', 'Model/CollectionMeta', 'Model/ComplexRule', 'Model/ComplexRuleBase', 'Model/ComplexRuleCollectionResponse', 'Model/ComplexRuleCondition', 'Model/ComplexRuleConditionBase', 'Model/ComplexRuleConditionPost', 'Model/ComplexRuleConditionPut', 'Model/ComplexRulePost', 'Model/ComplexRulePut', 'Model/ComplexRuleResponse', 'Model/ConfigurableField', 'Model/ConfigurableFieldBase', 'Model/ConfigurableFieldCollectionResponse', 'Model/ConfigurableFieldPost', 'Model/ConfigurableFieldPut', 'Model/ConfigurableFieldResponse', 'Model/CustomField', 'Model/CustomFieldBase', 'Model/CustomFieldCollectionResponse', 'Model/CustomFieldPost', 'Model/CustomFieldPut', 'Model/CustomFieldResponse', 'Model/CustomUrlBrand', 'Model/CustomUrlCategory', 'Model/CustomUrlProduct', 'Model/DetailedErrors', 'Model/ErrorResponse', 'Model/ImageResponse', 'Model/Meta', 'Model/MetaFieldCollectionResponse', 'Model/Metafield', 'Model/MetafieldBase', 'Model/MetafieldPost', 'Model/MetafieldPut', 'Model/MetafieldResponse', 'Model/Modifier', 'Model/ModifierBase', 'Model/ModifierCollectionResponse', 'Model/ModifierPost', 'Model/ModifierPut', 'Model/ModifierResponse', 'Model/ModifierValue', 'Model/ModifierValueBase', 'Model/ModifierValueBaseAdjusters', 'Model/ModifierValueBaseAdjustersPurchasingDisabled', 'Model/ModifierValueCollectionResponse', 'Model/ModifierValuePost', 'Model/ModifierValuePut', 'Model/ModifierValueResponse', 'Model/NotFound', 'Model/Option', 'Model/OptionBase', 'Model/OptionCollectionResponse', 'Model/OptionConfig', 'Model/OptionPost', 'Model/OptionPut', 'Model/OptionResponse', 'Model/OptionValue', 'Model/OptionValueBase', 'Model/OptionValueCollectionResponse', 'Model/OptionValuePost', 'Model/OptionValueProductBase', 'Model/OptionValueProductPost', 'Model/OptionValuePut', 'Model/OptionValueResponse', 'Model/OptionValueVariant', 'Model/OptionValueVariantPost', 'Model/Pagination', 'Model/PaginationLinks', 'Model/Product', 'Model/ProductBase', 'Model/ProductCollectionResponse', 'Model/ProductImage', 'Model/ProductImageBase', 'Model/ProductImageCollectionResponse', 'Model/ProductImagePost', 'Model/ProductImagePut', 'Model/ProductImageResponse', 'Model/ProductPost', 'Model/ProductPut', 'Model/ProductResponse', 'Model/ProductReview', 'Model/ProductReviewBase', 'Model/ProductReviewCollectionResponse', 'Model/ProductReviewPost', 'Model/ProductReviewPut', 'Model/ProductReviewResponse', 'Model/ProductVideo', 'Model/ProductVideoBase', 'Model/ProductVideoCollectionResponse', 'Model/ProductVideoPost', 'Model/ProductVideoPut', 'Model/ProductVideoResponse', 'Model/ResourceImage', 'Model/Variant', 'Model/VariantBase', 'Model/VariantCollectionResponse', 'Model/VariantPost', 'Model/VariantProductPost', 'Model/VariantProductPut', 'Model/VariantPut', 'Model/VariantResponse', 'Api/CatalogApi'], factory);
+    define(['superagent-defaults', 'Apis', 'ApiClient', 'Model/Adjuster', 'Model/BaseError', 'Model/BrandBase', 'Model/BrandCollectionResponse', 'Model/BrandResponse', 'Model/BulkPricingRuleBase', 'Model/BulkPricingRuleCollectionResponse', 'Model/BulkPricingRuleResponse', 'Model/CatalogSummary', 'Model/CatalogSummaryResponse', 'Model/CategoryBase', 'Model/CategoryCollectionResponse', 'Model/CategoryNode', 'Model/CategoryResponse', 'Model/CategoryTreeCollectionResponse', 'Model/CollectionMeta', 'Model/ComplexRuleBase', 'Model/ComplexRuleCollectionResponse', 'Model/ComplexRuleConditionBase', 'Model/ComplexRuleResponse', 'Model/ConfigurableFieldBase', 'Model/ConfigurableFieldCollectionResponse', 'Model/ConfigurableFieldResponse', 'Model/CustomFieldBase', 'Model/CustomFieldCollectionResponse', 'Model/CustomFieldResponse', 'Model/CustomUrlBrand', 'Model/CustomUrlCategory', 'Model/CustomUrlProduct', 'Model/DetailedErrors', 'Model/ImageResponse', 'Model/Meta', 'Model/MetaFieldCollectionResponse', 'Model/MetafieldBase', 'Model/MetafieldResponse', 'Model/ModifierBase', 'Model/ModifierCollectionResponse', 'Model/ModifierResponse', 'Model/ModifierValueBaseAdjusters', 'Model/ModifierValueBaseAdjustersPurchasingDisabled', 'Model/ModifierValueCollectionResponse', 'Model/ModifierValueResponse', 'Model/NotFound', 'Model/OptionBase', 'Model/OptionCollectionResponse', 'Model/OptionConfig', 'Model/OptionResponse', 'Model/OptionValueBase', 'Model/OptionValueCollectionResponse', 'Model/OptionValueProductBase', 'Model/OptionValueResponse', 'Model/OptionValueVariantPost', 'Model/Pagination', 'Model/PaginationLinks', 'Model/ProductBase', 'Model/ProductCollectionResponse', 'Model/ProductImageBase', 'Model/ProductImageCollectionResponse', 'Model/ProductImageResponse', 'Model/ProductResponse', 'Model/ProductReviewBase', 'Model/ProductReviewCollectionResponse', 'Model/ProductReviewResponse', 'Model/ProductVideoBase', 'Model/ProductVideoCollectionResponse', 'Model/ProductVideoResponse', 'Model/ResourceImage', 'Model/VariantBase', 'Model/VariantCollectionResponse', 'Model/VariantResponse', 'Model/Brand', 'Model/BrandPost', 'Model/BrandPut', 'Model/BulkPricingRule', 'Model/BulkPricingRulePost', 'Model/Category', 'Model/CategoryPost', 'Model/CategoryPut', 'Model/ComplexRule', 'Model/ComplexRuleCondition', 'Model/ComplexRuleConditionPost', 'Model/ComplexRuleConditionPut', 'Model/ComplexRulePost', 'Model/ComplexRulePut', 'Model/ConfigurableField', 'Model/ConfigurableFieldPost', 'Model/CustomField', 'Model/CustomFieldPost', 'Model/ErrorResponse', 'Model/Metafield', 'Model/MetafieldPost', 'Model/MetafieldPut', 'Model/Modifier', 'Model/ModifierPost', 'Model/ModifierPut', 'Model/ModifierValueBase', 'Model/Option', 'Model/OptionPost', 'Model/OptionPut', 'Model/OptionValue', 'Model/OptionValuePost', 'Model/OptionValueProductPost', 'Model/OptionValuePut', 'Model/OptionValueVariant', 'Model/Product', 'Model/ProductImage', 'Model/ProductImagePost', 'Model/ProductImagePut', 'Model/ProductPost', 'Model/ProductPut', 'Model/ProductReview', 'Model/ProductReviewPost', 'Model/ProductReviewPut', 'Model/ProductVideo', 'Model/ProductVideoPost', 'Model/ProductVideoPut', 'Model/Variant', 'Model/VariantPost', 'Model/VariantProductPost', 'Model/VariantProductPut', 'Model/VariantPut', 'Model/BulkPricingRulePut', 'Model/ConfigurableFieldPut', 'Model/CustomFieldPut', 'Model/ModifierValue', 'Model/ModifierValuePost', 'Model/ModifierValuePut'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./Model/Adjuster'), require('./Model/BaseError'), require('./Model/Brand'), require('./Model/BrandBase'), require('./Model/BrandCollectionResponse'), require('./Model/BrandPost'), require('./Model/BrandPut'), require('./Model/BrandResponse'), require('./Model/BulkPricingRule'), require('./Model/BulkPricingRuleBase'), require('./Model/BulkPricingRuleCollectionResponse'), require('./Model/BulkPricingRulePost'), require('./Model/BulkPricingRulePut'), require('./Model/BulkPricingRuleResponse'), require('./Model/CatalogSummary'), require('./Model/CatalogSummaryResponse'), require('./Model/Category'), require('./Model/CategoryBase'), require('./Model/CategoryCollectionResponse'), require('./Model/CategoryNode'), require('./Model/CategoryPost'), require('./Model/CategoryPut'), require('./Model/CategoryResponse'), require('./Model/CategoryTreeCollectionResponse'), require('./Model/CollectionMeta'), require('./Model/ComplexRule'), require('./Model/ComplexRuleBase'), require('./Model/ComplexRuleCollectionResponse'), require('./Model/ComplexRuleCondition'), require('./Model/ComplexRuleConditionBase'), require('./Model/ComplexRuleConditionPost'), require('./Model/ComplexRuleConditionPut'), require('./Model/ComplexRulePost'), require('./Model/ComplexRulePut'), require('./Model/ComplexRuleResponse'), require('./Model/ConfigurableField'), require('./Model/ConfigurableFieldBase'), require('./Model/ConfigurableFieldCollectionResponse'), require('./Model/ConfigurableFieldPost'), require('./Model/ConfigurableFieldPut'), require('./Model/ConfigurableFieldResponse'), require('./Model/CustomField'), require('./Model/CustomFieldBase'), require('./Model/CustomFieldCollectionResponse'), require('./Model/CustomFieldPost'), require('./Model/CustomFieldPut'), require('./Model/CustomFieldResponse'), require('./Model/CustomUrlBrand'), require('./Model/CustomUrlCategory'), require('./Model/CustomUrlProduct'), require('./Model/DetailedErrors'), require('./Model/ErrorResponse'), require('./Model/ImageResponse'), require('./Model/Meta'), require('./Model/MetaFieldCollectionResponse'), require('./Model/Metafield'), require('./Model/MetafieldBase'), require('./Model/MetafieldPost'), require('./Model/MetafieldPut'), require('./Model/MetafieldResponse'), require('./Model/Modifier'), require('./Model/ModifierBase'), require('./Model/ModifierCollectionResponse'), require('./Model/ModifierPost'), require('./Model/ModifierPut'), require('./Model/ModifierResponse'), require('./Model/ModifierValue'), require('./Model/ModifierValueBase'), require('./Model/ModifierValueBaseAdjusters'), require('./Model/ModifierValueBaseAdjustersPurchasingDisabled'), require('./Model/ModifierValueCollectionResponse'), require('./Model/ModifierValuePost'), require('./Model/ModifierValuePut'), require('./Model/ModifierValueResponse'), require('./Model/NotFound'), require('./Model/Option'), require('./Model/OptionBase'), require('./Model/OptionCollectionResponse'), require('./Model/OptionConfig'), require('./Model/OptionPost'), require('./Model/OptionPut'), require('./Model/OptionResponse'), require('./Model/OptionValue'), require('./Model/OptionValueBase'), require('./Model/OptionValueCollectionResponse'), require('./Model/OptionValuePost'), require('./Model/OptionValueProductBase'), require('./Model/OptionValueProductPost'), require('./Model/OptionValuePut'), require('./Model/OptionValueResponse'), require('./Model/OptionValueVariant'), require('./Model/OptionValueVariantPost'), require('./Model/Pagination'), require('./Model/PaginationLinks'), require('./Model/Product'), require('./Model/ProductBase'), require('./Model/ProductCollectionResponse'), require('./Model/ProductImage'), require('./Model/ProductImageBase'), require('./Model/ProductImageCollectionResponse'), require('./Model/ProductImagePost'), require('./Model/ProductImagePut'), require('./Model/ProductImageResponse'), require('./Model/ProductPost'), require('./Model/ProductPut'), require('./Model/ProductResponse'), require('./Model/ProductReview'), require('./Model/ProductReviewBase'), require('./Model/ProductReviewCollectionResponse'), require('./Model/ProductReviewPost'), require('./Model/ProductReviewPut'), require('./Model/ProductReviewResponse'), require('./Model/ProductVideo'), require('./Model/ProductVideoBase'), require('./Model/ProductVideoCollectionResponse'), require('./Model/ProductVideoPost'), require('./Model/ProductVideoPut'), require('./Model/ProductVideoResponse'), require('./Model/ResourceImage'), require('./Model/Variant'), require('./Model/VariantBase'), require('./Model/VariantCollectionResponse'), require('./Model/VariantPost'), require('./Model/VariantProductPost'), require('./Model/VariantProductPut'), require('./Model/VariantPut'), require('./Model/VariantResponse'), require('./Api/CatalogApi'));
+    module.exports = factory(require('superagent-defaults'), require('./Apis'), require('./ApiClient'), require('./Model/Adjuster'), require('./Model/BaseError'), require('./Model/BrandBase'), require('./Model/BrandCollectionResponse'), require('./Model/BrandResponse'), require('./Model/BulkPricingRuleBase'), require('./Model/BulkPricingRuleCollectionResponse'), require('./Model/BulkPricingRuleResponse'), require('./Model/CatalogSummary'), require('./Model/CatalogSummaryResponse'), require('./Model/CategoryBase'), require('./Model/CategoryCollectionResponse'), require('./Model/CategoryNode'), require('./Model/CategoryResponse'), require('./Model/CategoryTreeCollectionResponse'), require('./Model/CollectionMeta'), require('./Model/ComplexRuleBase'), require('./Model/ComplexRuleCollectionResponse'), require('./Model/ComplexRuleConditionBase'), require('./Model/ComplexRuleResponse'), require('./Model/ConfigurableFieldBase'), require('./Model/ConfigurableFieldCollectionResponse'), require('./Model/ConfigurableFieldResponse'), require('./Model/CustomFieldBase'), require('./Model/CustomFieldCollectionResponse'), require('./Model/CustomFieldResponse'), require('./Model/CustomUrlBrand'), require('./Model/CustomUrlCategory'), require('./Model/CustomUrlProduct'), require('./Model/DetailedErrors'), require('./Model/ImageResponse'), require('./Model/Meta'), require('./Model/MetaFieldCollectionResponse'), require('./Model/MetafieldBase'), require('./Model/MetafieldResponse'), require('./Model/ModifierBase'), require('./Model/ModifierCollectionResponse'), require('./Model/ModifierResponse'), require('./Model/ModifierValueBaseAdjusters'), require('./Model/ModifierValueBaseAdjustersPurchasingDisabled'), require('./Model/ModifierValueCollectionResponse'), require('./Model/ModifierValueResponse'), require('./Model/NotFound'), require('./Model/OptionBase'), require('./Model/OptionCollectionResponse'), require('./Model/OptionConfig'), require('./Model/OptionResponse'), require('./Model/OptionValueBase'), require('./Model/OptionValueCollectionResponse'), require('./Model/OptionValueProductBase'), require('./Model/OptionValueResponse'), require('./Model/OptionValueVariantPost'), require('./Model/Pagination'), require('./Model/PaginationLinks'), require('./Model/ProductBase'), require('./Model/ProductCollectionResponse'), require('./Model/ProductImageBase'), require('./Model/ProductImageCollectionResponse'), require('./Model/ProductImageResponse'), require('./Model/ProductResponse'), require('./Model/ProductReviewBase'), require('./Model/ProductReviewCollectionResponse'), require('./Model/ProductReviewResponse'), require('./Model/ProductVideoBase'), require('./Model/ProductVideoCollectionResponse'), require('./Model/ProductVideoResponse'), require('./Model/ResourceImage'), require('./Model/VariantBase'), require('./Model/VariantCollectionResponse'), require('./Model/VariantResponse'), require('./Model/Brand'), require('./Model/BrandPost'), require('./Model/BrandPut'), require('./Model/BulkPricingRule'), require('./Model/BulkPricingRulePost'), require('./Model/Category'), require('./Model/CategoryPost'), require('./Model/CategoryPut'), require('./Model/ComplexRule'), require('./Model/ComplexRuleCondition'), require('./Model/ComplexRuleConditionPost'), require('./Model/ComplexRuleConditionPut'), require('./Model/ComplexRulePost'), require('./Model/ComplexRulePut'), require('./Model/ConfigurableField'), require('./Model/ConfigurableFieldPost'), require('./Model/CustomField'), require('./Model/CustomFieldPost'), require('./Model/ErrorResponse'), require('./Model/Metafield'), require('./Model/MetafieldPost'), require('./Model/MetafieldPut'), require('./Model/Modifier'), require('./Model/ModifierPost'), require('./Model/ModifierPut'), require('./Model/ModifierValueBase'), require('./Model/Option'), require('./Model/OptionPost'), require('./Model/OptionPut'), require('./Model/OptionValue'), require('./Model/OptionValuePost'), require('./Model/OptionValueProductPost'), require('./Model/OptionValuePut'), require('./Model/OptionValueVariant'), require('./Model/Product'), require('./Model/ProductImage'), require('./Model/ProductImagePost'), require('./Model/ProductImagePut'), require('./Model/ProductPost'), require('./Model/ProductPut'), require('./Model/ProductReview'), require('./Model/ProductReviewPost'), require('./Model/ProductReviewPut'), require('./Model/ProductVideo'), require('./Model/ProductVideoPost'), require('./Model/ProductVideoPut'), require('./Model/Variant'), require('./Model/VariantPost'), require('./Model/VariantProductPost'), require('./Model/VariantProductPut'), require('./Model/VariantPut'), require('./Model/BulkPricingRulePut'), require('./Model/ConfigurableFieldPut'), require('./Model/CustomFieldPut'), require('./Model/ModifierValue'), require('./Model/ModifierValuePost'), require('./Model/ModifierValuePut'));
   }
-}(function(ApiClient, Adjuster, BaseError, Brand, BrandBase, BrandCollectionResponse, BrandPost, BrandPut, BrandResponse, BulkPricingRule, BulkPricingRuleBase, BulkPricingRuleCollectionResponse, BulkPricingRulePost, BulkPricingRulePut, BulkPricingRuleResponse, CatalogSummary, CatalogSummaryResponse, Category, CategoryBase, CategoryCollectionResponse, CategoryNode, CategoryPost, CategoryPut, CategoryResponse, CategoryTreeCollectionResponse, CollectionMeta, ComplexRule, ComplexRuleBase, ComplexRuleCollectionResponse, ComplexRuleCondition, ComplexRuleConditionBase, ComplexRuleConditionPost, ComplexRuleConditionPut, ComplexRulePost, ComplexRulePut, ComplexRuleResponse, ConfigurableField, ConfigurableFieldBase, ConfigurableFieldCollectionResponse, ConfigurableFieldPost, ConfigurableFieldPut, ConfigurableFieldResponse, CustomField, CustomFieldBase, CustomFieldCollectionResponse, CustomFieldPost, CustomFieldPut, CustomFieldResponse, CustomUrlBrand, CustomUrlCategory, CustomUrlProduct, DetailedErrors, ErrorResponse, ImageResponse, Meta, MetaFieldCollectionResponse, Metafield, MetafieldBase, MetafieldPost, MetafieldPut, MetafieldResponse, Modifier, ModifierBase, ModifierCollectionResponse, ModifierPost, ModifierPut, ModifierResponse, ModifierValue, ModifierValueBase, ModifierValueBaseAdjusters, ModifierValueBaseAdjustersPurchasingDisabled, ModifierValueCollectionResponse, ModifierValuePost, ModifierValuePut, ModifierValueResponse, NotFound, Option, OptionBase, OptionCollectionResponse, OptionConfig, OptionPost, OptionPut, OptionResponse, OptionValue, OptionValueBase, OptionValueCollectionResponse, OptionValuePost, OptionValueProductBase, OptionValueProductPost, OptionValuePut, OptionValueResponse, OptionValueVariant, OptionValueVariantPost, Pagination, PaginationLinks, Product, ProductBase, ProductCollectionResponse, ProductImage, ProductImageBase, ProductImageCollectionResponse, ProductImagePost, ProductImagePut, ProductImageResponse, ProductPost, ProductPut, ProductResponse, ProductReview, ProductReviewBase, ProductReviewCollectionResponse, ProductReviewPost, ProductReviewPut, ProductReviewResponse, ProductVideo, ProductVideoBase, ProductVideoCollectionResponse, ProductVideoPost, ProductVideoPut, ProductVideoResponse, ResourceImage, Variant, VariantBase, VariantCollectionResponse, VariantPost, VariantProductPost, VariantProductPut, VariantPut, VariantResponse, CatalogApi) {
+}(function(superagent, Apis, ApiClient, Adjuster, BaseError, BrandBase, BrandCollectionResponse, BrandResponse, BulkPricingRuleBase, BulkPricingRuleCollectionResponse, BulkPricingRuleResponse, CatalogSummary, CatalogSummaryResponse, CategoryBase, CategoryCollectionResponse, CategoryNode, CategoryResponse, CategoryTreeCollectionResponse, CollectionMeta, ComplexRuleBase, ComplexRuleCollectionResponse, ComplexRuleConditionBase, ComplexRuleResponse, ConfigurableFieldBase, ConfigurableFieldCollectionResponse, ConfigurableFieldResponse, CustomFieldBase, CustomFieldCollectionResponse, CustomFieldResponse, CustomUrlBrand, CustomUrlCategory, CustomUrlProduct, DetailedErrors, ImageResponse, Meta, MetaFieldCollectionResponse, MetafieldBase, MetafieldResponse, ModifierBase, ModifierCollectionResponse, ModifierResponse, ModifierValueBaseAdjusters, ModifierValueBaseAdjustersPurchasingDisabled, ModifierValueCollectionResponse, ModifierValueResponse, NotFound, OptionBase, OptionCollectionResponse, OptionConfig, OptionResponse, OptionValueBase, OptionValueCollectionResponse, OptionValueProductBase, OptionValueResponse, OptionValueVariantPost, Pagination, PaginationLinks, ProductBase, ProductCollectionResponse, ProductImageBase, ProductImageCollectionResponse, ProductImageResponse, ProductResponse, ProductReviewBase, ProductReviewCollectionResponse, ProductReviewResponse, ProductVideoBase, ProductVideoCollectionResponse, ProductVideoResponse, ResourceImage, VariantBase, VariantCollectionResponse, VariantResponse, Brand, BrandPost, BrandPut, BulkPricingRule, BulkPricingRulePost, Category, CategoryPost, CategoryPut, ComplexRule, ComplexRuleCondition, ComplexRuleConditionPost, ComplexRuleConditionPut, ComplexRulePost, ComplexRulePut, ConfigurableField, ConfigurableFieldPost, CustomField, CustomFieldPost, ErrorResponse, Metafield, MetafieldPost, MetafieldPut, Modifier, ModifierPost, ModifierPut, ModifierValueBase, Option, OptionPost, OptionPut, OptionValue, OptionValuePost, OptionValueProductPost, OptionValuePut, OptionValueVariant, Product, ProductImage, ProductImagePost, ProductImagePut, ProductPost, ProductPut, ProductReview, ProductReviewPost, ProductReviewPut, ProductVideo, ProductVideoPost, ProductVideoPut, Variant, VariantPost, VariantProductPost, VariantProductPut, VariantPut, BulkPricingRulePut, ConfigurableFieldPut, CustomFieldPut, ModifierValue, ModifierValuePost, ModifierValuePut) {
   'use strict';
 
   /**
@@ -53,12 +53,13 @@
    * @module index
    * @version 3.0.0b
    */
-  var exports = {
+  var Models = {
+
     /**
-     * The ApiClient constructor.
-     * @property {module:ApiClient}
-     */
-    ApiClient: ApiClient,
+     * BigCommerce Models
+    */
+
+    
     /**
      * The Adjuster model constructor.
      * @property {module:Model/Adjuster}
@@ -70,11 +71,6 @@
      */
     BaseError: BaseError,
     /**
-     * The Brand model constructor.
-     * @property {module:Model/Brand}
-     */
-    Brand: Brand,
-    /**
      * The BrandBase model constructor.
      * @property {module:Model/BrandBase}
      */
@@ -85,25 +81,10 @@
      */
     BrandCollectionResponse: BrandCollectionResponse,
     /**
-     * The BrandPost model constructor.
-     * @property {module:Model/BrandPost}
-     */
-    BrandPost: BrandPost,
-    /**
-     * The BrandPut model constructor.
-     * @property {module:Model/BrandPut}
-     */
-    BrandPut: BrandPut,
-    /**
      * The BrandResponse model constructor.
      * @property {module:Model/BrandResponse}
      */
     BrandResponse: BrandResponse,
-    /**
-     * The BulkPricingRule model constructor.
-     * @property {module:Model/BulkPricingRule}
-     */
-    BulkPricingRule: BulkPricingRule,
     /**
      * The BulkPricingRuleBase model constructor.
      * @property {module:Model/BulkPricingRuleBase}
@@ -114,16 +95,6 @@
      * @property {module:Model/BulkPricingRuleCollectionResponse}
      */
     BulkPricingRuleCollectionResponse: BulkPricingRuleCollectionResponse,
-    /**
-     * The BulkPricingRulePost model constructor.
-     * @property {module:Model/BulkPricingRulePost}
-     */
-    BulkPricingRulePost: BulkPricingRulePost,
-    /**
-     * The BulkPricingRulePut model constructor.
-     * @property {module:Model/BulkPricingRulePut}
-     */
-    BulkPricingRulePut: BulkPricingRulePut,
     /**
      * The BulkPricingRuleResponse model constructor.
      * @property {module:Model/BulkPricingRuleResponse}
@@ -140,11 +111,6 @@
      */
     CatalogSummaryResponse: CatalogSummaryResponse,
     /**
-     * The Category model constructor.
-     * @property {module:Model/Category}
-     */
-    Category: Category,
-    /**
      * The CategoryBase model constructor.
      * @property {module:Model/CategoryBase}
      */
@@ -159,16 +125,6 @@
      * @property {module:Model/CategoryNode}
      */
     CategoryNode: CategoryNode,
-    /**
-     * The CategoryPost model constructor.
-     * @property {module:Model/CategoryPost}
-     */
-    CategoryPost: CategoryPost,
-    /**
-     * The CategoryPut model constructor.
-     * @property {module:Model/CategoryPut}
-     */
-    CategoryPut: CategoryPut,
     /**
      * The CategoryResponse model constructor.
      * @property {module:Model/CategoryResponse}
@@ -185,11 +141,6 @@
      */
     CollectionMeta: CollectionMeta,
     /**
-     * The ComplexRule model constructor.
-     * @property {module:Model/ComplexRule}
-     */
-    ComplexRule: ComplexRule,
-    /**
      * The ComplexRuleBase model constructor.
      * @property {module:Model/ComplexRuleBase}
      */
@@ -200,45 +151,15 @@
      */
     ComplexRuleCollectionResponse: ComplexRuleCollectionResponse,
     /**
-     * The ComplexRuleCondition model constructor.
-     * @property {module:Model/ComplexRuleCondition}
-     */
-    ComplexRuleCondition: ComplexRuleCondition,
-    /**
      * The ComplexRuleConditionBase model constructor.
      * @property {module:Model/ComplexRuleConditionBase}
      */
     ComplexRuleConditionBase: ComplexRuleConditionBase,
     /**
-     * The ComplexRuleConditionPost model constructor.
-     * @property {module:Model/ComplexRuleConditionPost}
-     */
-    ComplexRuleConditionPost: ComplexRuleConditionPost,
-    /**
-     * The ComplexRuleConditionPut model constructor.
-     * @property {module:Model/ComplexRuleConditionPut}
-     */
-    ComplexRuleConditionPut: ComplexRuleConditionPut,
-    /**
-     * The ComplexRulePost model constructor.
-     * @property {module:Model/ComplexRulePost}
-     */
-    ComplexRulePost: ComplexRulePost,
-    /**
-     * The ComplexRulePut model constructor.
-     * @property {module:Model/ComplexRulePut}
-     */
-    ComplexRulePut: ComplexRulePut,
-    /**
      * The ComplexRuleResponse model constructor.
      * @property {module:Model/ComplexRuleResponse}
      */
     ComplexRuleResponse: ComplexRuleResponse,
-    /**
-     * The ConfigurableField model constructor.
-     * @property {module:Model/ConfigurableField}
-     */
-    ConfigurableField: ConfigurableField,
     /**
      * The ConfigurableFieldBase model constructor.
      * @property {module:Model/ConfigurableFieldBase}
@@ -250,25 +171,10 @@
      */
     ConfigurableFieldCollectionResponse: ConfigurableFieldCollectionResponse,
     /**
-     * The ConfigurableFieldPost model constructor.
-     * @property {module:Model/ConfigurableFieldPost}
-     */
-    ConfigurableFieldPost: ConfigurableFieldPost,
-    /**
-     * The ConfigurableFieldPut model constructor.
-     * @property {module:Model/ConfigurableFieldPut}
-     */
-    ConfigurableFieldPut: ConfigurableFieldPut,
-    /**
      * The ConfigurableFieldResponse model constructor.
      * @property {module:Model/ConfigurableFieldResponse}
      */
     ConfigurableFieldResponse: ConfigurableFieldResponse,
-    /**
-     * The CustomField model constructor.
-     * @property {module:Model/CustomField}
-     */
-    CustomField: CustomField,
     /**
      * The CustomFieldBase model constructor.
      * @property {module:Model/CustomFieldBase}
@@ -279,16 +185,6 @@
      * @property {module:Model/CustomFieldCollectionResponse}
      */
     CustomFieldCollectionResponse: CustomFieldCollectionResponse,
-    /**
-     * The CustomFieldPost model constructor.
-     * @property {module:Model/CustomFieldPost}
-     */
-    CustomFieldPost: CustomFieldPost,
-    /**
-     * The CustomFieldPut model constructor.
-     * @property {module:Model/CustomFieldPut}
-     */
-    CustomFieldPut: CustomFieldPut,
     /**
      * The CustomFieldResponse model constructor.
      * @property {module:Model/CustomFieldResponse}
@@ -315,11 +211,6 @@
      */
     DetailedErrors: DetailedErrors,
     /**
-     * The ErrorResponse model constructor.
-     * @property {module:Model/ErrorResponse}
-     */
-    ErrorResponse: ErrorResponse,
-    /**
      * The ImageResponse model constructor.
      * @property {module:Model/ImageResponse}
      */
@@ -335,35 +226,15 @@
      */
     MetaFieldCollectionResponse: MetaFieldCollectionResponse,
     /**
-     * The Metafield model constructor.
-     * @property {module:Model/Metafield}
-     */
-    Metafield: Metafield,
-    /**
      * The MetafieldBase model constructor.
      * @property {module:Model/MetafieldBase}
      */
     MetafieldBase: MetafieldBase,
     /**
-     * The MetafieldPost model constructor.
-     * @property {module:Model/MetafieldPost}
-     */
-    MetafieldPost: MetafieldPost,
-    /**
-     * The MetafieldPut model constructor.
-     * @property {module:Model/MetafieldPut}
-     */
-    MetafieldPut: MetafieldPut,
-    /**
      * The MetafieldResponse model constructor.
      * @property {module:Model/MetafieldResponse}
      */
     MetafieldResponse: MetafieldResponse,
-    /**
-     * The Modifier model constructor.
-     * @property {module:Model/Modifier}
-     */
-    Modifier: Modifier,
     /**
      * The ModifierBase model constructor.
      * @property {module:Model/ModifierBase}
@@ -375,30 +246,10 @@
      */
     ModifierCollectionResponse: ModifierCollectionResponse,
     /**
-     * The ModifierPost model constructor.
-     * @property {module:Model/ModifierPost}
-     */
-    ModifierPost: ModifierPost,
-    /**
-     * The ModifierPut model constructor.
-     * @property {module:Model/ModifierPut}
-     */
-    ModifierPut: ModifierPut,
-    /**
      * The ModifierResponse model constructor.
      * @property {module:Model/ModifierResponse}
      */
     ModifierResponse: ModifierResponse,
-    /**
-     * The ModifierValue model constructor.
-     * @property {module:Model/ModifierValue}
-     */
-    ModifierValue: ModifierValue,
-    /**
-     * The ModifierValueBase model constructor.
-     * @property {module:Model/ModifierValueBase}
-     */
-    ModifierValueBase: ModifierValueBase,
     /**
      * The ModifierValueBaseAdjusters model constructor.
      * @property {module:Model/ModifierValueBaseAdjusters}
@@ -415,16 +266,6 @@
      */
     ModifierValueCollectionResponse: ModifierValueCollectionResponse,
     /**
-     * The ModifierValuePost model constructor.
-     * @property {module:Model/ModifierValuePost}
-     */
-    ModifierValuePost: ModifierValuePost,
-    /**
-     * The ModifierValuePut model constructor.
-     * @property {module:Model/ModifierValuePut}
-     */
-    ModifierValuePut: ModifierValuePut,
-    /**
      * The ModifierValueResponse model constructor.
      * @property {module:Model/ModifierValueResponse}
      */
@@ -434,11 +275,6 @@
      * @property {module:Model/NotFound}
      */
     NotFound: NotFound,
-    /**
-     * The Option model constructor.
-     * @property {module:Model/Option}
-     */
-    Option: Option,
     /**
      * The OptionBase model constructor.
      * @property {module:Model/OptionBase}
@@ -455,25 +291,10 @@
      */
     OptionConfig: OptionConfig,
     /**
-     * The OptionPost model constructor.
-     * @property {module:Model/OptionPost}
-     */
-    OptionPost: OptionPost,
-    /**
-     * The OptionPut model constructor.
-     * @property {module:Model/OptionPut}
-     */
-    OptionPut: OptionPut,
-    /**
      * The OptionResponse model constructor.
      * @property {module:Model/OptionResponse}
      */
     OptionResponse: OptionResponse,
-    /**
-     * The OptionValue model constructor.
-     * @property {module:Model/OptionValue}
-     */
-    OptionValue: OptionValue,
     /**
      * The OptionValueBase model constructor.
      * @property {module:Model/OptionValueBase}
@@ -485,35 +306,15 @@
      */
     OptionValueCollectionResponse: OptionValueCollectionResponse,
     /**
-     * The OptionValuePost model constructor.
-     * @property {module:Model/OptionValuePost}
-     */
-    OptionValuePost: OptionValuePost,
-    /**
      * The OptionValueProductBase model constructor.
      * @property {module:Model/OptionValueProductBase}
      */
     OptionValueProductBase: OptionValueProductBase,
     /**
-     * The OptionValueProductPost model constructor.
-     * @property {module:Model/OptionValueProductPost}
-     */
-    OptionValueProductPost: OptionValueProductPost,
-    /**
-     * The OptionValuePut model constructor.
-     * @property {module:Model/OptionValuePut}
-     */
-    OptionValuePut: OptionValuePut,
-    /**
      * The OptionValueResponse model constructor.
      * @property {module:Model/OptionValueResponse}
      */
     OptionValueResponse: OptionValueResponse,
-    /**
-     * The OptionValueVariant model constructor.
-     * @property {module:Model/OptionValueVariant}
-     */
-    OptionValueVariant: OptionValueVariant,
     /**
      * The OptionValueVariantPost model constructor.
      * @property {module:Model/OptionValueVariantPost}
@@ -530,11 +331,6 @@
      */
     PaginationLinks: PaginationLinks,
     /**
-     * The Product model constructor.
-     * @property {module:Model/Product}
-     */
-    Product: Product,
-    /**
      * The ProductBase model constructor.
      * @property {module:Model/ProductBase}
      */
@@ -544,11 +340,6 @@
      * @property {module:Model/ProductCollectionResponse}
      */
     ProductCollectionResponse: ProductCollectionResponse,
-    /**
-     * The ProductImage model constructor.
-     * @property {module:Model/ProductImage}
-     */
-    ProductImage: ProductImage,
     /**
      * The ProductImageBase model constructor.
      * @property {module:Model/ProductImageBase}
@@ -560,40 +351,15 @@
      */
     ProductImageCollectionResponse: ProductImageCollectionResponse,
     /**
-     * The ProductImagePost model constructor.
-     * @property {module:Model/ProductImagePost}
-     */
-    ProductImagePost: ProductImagePost,
-    /**
-     * The ProductImagePut model constructor.
-     * @property {module:Model/ProductImagePut}
-     */
-    ProductImagePut: ProductImagePut,
-    /**
      * The ProductImageResponse model constructor.
      * @property {module:Model/ProductImageResponse}
      */
     ProductImageResponse: ProductImageResponse,
     /**
-     * The ProductPost model constructor.
-     * @property {module:Model/ProductPost}
-     */
-    ProductPost: ProductPost,
-    /**
-     * The ProductPut model constructor.
-     * @property {module:Model/ProductPut}
-     */
-    ProductPut: ProductPut,
-    /**
      * The ProductResponse model constructor.
      * @property {module:Model/ProductResponse}
      */
     ProductResponse: ProductResponse,
-    /**
-     * The ProductReview model constructor.
-     * @property {module:Model/ProductReview}
-     */
-    ProductReview: ProductReview,
     /**
      * The ProductReviewBase model constructor.
      * @property {module:Model/ProductReviewBase}
@@ -605,25 +371,10 @@
      */
     ProductReviewCollectionResponse: ProductReviewCollectionResponse,
     /**
-     * The ProductReviewPost model constructor.
-     * @property {module:Model/ProductReviewPost}
-     */
-    ProductReviewPost: ProductReviewPost,
-    /**
-     * The ProductReviewPut model constructor.
-     * @property {module:Model/ProductReviewPut}
-     */
-    ProductReviewPut: ProductReviewPut,
-    /**
      * The ProductReviewResponse model constructor.
      * @property {module:Model/ProductReviewResponse}
      */
     ProductReviewResponse: ProductReviewResponse,
-    /**
-     * The ProductVideo model constructor.
-     * @property {module:Model/ProductVideo}
-     */
-    ProductVideo: ProductVideo,
     /**
      * The ProductVideoBase model constructor.
      * @property {module:Model/ProductVideoBase}
@@ -635,16 +386,6 @@
      */
     ProductVideoCollectionResponse: ProductVideoCollectionResponse,
     /**
-     * The ProductVideoPost model constructor.
-     * @property {module:Model/ProductVideoPost}
-     */
-    ProductVideoPost: ProductVideoPost,
-    /**
-     * The ProductVideoPut model constructor.
-     * @property {module:Model/ProductVideoPut}
-     */
-    ProductVideoPut: ProductVideoPut,
-    /**
      * The ProductVideoResponse model constructor.
      * @property {module:Model/ProductVideoResponse}
      */
@@ -655,11 +396,6 @@
      */
     ResourceImage: ResourceImage,
     /**
-     * The Variant model constructor.
-     * @property {module:Model/Variant}
-     */
-    Variant: Variant,
-    /**
      * The VariantBase model constructor.
      * @property {module:Model/VariantBase}
      */
@@ -669,6 +405,246 @@
      * @property {module:Model/VariantCollectionResponse}
      */
     VariantCollectionResponse: VariantCollectionResponse,
+    /**
+     * The VariantResponse model constructor.
+     * @property {module:Model/VariantResponse}
+     */
+    VariantResponse: VariantResponse,
+    /**
+     * The Brand model constructor.
+     * @property {module:Model/Brand}
+     */
+    Brand: Brand,
+    /**
+     * The BrandPost model constructor.
+     * @property {module:Model/BrandPost}
+     */
+    BrandPost: BrandPost,
+    /**
+     * The BrandPut model constructor.
+     * @property {module:Model/BrandPut}
+     */
+    BrandPut: BrandPut,
+    /**
+     * The BulkPricingRule model constructor.
+     * @property {module:Model/BulkPricingRule}
+     */
+    BulkPricingRule: BulkPricingRule,
+    /**
+     * The BulkPricingRulePost model constructor.
+     * @property {module:Model/BulkPricingRulePost}
+     */
+    BulkPricingRulePost: BulkPricingRulePost,
+    /**
+     * The Category model constructor.
+     * @property {module:Model/Category}
+     */
+    Category: Category,
+    /**
+     * The CategoryPost model constructor.
+     * @property {module:Model/CategoryPost}
+     */
+    CategoryPost: CategoryPost,
+    /**
+     * The CategoryPut model constructor.
+     * @property {module:Model/CategoryPut}
+     */
+    CategoryPut: CategoryPut,
+    /**
+     * The ComplexRule model constructor.
+     * @property {module:Model/ComplexRule}
+     */
+    ComplexRule: ComplexRule,
+    /**
+     * The ComplexRuleCondition model constructor.
+     * @property {module:Model/ComplexRuleCondition}
+     */
+    ComplexRuleCondition: ComplexRuleCondition,
+    /**
+     * The ComplexRuleConditionPost model constructor.
+     * @property {module:Model/ComplexRuleConditionPost}
+     */
+    ComplexRuleConditionPost: ComplexRuleConditionPost,
+    /**
+     * The ComplexRuleConditionPut model constructor.
+     * @property {module:Model/ComplexRuleConditionPut}
+     */
+    ComplexRuleConditionPut: ComplexRuleConditionPut,
+    /**
+     * The ComplexRulePost model constructor.
+     * @property {module:Model/ComplexRulePost}
+     */
+    ComplexRulePost: ComplexRulePost,
+    /**
+     * The ComplexRulePut model constructor.
+     * @property {module:Model/ComplexRulePut}
+     */
+    ComplexRulePut: ComplexRulePut,
+    /**
+     * The ConfigurableField model constructor.
+     * @property {module:Model/ConfigurableField}
+     */
+    ConfigurableField: ConfigurableField,
+    /**
+     * The ConfigurableFieldPost model constructor.
+     * @property {module:Model/ConfigurableFieldPost}
+     */
+    ConfigurableFieldPost: ConfigurableFieldPost,
+    /**
+     * The CustomField model constructor.
+     * @property {module:Model/CustomField}
+     */
+    CustomField: CustomField,
+    /**
+     * The CustomFieldPost model constructor.
+     * @property {module:Model/CustomFieldPost}
+     */
+    CustomFieldPost: CustomFieldPost,
+    /**
+     * The ErrorResponse model constructor.
+     * @property {module:Model/ErrorResponse}
+     */
+    ErrorResponse: ErrorResponse,
+    /**
+     * The Metafield model constructor.
+     * @property {module:Model/Metafield}
+     */
+    Metafield: Metafield,
+    /**
+     * The MetafieldPost model constructor.
+     * @property {module:Model/MetafieldPost}
+     */
+    MetafieldPost: MetafieldPost,
+    /**
+     * The MetafieldPut model constructor.
+     * @property {module:Model/MetafieldPut}
+     */
+    MetafieldPut: MetafieldPut,
+    /**
+     * The Modifier model constructor.
+     * @property {module:Model/Modifier}
+     */
+    Modifier: Modifier,
+    /**
+     * The ModifierPost model constructor.
+     * @property {module:Model/ModifierPost}
+     */
+    ModifierPost: ModifierPost,
+    /**
+     * The ModifierPut model constructor.
+     * @property {module:Model/ModifierPut}
+     */
+    ModifierPut: ModifierPut,
+    /**
+     * The ModifierValueBase model constructor.
+     * @property {module:Model/ModifierValueBase}
+     */
+    ModifierValueBase: ModifierValueBase,
+    /**
+     * The Option model constructor.
+     * @property {module:Model/Option}
+     */
+    Option: Option,
+    /**
+     * The OptionPost model constructor.
+     * @property {module:Model/OptionPost}
+     */
+    OptionPost: OptionPost,
+    /**
+     * The OptionPut model constructor.
+     * @property {module:Model/OptionPut}
+     */
+    OptionPut: OptionPut,
+    /**
+     * The OptionValue model constructor.
+     * @property {module:Model/OptionValue}
+     */
+    OptionValue: OptionValue,
+    /**
+     * The OptionValuePost model constructor.
+     * @property {module:Model/OptionValuePost}
+     */
+    OptionValuePost: OptionValuePost,
+    /**
+     * The OptionValueProductPost model constructor.
+     * @property {module:Model/OptionValueProductPost}
+     */
+    OptionValueProductPost: OptionValueProductPost,
+    /**
+     * The OptionValuePut model constructor.
+     * @property {module:Model/OptionValuePut}
+     */
+    OptionValuePut: OptionValuePut,
+    /**
+     * The OptionValueVariant model constructor.
+     * @property {module:Model/OptionValueVariant}
+     */
+    OptionValueVariant: OptionValueVariant,
+    /**
+     * The Product model constructor.
+     * @property {module:Model/Product}
+     */
+    Product: Product,
+    /**
+     * The ProductImage model constructor.
+     * @property {module:Model/ProductImage}
+     */
+    ProductImage: ProductImage,
+    /**
+     * The ProductImagePost model constructor.
+     * @property {module:Model/ProductImagePost}
+     */
+    ProductImagePost: ProductImagePost,
+    /**
+     * The ProductImagePut model constructor.
+     * @property {module:Model/ProductImagePut}
+     */
+    ProductImagePut: ProductImagePut,
+    /**
+     * The ProductPost model constructor.
+     * @property {module:Model/ProductPost}
+     */
+    ProductPost: ProductPost,
+    /**
+     * The ProductPut model constructor.
+     * @property {module:Model/ProductPut}
+     */
+    ProductPut: ProductPut,
+    /**
+     * The ProductReview model constructor.
+     * @property {module:Model/ProductReview}
+     */
+    ProductReview: ProductReview,
+    /**
+     * The ProductReviewPost model constructor.
+     * @property {module:Model/ProductReviewPost}
+     */
+    ProductReviewPost: ProductReviewPost,
+    /**
+     * The ProductReviewPut model constructor.
+     * @property {module:Model/ProductReviewPut}
+     */
+    ProductReviewPut: ProductReviewPut,
+    /**
+     * The ProductVideo model constructor.
+     * @property {module:Model/ProductVideo}
+     */
+    ProductVideo: ProductVideo,
+    /**
+     * The ProductVideoPost model constructor.
+     * @property {module:Model/ProductVideoPost}
+     */
+    ProductVideoPost: ProductVideoPost,
+    /**
+     * The ProductVideoPut model constructor.
+     * @property {module:Model/ProductVideoPut}
+     */
+    ProductVideoPut: ProductVideoPut,
+    /**
+     * The Variant model constructor.
+     * @property {module:Model/Variant}
+     */
+    Variant: Variant,
     /**
      * The VariantPost model constructor.
      * @property {module:Model/VariantPost}
@@ -690,16 +666,50 @@
      */
     VariantPut: VariantPut,
     /**
-     * The VariantResponse model constructor.
-     * @property {module:Model/VariantResponse}
+     * The BulkPricingRulePut model constructor.
+     * @property {module:Model/BulkPricingRulePut}
      */
-    VariantResponse: VariantResponse,
+    BulkPricingRulePut: BulkPricingRulePut,
     /**
-     * The CatalogApi service constructor.
-     * @property {module:Api/CatalogApi}
+     * The ConfigurableFieldPut model constructor.
+     * @property {module:Model/ConfigurableFieldPut}
      */
-    CatalogApi: CatalogApi
+    ConfigurableFieldPut: ConfigurableFieldPut,
+    /**
+     * The CustomFieldPut model constructor.
+     * @property {module:Model/CustomFieldPut}
+     */
+    CustomFieldPut: CustomFieldPut,
+    /**
+     * The ModifierValue model constructor.
+     * @property {module:Model/ModifierValue}
+     */
+    ModifierValue: ModifierValue,
+    /**
+     * The ModifierValuePost model constructor.
+     * @property {module:Model/ModifierValuePost}
+     */
+    ModifierValuePost: ModifierValuePost,
+    /**
+     * The ModifierValuePut model constructor.
+     * @property {module:Model/ModifierValuePut}
+     */
+    ModifierValuePut: ModifierValuePut,
   };
+
+	var exports = function(config) {
+		var apis = {};
+		var client = new ApiClient(config);
+		for (var name in Apis) {
+			apis[name] = new Apis[name](client);
+		}
+
+		return apis;
+	};
+
+	exports.Models = Models;
+	exports.Apis = Apis;
+	exports.Client = ApiClient;
 
   return exports;
 }));

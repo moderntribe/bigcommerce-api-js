@@ -39,7 +39,7 @@
 
   /**
    * Constructs a new <code>CartRedirectUrls</code>.
-   * The object that contains the &#x60;redirect_urls&#x60;. 
+   * The object that contains the `redirect_urls`. 
    * @alias module:Model/CartRedirectUrls
    * @class
    */

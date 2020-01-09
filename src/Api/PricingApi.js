@@ -45,21 +45,15 @@
     this.apiClient = apiClient || ApiClient.instance;
 
 
-    /**
-     * Callback function to receive the result of the getPrices operation.
-     * @callback module:Api/PricingApi~getPricesCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/PricingResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Get Prices
      * @param {module:Model/PricingRequest} body 
-     * @param {module:Api/PricingApi~getPricesCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/PricingResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/PricingResponse} if callback is null
      */
-    this.getPrices = function(body, callback) {
+    this.getPrices = function(body, opts, callback) {
       var postBody = body;
 
       // verify the required parameter 'body' is set

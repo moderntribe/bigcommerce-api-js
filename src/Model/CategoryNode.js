@@ -39,7 +39,7 @@
 
   /**
    * Constructs a new <code>CategoryNode</code>.
-   * A BigCommerce category node object. Used to reflect parent &lt;&gt; child category relationships. 
+   * A BigCommerce category node object. Used to reflect parent <> child category relationships. 
    * @alias module:Model/CategoryNode
    * @class
    */

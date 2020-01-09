@@ -14,18 +14,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'Model/OrderBase', 'Model/OrderBillingAddress'], factory);
+    define(['ApiClient', 'Model/OrderBase', 'Model/OrderBillingAddress', 'Model/OrderProduct'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./OrderBase'), require('./OrderBillingAddress'));
+    module.exports = factory(require('../ApiClient'), require('./OrderBase'), require('./OrderBillingAddress'), require('./OrderProduct'));
   } else {
     // Browser globals (root is window)
     if (!root.OrdersApIs) {
       root.OrdersApIs = {};
     }
-    root.OrdersApIs.OrderRequest = factory(root.OrdersApIs.ApiClient, root.OrdersApIs.OrderBase, root.OrdersApIs.OrderBillingAddress);
+    root.OrdersApIs.OrderRequest = factory(root.OrdersApIs.ApiClient, root.OrdersApIs.OrderBase, root.OrdersApIs.OrderBillingAddress, root.OrdersApIs.OrderProduct);
   }
-}(this, function(ApiClient, OrderBase, OrderBillingAddress) {
+}(this, function(ApiClient, OrderBase, OrderBillingAddress, OrderProduct) {
   'use strict';
 
 
@@ -64,14 +64,14 @@
 
       OrderBase.constructFromObject(data, obj);
       if (data.hasOwnProperty('products')) {
-        obj['products'] = ApiClient.convertToType(data['products'], [Object]);
+        obj['products'] = ApiClient.convertToType(data['products'], [OrderProduct]);
       }
     }
     return obj;
   }
 
   /**
-   * @member {Array.<Object>} products
+   * @member {Array.<module:Model/OrderProduct>} products
    */
   exports.prototype['products'] = undefined;
 
@@ -160,18 +160,6 @@ exports.prototype['wrapping_cost_ex_tax'] = undefined;
 exports.prototype['wrapping_cost_inc_tax'] = undefined;
 
   /**
-   * Override value for the total, excluding tax. If specified, the field `total_inc_tax` is also required. (Float, Float-As-String, Integer)
-   * @member {String} total_ex_tax
-   */
-exports.prototype['total_ex_tax'] = undefined;
-
-  /**
-   * Override value for the total, including tax. If specified, the field `total_ex_tax` is also required. (Float, Float-As-String, Integer) 
-   * @member {String} total_inc_tax
-   */
-exports.prototype['total_inc_tax'] = undefined;
-
-  /**
    * The total number of items in the order.
    * @member {Number} items_total
    */
@@ -206,12 +194,6 @@ exports.prototype['refunded_amount'] = undefined;
    * @member {Boolean} order_is_digital
    */
 exports.prototype['order_is_digital'] = undefined;
-
-  /**
-   * A read-only value. Do not pass in a POST or PUT. (Float, Float-As-String, Integer)
-   * @member {String} gift_certificate_amount
-   */
-exports.prototype['gift_certificate_amount'] = undefined;
 
   /**
    * IP Address of the customer, if known.
@@ -254,12 +236,6 @@ exports.prototype['discount_amount'] = undefined;
    * @member {Boolean} is_deleted
    */
 exports.prototype['is_deleted'] = undefined;
-
-  /**
-   * Indicates whether the shopper has selected an opt-in check box (on the checkout page) to receive emails. A read-only value. Do not pass in a POST or PUT.
-   * @member {Boolean} is_email_opt_in
-   */
-exports.prototype['is_email_opt_in'] = undefined;
 
   /**
    * @member {Number} credit_card_type

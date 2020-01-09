@@ -39,7 +39,7 @@
 
   /**
    * Constructs a new <code>PriceRecordBatchErrorSet</code>.
-   * Error during &#x60;Price Record&#x60; batch PUT.  Includes data sent in the request and errors. 
+   * Error during `Price Record` batch PUT.  Includes data sent in the request and errors. 
    * @alias module:Model/PriceRecordBatchErrorSet
    * @class
    */

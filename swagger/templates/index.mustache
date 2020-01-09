@@ -2,12 +2,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['{{#invokerPackage}}{{invokerPackage}}/{{/invokerPackage}}ApiClient'{{#models}}, '{{#invokerPackage}}{{invokerPackage}}/{{/invokerPackage}}{{#modelPackage}}{{modelPackage}}/{{/modelPackage}}{{importPath}}'{{/models}}{{#apiInfo}}{{#apis}}, '{{#invokerPackage}}{{invokerPackage}}/{{/invokerPackage}}{{#apiPackage}}{{apiPackage}}/{{/apiPackage}}{{importPath}}'{{/apis}}{{/apiInfo}}], factory);
+    define(['superagent-defaults', 'Apis', '{{#invokerPackage}}{{invokerPackage}}/{{/invokerPackage}}ApiClient'{{#models}}, '{{#invokerPackage}}{{invokerPackage}}/{{/invokerPackage}}{{#modelPackage}}{{modelPackage}}/{{/modelPackage}}{{importPath}}'{{/models}}], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'){{#models}}, require('./{{#modelPackage}}{{modelPackage}}/{{/modelPackage}}{{importPath}}'){{/models}}{{#apiInfo}}{{#apis}}, require('./{{#apiPackage}}{{apiPackage}}/{{/apiPackage}}{{importPath}}'){{/apis}}{{/apiInfo}});
+    module.exports = factory(require('superagent-defaults'), require('./Apis'), require('./ApiClient'){{#models}}, require('./{{#modelPackage}}{{modelPackage}}/{{/modelPackage}}{{importPath}}'){{/models}});
   }
-}(function(ApiClient{{#models}}{{#model}}, {{classFilename}}{{/model}}{{/models}}{{#apiInfo}}{{#apis}}, {{importPath}}{{/apis}}{{/apiInfo}}) {
+}(function(superagent, Apis, ApiClient{{#models}}{{#model}}, {{classFilename}}{{/model}}{{/models}}) {
   'use strict';
 
 {{#emitJSDoc}}  /**{{#projectDescription}}
@@ -41,23 +41,33 @@
    * @module {{#invokerPackage}}{{invokerPackage}}/{{/invokerPackage}}index
    * @version {{projectVersion}}
    */{{/emitJSDoc}}
-{{=< >=}}  var exports = {<#emitJSDoc>
+{{=< >=}}  var Models = {<#emitJSDoc>
+
     /**
-     * The ApiClient constructor.
-     * @property {module:<#invokerPackage><invokerPackage>/</invokerPackage>ApiClient}
-     */</emitJSDoc>
-    ApiClient: ApiClient<#models>,<#emitJSDoc>
+     * BigCommerce Models
+    */</emitJSDoc>
+
+    <#models><#emitJSDoc>
     /**
      * The <importPath> model constructor.
      * @property {module:<#invokerPackage><invokerPackage>/</invokerPackage><#modelPackage><modelPackage>/</modelPackage><importPath>}
      */</emitJSDoc>
-    <importPath>: <importPath></models><#apiInfo><#apis>,<#emitJSDoc>
-    /**
-     * The <importPath> service constructor.
-     * @property {module:<#invokerPackage><invokerPackage>/</invokerPackage><#apiPackage><apiPackage>/</apiPackage><importPath>}
-     */</emitJSDoc>
-    <importPath>: <importPath></apis></apiInfo>
+    <importPath>: <importPath>,</models>
   };
+
+	var exports = function(config) {
+		var apis = {};
+		var client = new ApiClient(config);
+		for (var name in Apis) {
+			apis[name] = new Apis[name](client);
+		}
+
+		return apis;
+	};
+
+	exports.Models = Models;
+	exports.Apis = Apis;
+	exports.Client = ApiClient;
 
   return exports;<={{ }}=>
 }));

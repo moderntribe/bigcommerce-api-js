@@ -45,21 +45,15 @@
     this.apiClient = apiClient || ApiClient.instance;
 
 
-    /**
-     * Callback function to receive the result of the deleteRoute operation.
-     * @callback module:Api/SitesApi~deleteRouteCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * DELETE Site Route
      * @param {String} siteId 
      * @param {String} id 
-     * @param {module:Api/SitesApi~deleteRouteCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deleteRoute = function(siteId, id, callback) {
+    this.deleteRoute = function(siteId, id, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'siteId' is set
@@ -96,20 +90,14 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteSite operation.
-     * @callback module:Api/SitesApi~deleteSiteCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * DELETE Site
      * @param {String} id 
-     * @param {module:Api/SitesApi~deleteSiteCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deleteSite = function(id, callback) {
+    this.deleteSite = function(id, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'id' is set
@@ -140,22 +128,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getChannelSite operation.
-     * @callback module:Api/SitesApi~getChannelSiteCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/SiteResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * GET Channel Site
-     * Alias of GET /sites?channel_id&#x3D;channel_id
+     * Alias of GET /sites?channel_id=channel_id
      * @param {String} channelId 
-     * @param {module:Api/SitesApi~getChannelSiteCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/SiteResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/SiteResponse} if callback is null
      */
-    this.getChannelSite = function(channelId, callback) {
+    this.getChannelSite = function(channelId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'channelId' is set
@@ -186,21 +168,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getSite operation.
-     * @callback module:Api/SitesApi~getSiteCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/SiteResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * GET Site
      * @param {String} id 
-     * @param {module:Api/SitesApi~getSiteCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/SiteResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/SiteResponse} if callback is null
      */
-    this.getSite = function(id, callback) {
+    this.getSite = function(id, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'id' is set
@@ -231,22 +207,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getSiteRoute operation.
-     * @callback module:Api/SitesApi~getSiteRouteCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/RouteResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * GET Site Route
      * @param {String} siteId 
      * @param {String} id 
-     * @param {module:Api/SitesApi~getSiteRouteCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/RouteResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/RouteResponse} if callback is null
      */
-    this.getSiteRoute = function(siteId, id, callback) {
+    this.getSiteRoute = function(siteId, id, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'siteId' is set
@@ -283,21 +253,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the indexSiteRoutes operation.
-     * @callback module:Api/SitesApi~indexSiteRoutesCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/RouteCollectionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * GET Site Routes
      * @param {String} siteId 
      * @param {Object} opts Optional parameters
      * @param {String} opts.type Filter routes by a given resource type
-     * @param {module:Api/SitesApi~indexSiteRoutesCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/RouteCollectionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/RouteCollectionResponse} if callback is null
      */
     this.indexSiteRoutes = function(siteId, opts, callback) {
       opts = opts || {};
@@ -332,23 +296,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the postChannelSite operation.
-     * @callback module:Api/SitesApi~postChannelSiteCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/SiteResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * POST Channel Site
      * Alias of POST /sites
      * @param {String} channelId 
      * @param {module:Model/SiteCreateRequest} body 
-     * @param {module:Api/SitesApi~postChannelSiteCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/SiteResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/SiteResponse} if callback is null
      */
-    this.postChannelSite = function(channelId, body, callback) {
+    this.postChannelSite = function(channelId, body, opts, callback) {
       var postBody = body;
 
       // verify the required parameter 'channelId' is set
@@ -384,21 +342,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the postSite operation.
-     * @callback module:Api/SitesApi~postSiteCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/SiteResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * POST Site
      * @param {module:Model/SiteCreateRequest} body 
-     * @param {module:Api/SitesApi~postSiteCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/SiteResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/SiteResponse} if callback is null
      */
-    this.postSite = function(body, callback) {
+    this.postSite = function(body, opts, callback) {
       var postBody = body;
 
       // verify the required parameter 'body' is set
@@ -428,22 +380,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the postSiteRoute operation.
-     * @callback module:Api/SitesApi~postSiteRouteCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/RouteResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * POST Site Route
      * @param {String} siteId 
      * @param {module:Model/Route} body 
-     * @param {module:Api/SitesApi~postSiteRouteCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/RouteResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/RouteResponse} if callback is null
      */
-    this.postSiteRoute = function(siteId, body, callback) {
+    this.postSiteRoute = function(siteId, body, opts, callback) {
       var postBody = body;
 
       // verify the required parameter 'siteId' is set
@@ -479,22 +425,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the putChannelSite operation.
-     * @callback module:Api/SitesApi~putChannelSiteCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/SiteResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * PUT Channel Site
      * @param {String} channelId 
      * @param {module:Model/Site} body 
-     * @param {module:Api/SitesApi~putChannelSiteCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/SiteResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/SiteResponse} if callback is null
      */
-    this.putChannelSite = function(channelId, body, callback) {
+    this.putChannelSite = function(channelId, body, opts, callback) {
       var postBody = body;
 
       // verify the required parameter 'channelId' is set
@@ -530,22 +470,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the putSite operation.
-     * @callback module:Api/SitesApi~putSiteCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/SiteResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * PUT Site
      * @param {String} id 
      * @param {module:Model/Site} body 
-     * @param {module:Api/SitesApi~putSiteCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/SiteResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/SiteResponse} if callback is null
      */
-    this.putSite = function(id, body, callback) {
+    this.putSite = function(id, body, opts, callback) {
       var postBody = body;
 
       // verify the required parameter 'id' is set
@@ -581,23 +515,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the putSiteRoute operation.
-     * @callback module:Api/SitesApi~putSiteRouteCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/RouteResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * PUT Site Route
      * @param {String} siteId 
      * @param {String} id 
      * @param {module:Model/Route} body 
-     * @param {module:Api/SitesApi~putSiteRouteCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/RouteResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/RouteResponse} if callback is null
      */
-    this.putSiteRoute = function(siteId, id, body, callback) {
+    this.putSiteRoute = function(siteId, id, body, opts, callback) {
       var postBody = body;
 
       // verify the required parameter 'siteId' is set

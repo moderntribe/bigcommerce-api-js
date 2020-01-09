@@ -75,6 +75,9 @@
 
 
 
+
+
+
   };
 
   /**
@@ -160,6 +163,15 @@
       }
       if (data.hasOwnProperty('shipping_address_count')) {
         obj['shipping_address_count'] = ApiClient.convertToType(data['shipping_address_count'], 'Number');
+      }
+      if (data.hasOwnProperty('is_email_opt_in')) {
+        obj['is_email_opt_in'] = ApiClient.convertToType(data['is_email_opt_in'], 'Boolean');
+      }
+      if (data.hasOwnProperty('total_ex_tax')) {
+        obj['total_ex_tax'] = ApiClient.convertToType(data['total_ex_tax'], 'String');
+      }
+      if (data.hasOwnProperty('total_inc_tax')) {
+        obj['total_inc_tax'] = ApiClient.convertToType(data['total_inc_tax'], 'String');
       }
       if (data.hasOwnProperty('order_source')) {
         obj['order_source'] = ApiClient.convertToType(data['order_source'], 'String');
@@ -298,6 +310,21 @@
    */
   exports.prototype['shipping_address_count'] = undefined;
   /**
+   * Indicates whether the shopper has selected an opt-in check box (on the checkout page) to receive emails. A read-only value. Do not pass in a POST or PUT.
+   * @member {Boolean} is_email_opt_in
+   */
+  exports.prototype['is_email_opt_in'] = undefined;
+  /**
+   * Override value for the total, excluding tax. If specified, the field `total_inc_tax` is also required. (Float, Float-As-String, Integer)
+   * @member {String} total_ex_tax
+   */
+  exports.prototype['total_ex_tax'] = undefined;
+  /**
+   * Override value for the total, including tax. If specified, the field `total_ex_tax` is also required. (Float, Float-As-String, Integer) 
+   * @member {String} total_inc_tax
+   */
+  exports.prototype['total_inc_tax'] = undefined;
+  /**
    * Orders submitted via the store's website will include a `www` value. Orders submitted via the API will be set to `external`. A read-only value. Do not pass in a POST or PUT.
    * @member {String} order_source
    */
@@ -400,18 +427,6 @@ exports.prototype['wrapping_cost_ex_tax'] = undefined;
 exports.prototype['wrapping_cost_inc_tax'] = undefined;
 
   /**
-   * Override value for the total, excluding tax. If specified, the field `total_inc_tax` is also required. (Float, Float-As-String, Integer)
-   * @member {String} total_ex_tax
-   */
-exports.prototype['total_ex_tax'] = undefined;
-
-  /**
-   * Override value for the total, including tax. If specified, the field `total_ex_tax` is also required. (Float, Float-As-String, Integer) 
-   * @member {String} total_inc_tax
-   */
-exports.prototype['total_inc_tax'] = undefined;
-
-  /**
    * The total number of items in the order.
    * @member {Number} items_total
    */
@@ -446,12 +461,6 @@ exports.prototype['refunded_amount'] = undefined;
    * @member {Boolean} order_is_digital
    */
 exports.prototype['order_is_digital'] = undefined;
-
-  /**
-   * A read-only value. Do not pass in a POST or PUT. (Float, Float-As-String, Integer)
-   * @member {String} gift_certificate_amount
-   */
-exports.prototype['gift_certificate_amount'] = undefined;
 
   /**
    * IP Address of the customer, if known.
@@ -494,12 +503,6 @@ exports.prototype['discount_amount'] = undefined;
    * @member {Boolean} is_deleted
    */
 exports.prototype['is_deleted'] = undefined;
-
-  /**
-   * Indicates whether the shopper has selected an opt-in check box (on the checkout page) to receive emails. A read-only value. Do not pass in a POST or PUT.
-   * @member {Boolean} is_email_opt_in
-   */
-exports.prototype['is_email_opt_in'] = undefined;
 
   /**
    * @member {Number} credit_card_type

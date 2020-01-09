@@ -39,7 +39,7 @@
 
   /**
    * Constructs a new <code>ConfigurableField</code>.
-   * A configurable field, which is a means of collecting information from a shopper about how they&#39;d like their product configured. This information is then stored alongside the product when added to cart and is reference-able on the order for fulfillment purposes. NOTE: Configurable fields are deprecated, as their complete set of functionality is available via Product Options. They may be removed in a future release. 
+   * A configurable field, which is a means of collecting information from a shopper about how they'd like their product configured. This information is then stored alongside the product when added to cart and is reference-able on the order for fulfillment purposes. NOTE: Configurable fields are deprecated, as their complete set of functionality is available via Product Options. They may be removed in a future release. 
    * @alias module:Model/ConfigurableField
    * @class
    * @implements module:Model/ConfigurableFieldBase

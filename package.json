@@ -1,0 +1,13 @@
+{
+  "name": "bigcommerce-api-js",
+  "version": "1.0.0",
+  "description": "Bigcommerce JS API",
+  "main": "index.js",
+  "repository": "git@github.com:moderntribe/bigcommerce-api-js.git",
+  "author": "Jing Wang <jwang@jivewisestudio.com>",
+  "license": "MIT",
+  "dependencies": {
+    "superagent": "^5.1.3",
+    "superagent-defaults": "^0.1.14"
+  }
+}

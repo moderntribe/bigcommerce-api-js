@@ -45,21 +45,15 @@
     this.apiClient = apiClient || ApiClient.instance;
 
 
-    /**
-     * Callback function to receive the result of the createSubscriber operation.
-     * @callback module:Api/SubscribersApi~createSubscriberCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/SubscriberResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Creates a &#x60;Subscriber&#x60; object. 
-     * @param {module:Model/SubscriberPost} subscriber &#x60;Subscriber&#x60; object. 
-     * @param {module:Api/SubscribersApi~createSubscriberCallback} callback The callback function, accepting three arguments: error, data, response
+     * Creates a `Subscriber` object. 
+     * @param {module:Model/SubscriberPost} subscriber `Subscriber` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/SubscriberResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/SubscriberResponse} if callback is null
      */
-    this.createSubscriber = function(subscriber, callback) {
+    this.createSubscriber = function(subscriber, opts, callback) {
       var postBody = subscriber;
 
       // verify the required parameter 'subscriber' is set
@@ -89,20 +83,14 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteSubscriberById operation.
-     * @callback module:Api/SubscribersApi~deleteSubscriberByIdCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Deletes a &#x60;Subscriber&#x60; object. 
-     * @param {Number} subscriberId The ID of the &#x60;Subscriber&#x60; requested. 
-     * @param {module:Api/SubscribersApi~deleteSubscriberByIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * Deletes a `Subscriber` object. 
+     * @param {Number} subscriberId The ID of the `Subscriber` requested. 
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deleteSubscriberById = function(subscriberId, callback) {
+    this.deleteSubscriberById = function(subscriberId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'subscriberId' is set
@@ -133,13 +121,6 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteSubscribers operation.
-     * @callback module:Api/SubscribersApi~deleteSubscribersCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Deletes a Subscriber or Subscribers from BigCommerce Customers. 
@@ -151,7 +132,8 @@
      * @param {Number} opts.orderId Filter items by order_id. 
      * @param {Date} opts.dateCreated Filter items by date_created. 
      * @param {Date} opts.dateModified Filter items by date_modified. 
-     * @param {module:Api/SubscribersApi~deleteSubscribersCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
     this.deleteSubscribers = function(opts, callback) {
       opts = opts || {};
@@ -186,21 +168,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getSubscriberById operation.
-     * @callback module:Api/SubscribersApi~getSubscriberByIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/SubscriberResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Gets &#x60;Subscriber&#x60; object.
-     * @param {Number} subscriberId The ID of the &#x60;Subscriber&#x60; requested. 
-     * @param {module:Api/SubscribersApi~getSubscriberByIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * Gets `Subscriber` object.
+     * @param {Number} subscriberId The ID of the `Subscriber` requested. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/SubscriberResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/SubscriberResponse} if callback is null
      */
-    this.getSubscriberById = function(subscriberId, callback) {
+    this.getSubscriberById = function(subscriberId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'subscriberId' is set
@@ -231,13 +207,6 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getSubscribers operation.
-     * @callback module:Api/SubscribersApi~getSubscribersCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/SubscriberCollectionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Returns a paginated Subscribers collection. 
@@ -251,8 +220,9 @@
      * @param {Date} opts.dateModified Filter items by date_modified. 
      * @param {Number} opts.page Specifies the page number in a limited (paginated) list of products. 
      * @param {Number} opts.limit Controls the number of items per page in a limited (paginated) list of products. 
-     * @param {module:Api/SubscribersApi~getSubscribersCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/SubscriberCollectionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/SubscriberCollectionResponse} if callback is null
      */
     this.getSubscribers = function(opts, callback) {
       opts = opts || {};
@@ -289,22 +259,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the updateSubscriber operation.
-     * @callback module:Api/SubscribersApi~updateSubscriberCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/SubscriberResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Updates a &#x60;Subscriber&#x60; object. 
-     * @param {Number} subscriberId The ID of the &#x60;Subscriber&#x60; requested. 
-     * @param {module:Model/SubscriberPut} subscriber Returns a &#x60;Subscriber&#x60; object. 
-     * @param {module:Api/SubscribersApi~updateSubscriberCallback} callback The callback function, accepting three arguments: error, data, response
+     * Updates a `Subscriber` object. 
+     * @param {Number} subscriberId The ID of the `Subscriber` requested. 
+     * @param {module:Model/SubscriberPut} subscriber Returns a `Subscriber` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/SubscriberResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/SubscriberResponse} if callback is null
      */
-    this.updateSubscriber = function(subscriberId, subscriber, callback) {
+    this.updateSubscriber = function(subscriberId, subscriber, opts, callback) {
       var postBody = subscriber;
 
       // verify the required parameter 'subscriberId' is set

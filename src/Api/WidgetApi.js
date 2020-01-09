@@ -45,22 +45,16 @@
     this.apiClient = apiClient || ApiClient.instance;
 
 
-    /**
-     * Callback function to receive the result of the createLayout operation.
-     * @callback module:Api/WidgetApi~createLayoutCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/LayoutResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Create a Layout
      * Creates a Layout
      * @param {module:Model/LayoutRequest} body 
-     * @param {module:Api/WidgetApi~createLayoutCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/LayoutResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/LayoutResponse} if callback is null
      */
-    this.createLayout = function(body, callback) {
+    this.createLayout = function(body, opts, callback) {
       var postBody = body;
 
       // verify the required parameter 'body' is set
@@ -90,22 +84,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the createPlacement operation.
-     * @callback module:Api/WidgetApi~createPlacementCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/PlacementResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Create a Placement
      * Creates a Placement
      * @param {module:Model/PlacementRequest} body 
-     * @param {module:Api/WidgetApi~createPlacementCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/PlacementResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/PlacementResponse} if callback is null
      */
-    this.createPlacement = function(body, callback) {
+    this.createPlacement = function(body, opts, callback) {
       var postBody = body;
 
       // verify the required parameter 'body' is set
@@ -135,22 +123,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the createWidget operation.
-     * @callback module:Api/WidgetApi~createWidgetCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/WidgetResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Create a Widget
      * Creates a Widget
      * @param {module:Model/WidgetRequest} body 
-     * @param {module:Api/WidgetApi~createWidgetCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/WidgetResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/WidgetResponse} if callback is null
      */
-    this.createWidget = function(body, callback) {
+    this.createWidget = function(body, opts, callback) {
       var postBody = body;
 
       // verify the required parameter 'body' is set
@@ -180,22 +162,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the createWidgetTemplate operation.
-     * @callback module:Api/WidgetApi~createWidgetTemplateCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/WidgetTemplateResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Create a Widget Template
      * Creates a Widget Template
      * @param {module:Model/WidgetTemplateRequest} body 
-     * @param {module:Api/WidgetApi~createWidgetTemplateCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/WidgetTemplateResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/WidgetTemplateResponse} if callback is null
      */
-    this.createWidgetTemplate = function(body, callback) {
+    this.createWidgetTemplate = function(body, opts, callback) {
       var postBody = body;
 
       // verify the required parameter 'body' is set
@@ -225,21 +201,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteLayout operation.
-     * @callback module:Api/WidgetApi~deleteLayoutCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Delete a Layout
      * Deletes a Layout
      * @param {String} uuid The identifier for a specific layout.
-     * @param {module:Api/WidgetApi~deleteLayoutCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deleteLayout = function(uuid, callback) {
+    this.deleteLayout = function(uuid, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'uuid' is set
@@ -270,21 +240,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deletePlacement operation.
-     * @callback module:Api/WidgetApi~deletePlacementCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Delete a Placement
      * Deletes a Placement
      * @param {String} uuid The identifier for a specific placement.
-     * @param {module:Api/WidgetApi~deletePlacementCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deletePlacement = function(uuid, callback) {
+    this.deletePlacement = function(uuid, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'uuid' is set
@@ -315,21 +279,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteWidget operation.
-     * @callback module:Api/WidgetApi~deleteWidgetCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Delete a Widget
      * Deletes a Widget
      * @param {String} uuid The identifier for a specific widget.
-     * @param {module:Api/WidgetApi~deleteWidgetCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deleteWidget = function(uuid, callback) {
+    this.deleteWidget = function(uuid, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'uuid' is set
@@ -360,21 +318,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteWidgetTemplate operation.
-     * @callback module:Api/WidgetApi~deleteWidgetTemplateCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Delete A Widget Template
      * Deletes a Widget Template
      * @param {String} uuid The identifier for a specific template.
-     * @param {module:Api/WidgetApi~deleteWidgetTemplateCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deleteWidgetTemplate = function(uuid, callback) {
+    this.deleteWidgetTemplate = function(uuid, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'uuid' is set
@@ -405,22 +357,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getContentRegions operation.
-     * @callback module:Api/WidgetApi~getContentRegionsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ThemeRegionsCollectionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Get Theme Regions
      * Returns a list of unique Theme Regions in a template file.
      * @param {String} templateFile The template file
-     * @param {module:Api/WidgetApi~getContentRegionsCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ThemeRegionsCollectionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ThemeRegionsCollectionResponse} if callback is null
      */
-    this.getContentRegions = function(templateFile, callback) {
+    this.getContentRegions = function(templateFile, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'templateFile' is set
@@ -451,22 +397,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getLayout operation.
-     * @callback module:Api/WidgetApi~getLayoutCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/LayoutResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Get a Layout
      * Returns a single Layout
      * @param {String} uuid The identifier for a specific layout.
-     * @param {module:Api/WidgetApi~getLayoutCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/LayoutResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/LayoutResponse} if callback is null
      */
-    this.getLayout = function(uuid, callback) {
+    this.getLayout = function(uuid, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'uuid' is set
@@ -497,13 +437,6 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getLayouts operation.
-     * @callback module:Api/WidgetApi~getLayoutsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/LayoutCollectionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Get All Layouts
@@ -512,8 +445,9 @@
      * @param {Number} opts.page Specifies the page number in a limited (paginated) list of products.
      * @param {Number} opts.limit Controls the number of items per page in a limited (paginated) list of products.
      * @param {String} opts.templateFile The template file
-     * @param {module:Api/WidgetApi~getLayoutsCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/LayoutCollectionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/LayoutCollectionResponse} if callback is null
      */
     this.getLayouts = function(opts, callback) {
       opts = opts || {};
@@ -544,22 +478,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getPlacement operation.
-     * @callback module:Api/WidgetApi~getPlacementCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/PlacementResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Get a Placement
      * Returns a single Placement
      * @param {String} uuid The identifier for a specific placement.
-     * @param {module:Api/WidgetApi~getPlacementCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/PlacementResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/PlacementResponse} if callback is null
      */
-    this.getPlacement = function(uuid, callback) {
+    this.getPlacement = function(uuid, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'uuid' is set
@@ -590,13 +518,6 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getPlacements operation.
-     * @callback module:Api/WidgetApi~getPlacementsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/PlacementsCollectionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Get All Placements
@@ -608,8 +529,9 @@
      * @param {String} opts.templateFile The template file
      * @param {String} opts.widgetUuid The identifier for a specific widget.
      * @param {String} opts.widgetTemplateUuid The identifier for a specific widget template.
-     * @param {module:Api/WidgetApi~getPlacementsCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/PlacementsCollectionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/PlacementsCollectionResponse} if callback is null
      */
     this.getPlacements = function(opts, callback) {
       opts = opts || {};
@@ -643,22 +565,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getWidget operation.
-     * @callback module:Api/WidgetApi~getWidgetCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/WidgetResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Get a Widget
      * Returns a single Widget
      * @param {String} uuid The identifier for a specific widget.
-     * @param {module:Api/WidgetApi~getWidgetCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/WidgetResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/WidgetResponse} if callback is null
      */
-    this.getWidget = function(uuid, callback) {
+    this.getWidget = function(uuid, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'uuid' is set
@@ -689,22 +605,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getWidgetTemplate operation.
-     * @callback module:Api/WidgetApi~getWidgetTemplateCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/WidgetTemplateResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Get a Widget Template
      * Return a single Widget Template
      * @param {String} uuid The identifier for a specific template.
-     * @param {module:Api/WidgetApi~getWidgetTemplateCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/WidgetTemplateResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/WidgetTemplateResponse} if callback is null
      */
-    this.getWidgetTemplate = function(uuid, callback) {
+    this.getWidgetTemplate = function(uuid, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'uuid' is set
@@ -735,13 +645,6 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getWidgetTemplates operation.
-     * @callback module:Api/WidgetApi~getWidgetTemplatesCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/WidgetTemplatesCollectionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Get All Widget Templates
@@ -750,8 +653,9 @@
      * @param {Number} opts.page Specifies the page number in a limited (paginated) list of products.
      * @param {Number} opts.limit Controls the number of items per page in a limited (paginated) list of products.
      * @param {String} opts.widgetTemplateKind The kind of widget template.
-     * @param {module:Api/WidgetApi~getWidgetTemplatesCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/WidgetTemplatesCollectionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/WidgetTemplatesCollectionResponse} if callback is null
      */
     this.getWidgetTemplates = function(opts, callback) {
       opts = opts || {};
@@ -782,13 +686,6 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getWidgets operation.
-     * @callback module:Api/WidgetApi~getWidgetsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/WidgetCollectionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Get All Widgets
@@ -798,8 +695,9 @@
      * @param {Number} opts.limit Controls the number of items per page in a limited (paginated) list of products.
      * @param {String} opts.widgetTemplateKind The kind of widget template.
      * @param {String} opts.widgetTemplateUuid The identifier for a specific widget template.
-     * @param {module:Api/WidgetApi~getWidgetsCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/WidgetCollectionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/WidgetCollectionResponse} if callback is null
      */
     this.getWidgets = function(opts, callback) {
       opts = opts || {};
@@ -831,23 +729,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the updateLayout operation.
-     * @callback module:Api/WidgetApi~updateLayoutCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/LayoutResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Update a Layout
      * Updates a Layout
      * @param {String} uuid The identifier for a specific layout.
      * @param {module:Model/LayoutRequest} layoutBody 
-     * @param {module:Api/WidgetApi~updateLayoutCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/LayoutResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/LayoutResponse} if callback is null
      */
-    this.updateLayout = function(uuid, layoutBody, callback) {
+    this.updateLayout = function(uuid, layoutBody, opts, callback) {
       var postBody = layoutBody;
 
       // verify the required parameter 'uuid' is set
@@ -883,23 +775,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the updatePlacement operation.
-     * @callback module:Api/WidgetApi~updatePlacementCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/PlacementResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Update a Placement
      * Updates a Placement
      * @param {String} uuid The identifier for a specific placement.
      * @param {module:Model/PlacementRequest} placementBody 
-     * @param {module:Api/WidgetApi~updatePlacementCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/PlacementResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/PlacementResponse} if callback is null
      */
-    this.updatePlacement = function(uuid, placementBody, callback) {
+    this.updatePlacement = function(uuid, placementBody, opts, callback) {
       var postBody = placementBody;
 
       // verify the required parameter 'uuid' is set
@@ -935,23 +821,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the updateWidget operation.
-     * @callback module:Api/WidgetApi~updateWidgetCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/WidgetResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Update a Widget
      * Updates a Widget
      * @param {String} uuid The identifier for a specific widget.
      * @param {module:Model/WidgetRequest} body 
-     * @param {module:Api/WidgetApi~updateWidgetCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/WidgetResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/WidgetResponse} if callback is null
      */
-    this.updateWidget = function(uuid, body, callback) {
+    this.updateWidget = function(uuid, body, opts, callback) {
       var postBody = body;
 
       // verify the required parameter 'uuid' is set
@@ -987,23 +867,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the updateWidgetTemplate operation.
-     * @callback module:Api/WidgetApi~updateWidgetTemplateCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/WidgetTemplateResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Update a Widget Template
      * Updates a Widget Template
      * @param {String} uuid The identifier for a specific template.
      * @param {module:Model/WidgetTemplateRequest} body 
-     * @param {module:Api/WidgetApi~updateWidgetTemplateCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/WidgetTemplateResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/WidgetTemplateResponse} if callback is null
      */
-    this.updateWidgetTemplate = function(uuid, body, callback) {
+    this.updateWidgetTemplate = function(uuid, body, opts, callback) {
       var postBody = body;
 
       // verify the required parameter 'uuid' is set

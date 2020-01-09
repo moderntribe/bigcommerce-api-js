@@ -40,13 +40,13 @@
    * @alias module:ApiClient
    * @class
    */
-  var exports = function() {
+  var exports = function(config) {
     /**
      * The base URL against which to resolve every API call's (relative) path.
      * @type {String}
      * @default https://api.bigcommerce.com/stores/{store_id}/v3
      */
-    this.basePath = 'https://api.bigcommerce.com/stores/{store_id}/v3'.replace(/\/+$/, '');
+    this.basePath = config ? 'https://api.bigcommerce.com/stores/{store_id}/v3'.replace(/\{store_id}/g, config.storeId) : 'https://api.bigcommerce.com/stores/{store_id}/v3';
 
     /**
      * The authentication methods to be included for all API calls.
@@ -74,7 +74,9 @@
      * @type {Boolean}
      * @default true
      */
-    this.cache = true;
+		 this.cache = true;
+
+		 this.config = config;
   };
 
   /**
@@ -266,7 +268,12 @@
    * @param {Array.<String>} authNames An array of authentication method names.
    */
   exports.prototype.applyAuthToRequest = function(request, authNames) {
-    var _this = this;
+		var _this = this;
+		if (this.config) {
+			request.set('X-Auth-Client', this.config.clientId)
+			.set('X-Auth-Token', this.config.accessToken);
+		}
+
     authNames.forEach(function(authName) {
       var auth = _this.authentications[authName];
       switch (auth.type) {
@@ -405,19 +412,29 @@
       request.accept(accept);
     }
 
+		if (!callback) {
+			return new Promise(function(resolve, reject) {
+				request.end(function(error, response) {
+					if (error) {
+						reject(error);
+					} else {
+						var data = _this.deserialize(response, returnType);
+						resolve(data);
+					}
+				});
+			});
+		}
 
-    request.end(function(error, response) {
-      if (callback) {
-        var data = null;
-        if (!error) {
-          data = _this.deserialize(response, returnType);
-        }
-        callback(error, data, response);
-      }
-    });
+		request.end(function(error, response) {
+			var data = null;
+			if (!error) {
+				data = _this.deserialize(response, returnType);
+			}
+			callback(error, data, response);
+		});
 
-    return request;
-  };
+		return request;
+	};
 
   /**
    * Parses an ISO-8601 string representation of a date value.

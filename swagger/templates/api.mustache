@@ -33,26 +33,19 @@
 </emitJSDoc>  var exports = function(apiClient) {
     this.apiClient = apiClient || ApiClient.instance;
 
-<#operations><#operation><#emitJSDoc><^usePromises>
-    /**
-     * Callback function to receive the result of the <operationId> operation.
-     * @callback module:<#invokerPackage><invokerPackage>/</invokerPackage><#apiPackage><apiPackage>/</apiPackage><classname>~<operationId>Callback
-     * @param {String} error Error message, if any.
-     * @param <#vendorExtensions.x-jsdoc-type>{<&vendorExtensions.x-jsdoc-type>} data The data returned by the service call.</vendorExtensions.x-jsdoc-type><^vendorExtensions.x-jsdoc-type>data This operation does not return a value.</vendorExtensions.x-jsdoc-type>
-     * @param {String} response The complete HTTP response.
-     */</usePromises>
+<#operations><#operation><#emitJSDoc>
 
     /**<#summary>
      * <summary></summary><#notes>
      * <notes></notes><#allParams><#required>
      * @param {<&vendorExtensions.x-jsdoc-type>} <paramName> <description></required></allParams><#hasOptionalParams>
      * @param {Object} opts Optional parameters<#allParams><^required>
-     * @param {<&vendorExtensions.x-jsdoc-type>} opts.<paramName> <description><#defaultValue> (default to <.>)</defaultValue></required></allParams></hasOptionalParams><^usePromises>
-     * @param {module:<#invokerPackage><&invokerPackage>/</invokerPackage><#apiPackage><&apiPackage>/</apiPackage><&classname>~<operationId>Callback} callback The callback function, accepting three arguments: error, data, response<#returnType>
-     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}</returnType></usePromises><#usePromises>
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}<#returnType>, with data of type {@link <&vendorExtensions.x-jsdoc-type>}</returnType></usePromises>
+     * @param {<&vendorExtensions.x-jsdoc-type>} opts.<paramName> <description><#defaultValue> (default to <.>)</defaultValue></required></allParams></hasOptionalParams>
+     * @param callback The callback function, accepting three arguments: error, data, response<#returnType>
+     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}</returnType>
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}<#returnType>, with data of type {@link <&vendorExtensions.x-jsdoc-type>}</returnType> if callback is null
      */
-</emitJSDoc>    this.<operationId> = function(<vendorExtensions.x-codegen-argList>) {<#hasOptionalParams>
+</emitJSDoc>    this.<operationId> = function(<#allParams><#required><paramName>, </required></allParams>opts, callback) {<#hasOptionalParams>
       opts = opts || {};</hasOptionalParams>
       var postBody = <#bodyParam><#required><paramName></required><^required>opts['<paramName>']</required></bodyParam><^bodyParam>null</bodyParam>;
 <#allParams><#required>

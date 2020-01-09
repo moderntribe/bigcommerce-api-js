@@ -39,7 +39,7 @@
 
   /**
    * Constructs a new <code>PriceRecordBatchItem</code>.
-   * &#x60;Price Record&#x60; object used in batch create or update. 
+   * `Price Record` object used in batch create or update. 
    * @alias module:Model/PriceRecordBatchItem
    * @class
    * @implements module:Model/PriceRecordBase

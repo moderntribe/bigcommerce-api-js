@@ -45,20 +45,14 @@
     this.apiClient = apiClient || ApiClient.instance;
 
 
-    /**
-     * Callback function to receive the result of the catalogSummaryGet operation.
-     * @callback module:Api/CatalogApi~catalogSummaryGetCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/CatalogSummaryResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Returns a lightweight inventory summary from the BigCommerce Catalog. 
-     * @param {module:Api/CatalogApi~catalogSummaryGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/CatalogSummaryResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/CatalogSummaryResponse} if callback is null
      */
-    this.catalogSummaryGet = function(callback) {
+    this.catalogSummaryGet = function(opts, callback) {
       var postBody = null;
 
 
@@ -83,21 +77,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the createBrand operation.
-     * @callback module:Api/CatalogApi~createBrandCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/BrandResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Creates a &#x60;Brand&#x60; object.
-     * @param {module:Model/BrandPost} brand A &#x60;Brand&#x60; object. 
-     * @param {module:Api/CatalogApi~createBrandCallback} callback The callback function, accepting three arguments: error, data, response
+     * Creates a `Brand` object.
+     * @param {module:Model/BrandPost} brand A `Brand` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/BrandResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/BrandResponse} if callback is null
      */
-    this.createBrand = function(brand, callback) {
+    this.createBrand = function(brand, opts, callback) {
       var postBody = brand;
 
       // verify the required parameter 'brand' is set
@@ -127,22 +115,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the createBrandImage operation.
-     * @callback module:Api/CatalogApi~createBrandImageCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ImageResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Creates an image on a &#x60;Brand&#x60;. Publicly accessible URLs and files (form post) are valid parameters. 
-     * @param {Number} brandId The ID of the &#x60;Brand&#x60; to which the resource belongs. 
+     * Creates an image on a `Brand`. Publicly accessible URLs and files (form post) are valid parameters. 
+     * @param {Number} brandId The ID of the `Brand` to which the resource belongs. 
      * @param {File} imageFile An image file. Supported MIME types include GIF, JPEG, and PNG. 
-     * @param {module:Api/CatalogApi~createBrandImageCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ImageResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ImageResponse} if callback is null
      */
-    this.createBrandImage = function(brandId, imageFile, callback) {
+    this.createBrandImage = function(brandId, imageFile, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'brandId' is set
@@ -179,22 +161,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the createBrandMetafield operation.
-     * @callback module:Api/CatalogApi~createBrandMetafieldCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/MetafieldResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Creates a product &#x60;Metafield&#x60;.
-     * @param {Number} brandId The ID of the &#x60;Brand&#x60; to which the resource belongs. 
-     * @param {module:Model/MetafieldPost} metafield A &#x60;Metafield&#x60; object. 
-     * @param {module:Api/CatalogApi~createBrandMetafieldCallback} callback The callback function, accepting three arguments: error, data, response
+     * Creates a product `Metafield`.
+     * @param {Number} brandId The ID of the `Brand` to which the resource belongs. 
+     * @param {module:Model/MetafieldPost} metafield A `Metafield` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/MetafieldResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/MetafieldResponse} if callback is null
      */
-    this.createBrandMetafield = function(brandId, metafield, callback) {
+    this.createBrandMetafield = function(brandId, metafield, opts, callback) {
       var postBody = metafield;
 
       // verify the required parameter 'brandId' is set
@@ -230,23 +206,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the createBulkPricingRule operation.
-     * @callback module:Api/CatalogApi~createBulkPricingRuleCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/BulkPricingRuleResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Creates a &#x60;BulkPricingRule&#x60;.
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {module:Model/BulkPricingRulePost} bulkPricingRule &#x60;BulkPricingRule&#x60; object. 
+     * Creates a `BulkPricingRule`.
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {module:Model/BulkPricingRulePost} bulkPricingRule `BulkPricingRule` object. 
      * @param {Object} opts Optional parameters
      * @param {Number} opts.page Specifies the page number in a limited (paginated) list of products. 
      * @param {Number} opts.limit Controls the number of items per page in a limited (paginated) list of products. 
-     * @param {module:Api/CatalogApi~createBulkPricingRuleCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/BulkPricingRuleResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/BulkPricingRuleResponse} if callback is null
      */
     this.createBulkPricingRule = function(productId, bulkPricingRule, opts, callback) {
       opts = opts || {};
@@ -287,21 +257,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the createCategory operation.
-     * @callback module:Api/CatalogApi~createCategoryCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/CategoryResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Creates a &#x60;Category&#x60; in the BigCommerce Catalog. 
-     * @param {module:Model/CategoryPost} category A BigCommerce &#x60;Category&#x60; object. 
-     * @param {module:Api/CatalogApi~createCategoryCallback} callback The callback function, accepting three arguments: error, data, response
+     * Creates a `Category` in the BigCommerce Catalog. 
+     * @param {module:Model/CategoryPost} category A BigCommerce `Category` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/CategoryResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/CategoryResponse} if callback is null
      */
-    this.createCategory = function(category, callback) {
+    this.createCategory = function(category, opts, callback) {
       var postBody = category;
 
       // verify the required parameter 'category' is set
@@ -331,22 +295,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the createCategoryImage operation.
-     * @callback module:Api/CatalogApi~createCategoryImageCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ImageResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Creates an image on a category. Publicly accessible URLs and files (form post) are valid parameters. 
-     * @param {Number} categoryId The ID of the &#x60;Category&#x60; to which the resource belongs. 
+     * @param {Number} categoryId The ID of the `Category` to which the resource belongs. 
      * @param {File} imageFile An image file. Supported MIME types include GIF, JPEG, and PNG. 
-     * @param {module:Api/CatalogApi~createCategoryImageCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ImageResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ImageResponse} if callback is null
      */
-    this.createCategoryImage = function(categoryId, imageFile, callback) {
+    this.createCategoryImage = function(categoryId, imageFile, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'categoryId' is set
@@ -383,22 +341,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the createCategoryMetafield operation.
-     * @callback module:Api/CatalogApi~createCategoryMetafieldCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/MetafieldResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Creates a product &#x60;Metafield&#x60;.
-     * @param {Number} categoryId The ID of the &#x60;Category&#x60; to which the resource belongs. 
-     * @param {module:Model/MetafieldPost} metafield A &#x60;Metafield&#x60; object. 
-     * @param {module:Api/CatalogApi~createCategoryMetafieldCallback} callback The callback function, accepting three arguments: error, data, response
+     * Creates a product `Metafield`.
+     * @param {Number} categoryId The ID of the `Category` to which the resource belongs. 
+     * @param {module:Model/MetafieldPost} metafield A `Metafield` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/MetafieldResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/MetafieldResponse} if callback is null
      */
-    this.createCategoryMetafield = function(categoryId, metafield, callback) {
+    this.createCategoryMetafield = function(categoryId, metafield, opts, callback) {
       var postBody = metafield;
 
       // verify the required parameter 'categoryId' is set
@@ -434,22 +386,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the createComplexRule operation.
-     * @callback module:Api/CatalogApi~createComplexRuleCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ComplexRuleResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Creates a &#x60;ComplexRule&#x60;.
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {module:Model/ComplexRulePost} complexRule &#x60;ComplexRule&#x60; object. 
-     * @param {module:Api/CatalogApi~createComplexRuleCallback} callback The callback function, accepting three arguments: error, data, response
+     * Creates a `ComplexRule`.
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {module:Model/ComplexRulePost} complexRule `ComplexRule` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ComplexRuleResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ComplexRuleResponse} if callback is null
      */
-    this.createComplexRule = function(productId, complexRule, callback) {
+    this.createComplexRule = function(productId, complexRule, opts, callback) {
       var postBody = complexRule;
 
       // verify the required parameter 'productId' is set
@@ -485,22 +431,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the createConfigurableField operation.
-     * @callback module:Api/CatalogApi~createConfigurableFieldCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ConfigurableFieldResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Creates a &#x60;ConfigurableField&#x60;.
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {module:Model/ConfigurableFieldPost} configurableField &#x60;ConfigurableField&#x60; object. 
-     * @param {module:Api/CatalogApi~createConfigurableFieldCallback} callback The callback function, accepting three arguments: error, data, response
+     * Creates a `ConfigurableField`.
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {module:Model/ConfigurableFieldPost} configurableField `ConfigurableField` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ConfigurableFieldResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ConfigurableFieldResponse} if callback is null
      */
-    this.createConfigurableField = function(productId, configurableField, callback) {
+    this.createConfigurableField = function(productId, configurableField, opts, callback) {
       var postBody = configurableField;
 
       // verify the required parameter 'productId' is set
@@ -536,22 +476,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the createCustomField operation.
-     * @callback module:Api/CatalogApi~createCustomFieldCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/CustomFieldResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Creates a &#x60;CustomField&#x60;.
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {module:Model/CustomFieldPost} customField &#x60;CustomField&#x60; object. 
-     * @param {module:Api/CatalogApi~createCustomFieldCallback} callback The callback function, accepting three arguments: error, data, response
+     * Creates a `CustomField`.
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {module:Model/CustomFieldPost} customField `CustomField` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/CustomFieldResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/CustomFieldResponse} if callback is null
      */
-    this.createCustomField = function(productId, customField, callback) {
+    this.createCustomField = function(productId, customField, opts, callback) {
       var postBody = customField;
 
       // verify the required parameter 'productId' is set
@@ -587,22 +521,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the createModifier operation.
-     * @callback module:Api/CatalogApi~createModifierCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ModifierResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Creates a &#x60;Modifier&#x60;.
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {module:Model/ModifierPost} modifier A &#x60;Modifier&#x60; object. 
-     * @param {module:Api/CatalogApi~createModifierCallback} callback The callback function, accepting three arguments: error, data, response
+     * Creates a `Modifier`.
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {module:Model/ModifierPost} modifier A `Modifier` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ModifierResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ModifierResponse} if callback is null
      */
-    this.createModifier = function(productId, modifier, callback) {
+    this.createModifier = function(productId, modifier, opts, callback) {
       var postBody = modifier;
 
       // verify the required parameter 'productId' is set
@@ -638,24 +566,18 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the createModifierImage operation.
-     * @callback module:Api/CatalogApi~createModifierImageCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ImageResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Adds an image to a modifier value; the image will show on the storefront when the value is selected.
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {Number} modifierId The ID of the &#x60;Modifier&#x60;. 
-     * @param {Number} valueId The ID of the &#x60;Modifier&#x60;. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {Number} modifierId The ID of the `Modifier`. 
+     * @param {Number} valueId The ID of the `Modifier`. 
      * @param {File} imageFile An image file. Supported MIME types include GIF, JPEG, and PNG. 
-     * @param {module:Api/CatalogApi~createModifierImageCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ImageResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ImageResponse} if callback is null
      */
-    this.createModifierImage = function(productId, modifierId, valueId, imageFile, callback) {
+    this.createModifierImage = function(productId, modifierId, valueId, imageFile, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'productId' is set
@@ -704,23 +626,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the createModifierValue operation.
-     * @callback module:Api/CatalogApi~createModifierValueCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ModifierValueResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Creates a &#x60;ModifierValue&#x60;.
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {Number} modifierId The ID of the &#x60;Modifier&#x60;. 
-     * @param {module:Model/ModifierValuePost} modifierValue A &#x60;ModifierValue&#x60; object. 
-     * @param {module:Api/CatalogApi~createModifierValueCallback} callback The callback function, accepting three arguments: error, data, response
+     * Creates a `ModifierValue`.
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {Number} modifierId The ID of the `Modifier`. 
+     * @param {module:Model/ModifierValuePost} modifierValue A `ModifierValue` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ModifierValueResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ModifierValueResponse} if callback is null
      */
-    this.createModifierValue = function(productId, modifierId, modifierValue, callback) {
+    this.createModifierValue = function(productId, modifierId, modifierValue, opts, callback) {
       var postBody = modifierValue;
 
       // verify the required parameter 'productId' is set
@@ -762,22 +678,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the createOption operation.
-     * @callback module:Api/CatalogApi~createOptionCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/OptionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Creates an &#x60;Option&#x60;.
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {module:Model/OptionPost} option An &#x60;Option&#x60; object. 
-     * @param {module:Api/CatalogApi~createOptionCallback} callback The callback function, accepting three arguments: error, data, response
+     * Creates an `Option`.
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {module:Model/OptionPost} option An `Option` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/OptionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/OptionResponse} if callback is null
      */
-    this.createOption = function(productId, option, callback) {
+    this.createOption = function(productId, option, opts, callback) {
       var postBody = option;
 
       // verify the required parameter 'productId' is set
@@ -813,23 +723,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the createOptionValue operation.
-     * @callback module:Api/CatalogApi~createOptionValueCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/OptionValueResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Creates a &#x60;OptionValue&#x60;.
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {Number} optionId The ID of the &#x60;Option&#x60;. 
-     * @param {module:Model/OptionValuePost} optionValue A &#x60;OptionValue&#x60; object. 
-     * @param {module:Api/CatalogApi~createOptionValueCallback} callback The callback function, accepting three arguments: error, data, response
+     * Creates a `OptionValue`.
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {Number} optionId The ID of the `Option`. 
+     * @param {module:Model/OptionValuePost} optionValue A `OptionValue` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/OptionValueResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/OptionValueResponse} if callback is null
      */
-    this.createOptionValue = function(productId, optionId, optionValue, callback) {
+    this.createOptionValue = function(productId, optionId, optionValue, opts, callback) {
       var postBody = optionValue;
 
       // verify the required parameter 'productId' is set
@@ -871,21 +775,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the createProduct operation.
-     * @callback module:Api/CatalogApi~createProductCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ProductResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Creates a &#x60;Product&#x60; in the BigCommerce Catalog. 
-     * @param {module:Model/ProductPost} product A BigCommerce &#x60;Product&#x60; object. 
-     * @param {module:Api/CatalogApi~createProductCallback} callback The callback function, accepting three arguments: error, data, response
+     * Creates a `Product` in the BigCommerce Catalog. 
+     * @param {module:Model/ProductPost} product A BigCommerce `Product` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ProductResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ProductResponse} if callback is null
      */
-    this.createProduct = function(product, callback) {
+    this.createProduct = function(product, opts, callback) {
       var postBody = product;
 
       // verify the required parameter 'product' is set
@@ -915,22 +813,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the createProductImage operation.
-     * @callback module:Api/CatalogApi~createProductImageCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ProductImageResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Creates an image on a product. Publicly accessible URLs and files (form post) are valid parameters. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {module:Model/ProductImagePost} productImage A BigCommerce &#x60;ProductImage&#x60; object. 
-     * @param {module:Api/CatalogApi~createProductImageCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {module:Model/ProductImagePost} productImage A BigCommerce `ProductImage` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ProductImageResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ProductImageResponse} if callback is null
      */
-    this.createProductImage = function(productId, productImage, callback) {
+    this.createProductImage = function(productId, productImage, opts, callback) {
       var postBody = productImage;
 
       // verify the required parameter 'productId' is set
@@ -966,22 +858,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the createProductMetafield operation.
-     * @callback module:Api/CatalogApi~createProductMetafieldCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/MetafieldResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Creates a product &#x60;Metafield&#x60;.
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {module:Model/MetafieldPost} metafield A &#x60;Metafield&#x60; object. 
-     * @param {module:Api/CatalogApi~createProductMetafieldCallback} callback The callback function, accepting three arguments: error, data, response
+     * Creates a product `Metafield`.
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {module:Model/MetafieldPost} metafield A `Metafield` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/MetafieldResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/MetafieldResponse} if callback is null
      */
-    this.createProductMetafield = function(productId, metafield, callback) {
+    this.createProductMetafield = function(productId, metafield, opts, callback) {
       var postBody = metafield;
 
       // verify the required parameter 'productId' is set
@@ -1017,22 +903,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the createProductReview operation.
-     * @callback module:Api/CatalogApi~createProductReviewCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ProductReviewResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Creates a product review. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {module:Model/ProductReviewPost} productReview A BigCommerce &#x60;ProductReview&#x60; object. 
-     * @param {module:Api/CatalogApi~createProductReviewCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {module:Model/ProductReviewPost} productReview A BigCommerce `ProductReview` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ProductReviewResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ProductReviewResponse} if callback is null
      */
-    this.createProductReview = function(productId, productReview, callback) {
+    this.createProductReview = function(productId, productReview, opts, callback) {
       var postBody = productReview;
 
       // verify the required parameter 'productId' is set
@@ -1068,22 +948,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the createProductVideo operation.
-     * @callback module:Api/CatalogApi~createProductVideoCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ProductVideoResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Creates a video on a product, using a video ID from a host site. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {module:Model/ProductVideoPost} productVideo A BigCommerce &#x60;ProductVideo&#x60; object. 
-     * @param {module:Api/CatalogApi~createProductVideoCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {module:Model/ProductVideoPost} productVideo A BigCommerce `ProductVideo` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ProductVideoResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ProductVideoResponse} if callback is null
      */
-    this.createProductVideo = function(productId, productVideo, callback) {
+    this.createProductVideo = function(productId, productVideo, opts, callback) {
       var postBody = productVideo;
 
       // verify the required parameter 'productId' is set
@@ -1119,22 +993,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the createVariant operation.
-     * @callback module:Api/CatalogApi~createVariantCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/VariantResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Creates a &#x60;Variant&#x60; object.
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {module:Model/VariantPost} variant &#x60;Variant&#x60; object. 
-     * @param {module:Api/CatalogApi~createVariantCallback} callback The callback function, accepting three arguments: error, data, response
+     * Creates a `Variant` object.
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {module:Model/VariantPost} variant `Variant` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/VariantResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/VariantResponse} if callback is null
      */
-    this.createVariant = function(productId, variant, callback) {
+    this.createVariant = function(productId, variant, opts, callback) {
       var postBody = variant;
 
       // verify the required parameter 'productId' is set
@@ -1170,22 +1038,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the createVariantImage operation.
-     * @callback module:Api/CatalogApi~createVariantImageCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ImageResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
      * @param {Number} variantId ID of the variant on a product, or on an associated Price List Record. 
      * @param {File} imageFile An image file. Supported MIME types include GIF, JPEG, and PNG. 
-     * @param {module:Api/CatalogApi~createVariantImageCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ImageResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ImageResponse} if callback is null
      */
-    this.createVariantImage = function(productId, variantId, imageFile, callback) {
+    this.createVariantImage = function(productId, variantId, imageFile, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'productId' is set
@@ -1228,23 +1090,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the createVariantMetafield operation.
-     * @callback module:Api/CatalogApi~createVariantMetafieldCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/MetafieldResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Creates a variant &#x60;Metafield&#x60;.
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
+     * Creates a variant `Metafield`.
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
      * @param {Number} variantId ID of the variant on a product, or on an associated Price List Record. 
-     * @param {module:Model/MetafieldPost} metafield A &#x60;Metafield&#x60; object. 
-     * @param {module:Api/CatalogApi~createVariantMetafieldCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:Model/MetafieldPost} metafield A `Metafield` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/MetafieldResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/MetafieldResponse} if callback is null
      */
-    this.createVariantMetafield = function(productId, variantId, metafield, callback) {
+    this.createVariantMetafield = function(productId, variantId, metafield, opts, callback) {
       var postBody = metafield;
 
       // verify the required parameter 'productId' is set
@@ -1286,20 +1142,14 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteBrandById operation.
-     * @callback module:Api/CatalogApi~deleteBrandByIdCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Deletes a &#x60;Brand&#x60; from the BigCommerce Catalog. 
-     * @param {Number} brandId The ID of the &#x60;Brand&#x60; to which the resource belongs. 
-     * @param {module:Api/CatalogApi~deleteBrandByIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * Deletes a `Brand` from the BigCommerce Catalog. 
+     * @param {Number} brandId The ID of the `Brand` to which the resource belongs. 
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deleteBrandById = function(brandId, callback) {
+    this.deleteBrandById = function(brandId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'brandId' is set
@@ -1330,20 +1180,14 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteBrandImage operation.
-     * @callback module:Api/CatalogApi~deleteBrandImageCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Deletes a &#x60;Brand&#x60; image from the BigCommerce Catalog. 
-     * @param {Number} brandId The ID of the &#x60;Brand&#x60; to which the resource belongs. 
-     * @param {module:Api/CatalogApi~deleteBrandImageCallback} callback The callback function, accepting three arguments: error, data, response
+     * Deletes a `Brand` image from the BigCommerce Catalog. 
+     * @param {Number} brandId The ID of the `Brand` to which the resource belongs. 
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deleteBrandImage = function(brandId, callback) {
+    this.deleteBrandImage = function(brandId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'brandId' is set
@@ -1374,21 +1218,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteBrandMetafieldById operation.
-     * @callback module:Api/CatalogApi~deleteBrandMetafieldByIdCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Deletes a &#x60;Metafield&#x60;. 
-     * @param {Number} metafieldId The ID of the &#x60;Metafield&#x60;. 
-     * @param {Number} brandId The ID of the &#x60;Brand&#x60; to which the resource belongs. 
-     * @param {module:Api/CatalogApi~deleteBrandMetafieldByIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * Deletes a `Metafield`. 
+     * @param {Number} metafieldId The ID of the `Metafield`. 
+     * @param {Number} brandId The ID of the `Brand` to which the resource belongs. 
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deleteBrandMetafieldById = function(metafieldId, brandId, callback) {
+    this.deleteBrandMetafieldById = function(metafieldId, brandId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'metafieldId' is set
@@ -1425,20 +1263,14 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteBrands operation.
-     * @callback module:Api/CatalogApi~deleteBrandsCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Deletes one or more &#x60;Brand&#x60; objects from the BigCommerce Catalog. 
+     * Deletes one or more `Brand` objects from the BigCommerce Catalog. 
      * @param {Object} opts Optional parameters
      * @param {String} opts.name Filter items by name. 
      * @param {String} opts.pageTitle Filter items by page_title. 
-     * @param {module:Api/CatalogApi~deleteBrandsCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
     this.deleteBrands = function(opts, callback) {
       opts = opts || {};
@@ -1468,21 +1300,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteBulkPricingRuleById operation.
-     * @callback module:Api/CatalogApi~deleteBulkPricingRuleByIdCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Deletes a Product&#39;s &#x60;BulkPricingRule&#x60;, based on the &#x60;product_id&#x60; and &#x60;bulk_pricing_rule_id&#x60;. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {Number} bulkPricingRuleId The ID of the &#x60;BulkPricingRule&#x60;. 
-     * @param {module:Api/CatalogApi~deleteBulkPricingRuleByIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * Deletes a Product's `BulkPricingRule`, based on the `product_id` and `bulk_pricing_rule_id`. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {Number} bulkPricingRuleId The ID of the `BulkPricingRule`. 
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deleteBulkPricingRuleById = function(productId, bulkPricingRuleId, callback) {
+    this.deleteBulkPricingRuleById = function(productId, bulkPricingRuleId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'productId' is set
@@ -1519,23 +1345,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteCategories operation.
-     * @callback module:Api/CatalogApi~deleteCategoriesCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Deletes one or more &#x60;Category&#x60; objects from the BigCommerce Catalog. 
+     * Deletes one or more `Category` objects from the BigCommerce Catalog. 
      * @param {Object} opts Optional parameters
      * @param {String} opts.name Filter items by name. 
      * @param {Number} opts.parentId Filter items by parent_id. 
      * @param {String} opts.pageTitle Filter items by page_title. 
      * @param {String} opts.keyword Filter items by keywords. 
      * @param {Number} opts.isVisible Filter items by is_visible. 
-     * @param {module:Api/CatalogApi~deleteCategoriesCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
     this.deleteCategories = function(opts, callback) {
       opts = opts || {};
@@ -1568,20 +1388,14 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteCategoryById operation.
-     * @callback module:Api/CatalogApi~deleteCategoryByIdCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Deletes one or more &#x60;Category&#x60; objects from the BigCommerce catalog. 
-     * @param {Number} categoryId The ID of the &#x60;Category&#x60; to which the resource belongs. 
-     * @param {module:Api/CatalogApi~deleteCategoryByIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * Deletes one or more `Category` objects from the BigCommerce catalog. 
+     * @param {Number} categoryId The ID of the `Category` to which the resource belongs. 
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deleteCategoryById = function(categoryId, callback) {
+    this.deleteCategoryById = function(categoryId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'categoryId' is set
@@ -1612,20 +1426,14 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteCategoryImage operation.
-     * @callback module:Api/CatalogApi~deleteCategoryImageCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Deletes a &#x60;Category&#x60; image from the BigCommerce Catalog. 
-     * @param {Number} categoryId The ID of the &#x60;Category&#x60; to which the resource belongs. 
-     * @param {module:Api/CatalogApi~deleteCategoryImageCallback} callback The callback function, accepting three arguments: error, data, response
+     * Deletes a `Category` image from the BigCommerce Catalog. 
+     * @param {Number} categoryId The ID of the `Category` to which the resource belongs. 
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deleteCategoryImage = function(categoryId, callback) {
+    this.deleteCategoryImage = function(categoryId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'categoryId' is set
@@ -1656,21 +1464,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteCategoryMetafieldById operation.
-     * @callback module:Api/CatalogApi~deleteCategoryMetafieldByIdCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Deletes a &#x60;Metafield&#x60;. 
-     * @param {Number} metafieldId The ID of the &#x60;Metafield&#x60;. 
-     * @param {Number} categoryId The ID of the &#x60;Category&#x60; to which the resource belongs. 
-     * @param {module:Api/CatalogApi~deleteCategoryMetafieldByIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * Deletes a `Metafield`. 
+     * @param {Number} metafieldId The ID of the `Metafield`. 
+     * @param {Number} categoryId The ID of the `Category` to which the resource belongs. 
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deleteCategoryMetafieldById = function(metafieldId, categoryId, callback) {
+    this.deleteCategoryMetafieldById = function(metafieldId, categoryId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'metafieldId' is set
@@ -1707,21 +1509,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteComplexRuleById operation.
-     * @callback module:Api/CatalogApi~deleteComplexRuleByIdCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Deletes a Product&#39;s &#x60;ComplexRule&#x60;, based on the &#x60;product_id&#x60; and &#x60;complex_rule_id&#x60;. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {Number} complexRuleId The ID of the &#x60;ComplexRule&#x60;. 
-     * @param {module:Api/CatalogApi~deleteComplexRuleByIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * Deletes a Product's `ComplexRule`, based on the `product_id` and `complex_rule_id`. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {Number} complexRuleId The ID of the `ComplexRule`. 
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deleteComplexRuleById = function(productId, complexRuleId, callback) {
+    this.deleteComplexRuleById = function(productId, complexRuleId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'productId' is set
@@ -1758,21 +1554,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteConfigurableFieldById operation.
-     * @callback module:Api/CatalogApi~deleteConfigurableFieldByIdCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Deletes a Product&#39;s &#x60;ConfigurableField&#x60;, based on the &#x60;product_id&#x60; and &#x60;configurable_field_id&#x60;. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {Number} configurableFieldId The ID of the &#x60;ConfigurableField&#x60;. 
-     * @param {module:Api/CatalogApi~deleteConfigurableFieldByIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * Deletes a Product's `ConfigurableField`, based on the `product_id` and `configurable_field_id`. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {Number} configurableFieldId The ID of the `ConfigurableField`. 
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deleteConfigurableFieldById = function(productId, configurableFieldId, callback) {
+    this.deleteConfigurableFieldById = function(productId, configurableFieldId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'productId' is set
@@ -1809,21 +1599,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteCustomFieldById operation.
-     * @callback module:Api/CatalogApi~deleteCustomFieldByIdCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Deletes a Product&#39;s &#x60;CustomField&#x60;, based on the &#x60;product_id&#x60; and &#x60;custom_field_id&#x60;. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {Number} customFieldId The ID of the &#x60;CustomField&#x60;. 
-     * @param {module:Api/CatalogApi~deleteCustomFieldByIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * Deletes a Product's `CustomField`, based on the `product_id` and `custom_field_id`. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {Number} customFieldId The ID of the `CustomField`. 
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deleteCustomFieldById = function(productId, customFieldId, callback) {
+    this.deleteCustomFieldById = function(productId, customFieldId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'productId' is set
@@ -1860,21 +1644,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteModifierById operation.
-     * @callback module:Api/CatalogApi~deleteModifierByIdCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Deletes a Product&#39;s &#x60;Modifier&#x60; based on the &#x60;product_id&#x60; and &#x60;modifier_id&#x60;. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {Number} modifierId The ID of the &#x60;Modifier&#x60;. 
-     * @param {module:Api/CatalogApi~deleteModifierByIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * Deletes a Product's `Modifier` based on the `product_id` and `modifier_id`. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {Number} modifierId The ID of the `Modifier`. 
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deleteModifierById = function(productId, modifierId, callback) {
+    this.deleteModifierById = function(productId, modifierId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'productId' is set
@@ -1911,22 +1689,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteModifierImage operation.
-     * @callback module:Api/CatalogApi~deleteModifierImageCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Deletes the image that was set to show when the modifier value is selected.
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {Number} modifierId The ID of the &#x60;Modifier&#x60;. 
-     * @param {Number} valueId The ID of the &#x60;Modifier&#x60;. 
-     * @param {module:Api/CatalogApi~deleteModifierImageCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {Number} modifierId The ID of the `Modifier`. 
+     * @param {Number} valueId The ID of the `Modifier`. 
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deleteModifierImage = function(productId, modifierId, valueId, callback) {
+    this.deleteModifierImage = function(productId, modifierId, valueId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'productId' is set
@@ -1969,22 +1741,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteModifierValueById operation.
-     * @callback module:Api/CatalogApi~deleteModifierValueByIdCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Deletes a Product&#39;s &#x60;ModifierValue&#x60; based on the &#x60;product_id&#x60;, &#x60;modifier_id&#x60;, and &#x60;value_id&#x60;. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {Number} modifierId The ID of the &#x60;Modifier&#x60;. 
-     * @param {Number} valueId The ID of the &#x60;Modifier/Option Value&#x60;. 
-     * @param {module:Api/CatalogApi~deleteModifierValueByIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * Deletes a Product's `ModifierValue` based on the `product_id`, `modifier_id`, and `value_id`. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {Number} modifierId The ID of the `Modifier`. 
+     * @param {Number} valueId The ID of the `Modifier/Option Value`. 
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deleteModifierValueById = function(productId, modifierId, valueId, callback) {
+    this.deleteModifierValueById = function(productId, modifierId, valueId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'productId' is set
@@ -2027,21 +1793,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteOptionById operation.
-     * @callback module:Api/CatalogApi~deleteOptionByIdCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Deletes a Product&#39;s &#x60;Option&#x60;, based on the &#x60;product_id&#x60; and &#x60;option_id&#x60;. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {Number} optionId The ID of the &#x60;Option&#x60;. 
-     * @param {module:Api/CatalogApi~deleteOptionByIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * Deletes a Product's `Option`, based on the `product_id` and `option_id`. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {Number} optionId The ID of the `Option`. 
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deleteOptionById = function(productId, optionId, callback) {
+    this.deleteOptionById = function(productId, optionId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'productId' is set
@@ -2078,22 +1838,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteOptionValueById operation.
-     * @callback module:Api/CatalogApi~deleteOptionValueByIdCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Deletes a Product&#39;s &#x60;OptionValue&#x60; based on the &#x60;product_id&#x60;, &#x60;option_id&#x60;, and &#x60;value_id&#x60;. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {Number} optionId The ID of the &#x60;Option&#x60;. 
-     * @param {Number} valueId The ID of the &#x60;Modifier/Option Value&#x60;. 
-     * @param {module:Api/CatalogApi~deleteOptionValueByIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * Deletes a Product's `OptionValue` based on the `product_id`, `option_id`, and `value_id`. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {Number} optionId The ID of the `Option`. 
+     * @param {Number} valueId The ID of the `Modifier/Option Value`. 
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deleteOptionValueById = function(productId, optionId, valueId, callback) {
+    this.deleteOptionValueById = function(productId, optionId, valueId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'productId' is set
@@ -2136,20 +1890,14 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteProductById operation.
-     * @callback module:Api/CatalogApi~deleteProductByIdCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Deletes a &#x60;Product&#x60; object from the BigCommerce Catalog. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {module:Api/CatalogApi~deleteProductByIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * Deletes a `Product` object from the BigCommerce Catalog. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deleteProductById = function(productId, callback) {
+    this.deleteProductById = function(productId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'productId' is set
@@ -2180,21 +1928,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteProductImage operation.
-     * @callback module:Api/CatalogApi~deleteProductImageCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Deletes a &#x60;ProductImage&#x60; in the BigCommerce Catalog. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {Number} imageId The ID of the &#x60;Image&#x60; that is being operated on. 
-     * @param {module:Api/CatalogApi~deleteProductImageCallback} callback The callback function, accepting three arguments: error, data, response
+     * Deletes a `ProductImage` in the BigCommerce Catalog. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {Number} imageId The ID of the `Image` that is being operated on. 
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deleteProductImage = function(productId, imageId, callback) {
+    this.deleteProductImage = function(productId, imageId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'productId' is set
@@ -2231,21 +1973,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteProductMetafieldById operation.
-     * @callback module:Api/CatalogApi~deleteProductMetafieldByIdCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Deletes a &#x60;Metafield&#x60;. 
-     * @param {Number} metafieldId The ID of the &#x60;Metafield&#x60;. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {module:Api/CatalogApi~deleteProductMetafieldByIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * Deletes a `Metafield`. 
+     * @param {Number} metafieldId The ID of the `Metafield`. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deleteProductMetafieldById = function(metafieldId, productId, callback) {
+    this.deleteProductMetafieldById = function(metafieldId, productId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'metafieldId' is set
@@ -2282,21 +2018,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteProductReview operation.
-     * @callback module:Api/CatalogApi~deleteProductReviewCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Deletes a &#x60;ProductReview&#x60; in the BigCommerce Catalog. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {Number} reviewId The ID of the &#x60;review&#x60; that is being operated on. 
-     * @param {module:Api/CatalogApi~deleteProductReviewCallback} callback The callback function, accepting three arguments: error, data, response
+     * Deletes a `ProductReview` in the BigCommerce Catalog. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {Number} reviewId The ID of the `review` that is being operated on. 
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deleteProductReview = function(productId, reviewId, callback) {
+    this.deleteProductReview = function(productId, reviewId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'productId' is set
@@ -2333,21 +2063,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteProductVideo operation.
-     * @callback module:Api/CatalogApi~deleteProductVideoCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Deletes a &#x60;ProductVideo&#x60; in the BigCommerce Catalog. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {String} videoId The ID of the &#x60;Video&#x60; that is being operated on. 
-     * @param {module:Api/CatalogApi~deleteProductVideoCallback} callback The callback function, accepting three arguments: error, data, response
+     * Deletes a `ProductVideo` in the BigCommerce Catalog. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {String} videoId The ID of the `Video` that is being operated on. 
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deleteProductVideo = function(productId, videoId, callback) {
+    this.deleteProductVideo = function(productId, videoId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'productId' is set
@@ -2384,16 +2108,9 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteProducts operation.
-     * @callback module:Api/CatalogApi~deleteProductsCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Deletes one or more &#x60;Product&#x60; objects from the BigCommerce Catalog. 
+     * Deletes one or more `Product` objects from the BigCommerce Catalog. 
      * @param {Object} opts Optional parameters
      * @param {String} opts.name Filter items by name. 
      * @param {String} opts.sku Filter items by sku. 
@@ -2407,10 +2124,11 @@
      * @param {Number} opts.isFeatured Filter items by is_featured. 
      * @param {Number} opts.inventoryLevel Filter items by inventory_level. 
      * @param {Number} opts.totalSold Filter items by total_sold. 
-     * @param {String} opts.type Filter items by type: &#x60;physical&#x60; or &#x60;digital&#x60;. 
+     * @param {String} opts.type Filter items by type: `physical` or `digital`. 
      * @param {Number} opts.categories Filter items by categories. 
-     * @param {String} opts.keyword Filter items by keywords found in the &#x60;name&#x60;, &#x60;description&#x60;, or &#x60;sku&#x60; fields, or in the brand name. 
-     * @param {module:Api/CatalogApi~deleteProductsCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {String} opts.keyword Filter items by keywords found in the `name`, `description`, or `sku` fields, or in the brand name. 
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
     this.deleteProducts = function(opts, callback) {
       opts = opts || {};
@@ -2453,21 +2171,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteVariantById operation.
-     * @callback module:Api/CatalogApi~deleteVariantByIdCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Deletes a &#x60;Variant&#x60;. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
+     * Deletes a `Variant`. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
      * @param {Number} variantId ID of the variant on a product, or on an associated Price List Record. 
-     * @param {module:Api/CatalogApi~deleteVariantByIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deleteVariantById = function(productId, variantId, callback) {
+    this.deleteVariantById = function(productId, variantId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'productId' is set
@@ -2504,22 +2216,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteVariantMetafieldById operation.
-     * @callback module:Api/CatalogApi~deleteVariantMetafieldByIdCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Deletes a &#x60;Metafield&#x60;. 
-     * @param {Number} metafieldId The ID of the &#x60;Metafield&#x60;. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
+     * Deletes a `Metafield`. 
+     * @param {Number} metafieldId The ID of the `Metafield`. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
      * @param {Number} variantId ID of the variant on a product, or on an associated Price List Record. 
-     * @param {module:Api/CatalogApi~deleteVariantMetafieldByIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deleteVariantMetafieldById = function(metafieldId, productId, variantId, callback) {
+    this.deleteVariantMetafieldById = function(metafieldId, productId, variantId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'metafieldId' is set
@@ -2562,22 +2268,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getBrandById operation.
-     * @callback module:Api/CatalogApi~getBrandByIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/BrandResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Gets a &#x60;Brand&#x60; object.
-     * @param {Number} brandId The ID of the &#x60;Brand&#x60; to which the resource belongs. 
+     * Gets a `Brand` object.
+     * @param {Number} brandId The ID of the `Brand` to which the resource belongs. 
      * @param {Object} opts Optional parameters
      * @param {String} opts.includeFields Fields to include, in a comma-separated list. The ID and the specified fields will be returned. 
      * @param {String} opts.excludeFields Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. 
-     * @param {module:Api/CatalogApi~getBrandByIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/BrandResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/BrandResponse} if callback is null
      */
     this.getBrandById = function(brandId, opts, callback) {
       opts = opts || {};
@@ -2613,23 +2313,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getBrandMetafieldByBrandId operation.
-     * @callback module:Api/CatalogApi~getBrandMetafieldByBrandIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/MetafieldResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Gets a &#x60;Metafield&#x60;, by &#x60;category_id&#x60;. 
-     * @param {Number} metafieldId The ID of the &#x60;Metafield&#x60;. 
-     * @param {Number} brandId The ID of the &#x60;Brand&#x60; to which the resource belongs. 
+     * Gets a `Metafield`, by `category_id`. 
+     * @param {Number} metafieldId The ID of the `Metafield`. 
+     * @param {Number} brandId The ID of the `Brand` to which the resource belongs. 
      * @param {Object} opts Optional parameters
      * @param {String} opts.includeFields Fields to include, in a comma-separated list. The ID and the specified fields will be returned. 
      * @param {String} opts.excludeFields Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. 
-     * @param {module:Api/CatalogApi~getBrandMetafieldByBrandIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/MetafieldResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/MetafieldResponse} if callback is null
      */
     this.getBrandMetafieldByBrandId = function(metafieldId, brandId, opts, callback) {
       opts = opts || {};
@@ -2671,26 +2365,20 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getBrandMetafieldsByBrandId operation.
-     * @callback module:Api/CatalogApi~getBrandMetafieldsByBrandIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/MetaFieldCollectionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Gets a &#x60;Metafield&#x60; object list, by &#x60;brand_id&#x60;. 
-     * @param {Number} brandId The ID of the &#x60;Brand&#x60; to which the resource belongs. 
+     * Gets a `Metafield` object list, by `brand_id`. 
+     * @param {Number} brandId The ID of the `Brand` to which the resource belongs. 
      * @param {Object} opts Optional parameters
      * @param {Number} opts.page Specifies the page number in a limited (paginated) list of products. 
      * @param {Number} opts.limit Controls the number of items per page in a limited (paginated) list of products. 
-     * @param {String} opts.key Filter based on a metafield&#39;s key. 
-     * @param {String} opts.namespace Filter based on a metafield&#39;s key. 
+     * @param {String} opts.key Filter based on a metafield's key. 
+     * @param {String} opts.namespace Filter based on a metafield's key. 
      * @param {String} opts.includeFields Fields to include, in a comma-separated list. The ID and the specified fields will be returned. 
      * @param {String} opts.excludeFields Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. 
-     * @param {module:Api/CatalogApi~getBrandMetafieldsByBrandIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/MetaFieldCollectionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/MetaFieldCollectionResponse} if callback is null
      */
     this.getBrandMetafieldsByBrandId = function(brandId, opts, callback) {
       opts = opts || {};
@@ -2730,16 +2418,9 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getBrands operation.
-     * @callback module:Api/CatalogApi~getBrandsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/BrandCollectionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Gets &#x60;Brand&#x60; objects. 
+     * Gets `Brand` objects. 
      * @param {Object} opts Optional parameters
      * @param {String} opts.name Filter items by name. 
      * @param {String} opts.pageTitle Filter items by page_title. 
@@ -2747,8 +2428,9 @@
      * @param {Number} opts.limit Controls the number of items per page in a limited (paginated) list of products. 
      * @param {String} opts.includeFields Fields to include, in a comma-separated list. The ID and the specified fields will be returned. 
      * @param {String} opts.excludeFields Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. 
-     * @param {module:Api/CatalogApi~getBrandsCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/BrandCollectionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/BrandCollectionResponse} if callback is null
      */
     this.getBrands = function(opts, callback) {
       opts = opts || {};
@@ -2782,23 +2464,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getBulkPricingRuleById operation.
-     * @callback module:Api/CatalogApi~getBulkPricingRuleByIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/BulkPricingRuleResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Gets a &#x60;BulkPricingRule&#x60; by &#x60;product_id&#x60; and &#x60;bulk_pricing_rule_id&#x60;. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {Number} bulkPricingRuleId The ID of the &#x60;BulkPricingRule&#x60;. 
+     * Gets a `BulkPricingRule` by `product_id` and `bulk_pricing_rule_id`. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {Number} bulkPricingRuleId The ID of the `BulkPricingRule`. 
      * @param {Object} opts Optional parameters
      * @param {String} opts.includeFields Fields to include, in a comma-separated list. The ID and the specified fields will be returned. 
      * @param {String} opts.excludeFields Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. 
-     * @param {module:Api/CatalogApi~getBulkPricingRuleByIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/BulkPricingRuleResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/BulkPricingRuleResponse} if callback is null
      */
     this.getBulkPricingRuleById = function(productId, bulkPricingRuleId, opts, callback) {
       opts = opts || {};
@@ -2840,24 +2516,18 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getBulkPricingRules operation.
-     * @callback module:Api/CatalogApi~getBulkPricingRulesCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/BulkPricingRuleCollectionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Gets an array of &#x60;BulkPricingRule&#x60; objects.
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
+     * Gets an array of `BulkPricingRule` objects.
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
      * @param {Object} opts Optional parameters
      * @param {Number} opts.page Specifies the page number in a limited (paginated) list of products. 
      * @param {Number} opts.limit Controls the number of items per page in a limited (paginated) list of products. 
      * @param {String} opts.includeFields Fields to include, in a comma-separated list. The ID and the specified fields will be returned. 
      * @param {String} opts.excludeFields Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. 
-     * @param {module:Api/CatalogApi~getBulkPricingRulesCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/BulkPricingRuleCollectionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/BulkPricingRuleCollectionResponse} if callback is null
      */
     this.getBulkPricingRules = function(productId, opts, callback) {
       opts = opts || {};
@@ -2895,13 +2565,6 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getCategories operation.
-     * @callback module:Api/CatalogApi~getCategoriesCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/CategoryCollectionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Returns a paginated categories collection from the BigCommerce Catalog. 
@@ -2915,8 +2578,9 @@
      * @param {Number} opts.limit Controls the number of items per page in a limited (paginated) list of products. 
      * @param {String} opts.includeFields Fields to include, in a comma-separated list. The ID and the specified fields will be returned. 
      * @param {String} opts.excludeFields Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. 
-     * @param {module:Api/CatalogApi~getCategoriesCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/CategoryCollectionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/CategoryCollectionResponse} if callback is null
      */
     this.getCategories = function(opts, callback) {
       opts = opts || {};
@@ -2953,22 +2617,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getCategoryById operation.
-     * @callback module:Api/CatalogApi~getCategoryByIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/CategoryResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Returns a &#x60;Category&#x60; from the BigCommerce Catalog. 
-     * @param {Number} categoryId The ID of the &#x60;Category&#x60; to which the resource belongs. 
+     * Returns a `Category` from the BigCommerce Catalog. 
+     * @param {Number} categoryId The ID of the `Category` to which the resource belongs. 
      * @param {Object} opts Optional parameters
      * @param {String} opts.includeFields Fields to include, in a comma-separated list. The ID and the specified fields will be returned. 
      * @param {String} opts.excludeFields Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. 
-     * @param {module:Api/CatalogApi~getCategoryByIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/CategoryResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/CategoryResponse} if callback is null
      */
     this.getCategoryById = function(categoryId, opts, callback) {
       opts = opts || {};
@@ -3004,23 +2662,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getCategoryMetafieldByCategoryId operation.
-     * @callback module:Api/CatalogApi~getCategoryMetafieldByCategoryIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/MetafieldResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Gets a &#x60;Metafield&#x60; by category_id. 
-     * @param {Number} metafieldId The ID of the &#x60;Metafield&#x60;. 
-     * @param {Number} categoryId The ID of the &#x60;Category&#x60; to which the resource belongs. 
+     * Gets a `Metafield` by category_id. 
+     * @param {Number} metafieldId The ID of the `Metafield`. 
+     * @param {Number} categoryId The ID of the `Category` to which the resource belongs. 
      * @param {Object} opts Optional parameters
      * @param {String} opts.includeFields Fields to include, in a comma-separated list. The ID and the specified fields will be returned. 
      * @param {String} opts.excludeFields Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. 
-     * @param {module:Api/CatalogApi~getCategoryMetafieldByCategoryIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/MetafieldResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/MetafieldResponse} if callback is null
      */
     this.getCategoryMetafieldByCategoryId = function(metafieldId, categoryId, opts, callback) {
       opts = opts || {};
@@ -3062,26 +2714,20 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getCategoryMetafieldsByCategoryId operation.
-     * @callback module:Api/CatalogApi~getCategoryMetafieldsByCategoryIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/MetaFieldCollectionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Gets a &#x60;Metafield&#x60; object list, by category_id. 
-     * @param {Number} categoryId The ID of the &#x60;Category&#x60; to which the resource belongs. 
+     * Gets a `Metafield` object list, by category_id. 
+     * @param {Number} categoryId The ID of the `Category` to which the resource belongs. 
      * @param {Object} opts Optional parameters
      * @param {Number} opts.page Specifies the page number in a limited (paginated) list of products. 
      * @param {Number} opts.limit Controls the number of items per page in a limited (paginated) list of products. 
-     * @param {String} opts.key Filter based on a metafield&#39;s key. 
-     * @param {String} opts.namespace Filter based on a metafield&#39;s key. 
+     * @param {String} opts.key Filter based on a metafield's key. 
+     * @param {String} opts.namespace Filter based on a metafield's key. 
      * @param {String} opts.includeFields Fields to include, in a comma-separated list. The ID and the specified fields will be returned. 
      * @param {String} opts.excludeFields Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. 
-     * @param {module:Api/CatalogApi~getCategoryMetafieldsByCategoryIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/MetaFieldCollectionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/MetaFieldCollectionResponse} if callback is null
      */
     this.getCategoryMetafieldsByCategoryId = function(categoryId, opts, callback) {
       opts = opts || {};
@@ -3121,20 +2767,14 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getCategoryTree operation.
-     * @callback module:Api/CatalogApi~getCategoryTreeCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/CategoryTreeCollectionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Returns the categories tree, a nested lineage of the categories with parent-&gt;child relationship. The &#x60;Category&#x60; objects returned are simplified versions of the category objects returned in the rest of this API. 
-     * @param {module:Api/CatalogApi~getCategoryTreeCallback} callback The callback function, accepting three arguments: error, data, response
+     * Returns the categories tree, a nested lineage of the categories with parent->child relationship. The `Category` objects returned are simplified versions of the category objects returned in the rest of this API. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/CategoryTreeCollectionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/CategoryTreeCollectionResponse} if callback is null
      */
-    this.getCategoryTree = function(callback) {
+    this.getCategoryTree = function(opts, callback) {
       var postBody = null;
 
 
@@ -3159,23 +2799,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getComplexRuleById operation.
-     * @callback module:Api/CatalogApi~getComplexRuleByIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ComplexRuleResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Gets a &#x60;ComplexRule&#x60; by product_id. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {Number} complexRuleId The ID of the &#x60;ComplexRule&#x60;. 
+     * Gets a `ComplexRule` by product_id. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {Number} complexRuleId The ID of the `ComplexRule`. 
      * @param {Object} opts Optional parameters
      * @param {String} opts.includeFields Fields to include, in a comma-separated list. The ID and the specified fields will be returned. 
      * @param {String} opts.excludeFields Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. 
-     * @param {module:Api/CatalogApi~getComplexRuleByIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ComplexRuleResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ComplexRuleResponse} if callback is null
      */
     this.getComplexRuleById = function(productId, complexRuleId, opts, callback) {
       opts = opts || {};
@@ -3217,22 +2851,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getComplexRules operation.
-     * @callback module:Api/CatalogApi~getComplexRulesCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ComplexRuleCollectionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Gets an array of &#x60;ComplexRule&#x60; objects.
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
+     * Gets an array of `ComplexRule` objects.
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
      * @param {Object} opts Optional parameters
      * @param {String} opts.includeFields Fields to include, in a comma-separated list. The ID and the specified fields will be returned. 
      * @param {String} opts.excludeFields Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. 
-     * @param {module:Api/CatalogApi~getComplexRulesCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ComplexRuleCollectionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ComplexRuleCollectionResponse} if callback is null
      */
     this.getComplexRules = function(productId, opts, callback) {
       opts = opts || {};
@@ -3268,23 +2896,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getConfigurableFieldById operation.
-     * @callback module:Api/CatalogApi~getConfigurableFieldByIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ConfigurableFieldResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Gets a &#x60;ConfigurableField&#x60; by &#x60;product_id&#x60; and &#x60;configurable_field_id&#x60;. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {Number} configurableFieldId The ID of the &#x60;ConfigurableField&#x60;. 
+     * Gets a `ConfigurableField` by `product_id` and `configurable_field_id`. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {Number} configurableFieldId The ID of the `ConfigurableField`. 
      * @param {Object} opts Optional parameters
      * @param {String} opts.includeFields Fields to include, in a comma-separated list. The ID and the specified fields will be returned. 
      * @param {String} opts.excludeFields Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. 
-     * @param {module:Api/CatalogApi~getConfigurableFieldByIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ConfigurableFieldResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ConfigurableFieldResponse} if callback is null
      */
     this.getConfigurableFieldById = function(productId, configurableFieldId, opts, callback) {
       opts = opts || {};
@@ -3326,24 +2948,18 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getConfigurableFields operation.
-     * @callback module:Api/CatalogApi~getConfigurableFieldsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ConfigurableFieldCollectionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Gets an array of &#x60;ConfigurableField&#x60; objects.
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
+     * Gets an array of `ConfigurableField` objects.
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
      * @param {Object} opts Optional parameters
      * @param {String} opts.includeFields Fields to include, in a comma-separated list. The ID and the specified fields will be returned. 
      * @param {String} opts.excludeFields Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. 
      * @param {Number} opts.page Specifies the page number in a limited (paginated) list of products. 
      * @param {Number} opts.limit Controls the number of items per page in a limited (paginated) list of products. 
-     * @param {module:Api/CatalogApi~getConfigurableFieldsCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ConfigurableFieldCollectionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ConfigurableFieldCollectionResponse} if callback is null
      */
     this.getConfigurableFields = function(productId, opts, callback) {
       opts = opts || {};
@@ -3381,23 +2997,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getCustomFieldById operation.
-     * @callback module:Api/CatalogApi~getCustomFieldByIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/CustomFieldResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Gets a &#x60;CustomField&#x60; by &#x60;product_id&#x60; and &#x60;custom_field_id&#x60;. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {Number} customFieldId The ID of the &#x60;CustomField&#x60;. 
+     * Gets a `CustomField` by `product_id` and `custom_field_id`. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {Number} customFieldId The ID of the `CustomField`. 
      * @param {Object} opts Optional parameters
      * @param {String} opts.includeFields Fields to include, in a comma-separated list. The ID and the specified fields will be returned. 
      * @param {String} opts.excludeFields Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. 
-     * @param {module:Api/CatalogApi~getCustomFieldByIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/CustomFieldResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/CustomFieldResponse} if callback is null
      */
     this.getCustomFieldById = function(productId, customFieldId, opts, callback) {
       opts = opts || {};
@@ -3439,24 +3049,18 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getCustomFields operation.
-     * @callback module:Api/CatalogApi~getCustomFieldsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/CustomFieldCollectionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Gets an array of &#x60;CustomField&#x60; objects.
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
+     * Gets an array of `CustomField` objects.
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
      * @param {Object} opts Optional parameters
      * @param {String} opts.includeFields Fields to include, in a comma-separated list. The ID and the specified fields will be returned. 
      * @param {String} opts.excludeFields Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. 
      * @param {Number} opts.page Specifies the page number in a limited (paginated) list of products. 
      * @param {Number} opts.limit Controls the number of items per page in a limited (paginated) list of products. 
-     * @param {module:Api/CatalogApi~getCustomFieldsCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/CustomFieldCollectionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/CustomFieldCollectionResponse} if callback is null
      */
     this.getCustomFields = function(productId, opts, callback) {
       opts = opts || {};
@@ -3494,23 +3098,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getModifierById operation.
-     * @callback module:Api/CatalogApi~getModifierByIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ModifierResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Gets a &#x60;Modifier&#x60; by product_id and modifier_id. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {Number} modifierId The ID of the &#x60;Modifier&#x60;. 
+     * Gets a `Modifier` by product_id and modifier_id. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {Number} modifierId The ID of the `Modifier`. 
      * @param {Object} opts Optional parameters
      * @param {String} opts.includeFields Fields to include, in a comma-separated list. The ID and the specified fields will be returned. 
      * @param {String} opts.excludeFields Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. 
-     * @param {module:Api/CatalogApi~getModifierByIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ModifierResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ModifierResponse} if callback is null
      */
     this.getModifierById = function(productId, modifierId, opts, callback) {
       opts = opts || {};
@@ -3552,24 +3150,18 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getModifierValueById operation.
-     * @callback module:Api/CatalogApi~getModifierValueByIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ModifierValueResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Gets a &#x60;ModifierValue&#x60; by &#x60;product_id&#x60;, &#x60;modifier_id&#x60;, and &#x60;value_id&#x60;. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {Number} modifierId The ID of the &#x60;Modifier&#x60;. 
-     * @param {Number} valueId The ID of the &#x60;Modifier/Option Value&#x60;. 
+     * Gets a `ModifierValue` by `product_id`, `modifier_id`, and `value_id`. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {Number} modifierId The ID of the `Modifier`. 
+     * @param {Number} valueId The ID of the `Modifier/Option Value`. 
      * @param {Object} opts Optional parameters
      * @param {String} opts.includeFields Fields to include, in a comma-separated list. The ID and the specified fields will be returned. 
      * @param {String} opts.excludeFields Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. 
-     * @param {module:Api/CatalogApi~getModifierValueByIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ModifierValueResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ModifierValueResponse} if callback is null
      */
     this.getModifierValueById = function(productId, modifierId, valueId, opts, callback) {
       opts = opts || {};
@@ -3617,23 +3209,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getModifierValues operation.
-     * @callback module:Api/CatalogApi~getModifierValuesCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ModifierValueCollectionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Gets an array of &#x60;ModifierValue&#x60; objects.
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {Number} modifierId The ID of the &#x60;Modifier&#x60;. 
+     * Gets an array of `ModifierValue` objects.
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {Number} modifierId The ID of the `Modifier`. 
      * @param {Object} opts Optional parameters
      * @param {String} opts.includeFields Fields to include, in a comma-separated list. The ID and the specified fields will be returned. 
      * @param {String} opts.excludeFields Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. 
-     * @param {module:Api/CatalogApi~getModifierValuesCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ModifierValueCollectionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ModifierValueCollectionResponse} if callback is null
      */
     this.getModifierValues = function(productId, modifierId, opts, callback) {
       opts = opts || {};
@@ -3675,24 +3261,18 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getModifiers operation.
-     * @callback module:Api/CatalogApi~getModifiersCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ModifierCollectionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Gets an array of &#x60;Modifier&#x60; objects.
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
+     * Gets an array of `Modifier` objects.
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
      * @param {Object} opts Optional parameters
      * @param {Number} opts.page Specifies the page number in a limited (paginated) list of products. 
      * @param {Number} opts.limit Controls the number of items per page in a limited (paginated) list of products. 
      * @param {String} opts.includeFields Fields to include, in a comma-separated list. The ID and the specified fields will be returned. 
      * @param {String} opts.excludeFields Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. 
-     * @param {module:Api/CatalogApi~getModifiersCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ModifierCollectionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ModifierCollectionResponse} if callback is null
      */
     this.getModifiers = function(productId, opts, callback) {
       opts = opts || {};
@@ -3730,23 +3310,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getOptionById operation.
-     * @callback module:Api/CatalogApi~getOptionByIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/OptionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Gets &#x60;Option&#x60; object by product ID and option ID.
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {Number} optionId The ID of the &#x60;Option&#x60;. 
+     * Gets `Option` object by product ID and option ID.
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {Number} optionId The ID of the `Option`. 
      * @param {Object} opts Optional parameters
      * @param {String} opts.includeFields Fields to include, in a comma-separated list. The ID and the specified fields will be returned. 
      * @param {String} opts.excludeFields Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. 
-     * @param {module:Api/CatalogApi~getOptionByIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/OptionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/OptionResponse} if callback is null
      */
     this.getOptionById = function(productId, optionId, opts, callback) {
       opts = opts || {};
@@ -3788,24 +3362,18 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getOptionValueById operation.
-     * @callback module:Api/CatalogApi~getOptionValueByIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/OptionValueResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Gets a &#x60;OptionValue&#x60; by &#x60;product_id&#x60;, &#x60;option_id&#x60;, and &#x60;value_id&#x60;. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {Number} optionId The ID of the &#x60;Option&#x60;. 
-     * @param {Number} valueId The ID of the &#x60;Modifier/Option Value&#x60;. 
+     * Gets a `OptionValue` by `product_id`, `option_id`, and `value_id`. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {Number} optionId The ID of the `Option`. 
+     * @param {Number} valueId The ID of the `Modifier/Option Value`. 
      * @param {Object} opts Optional parameters
      * @param {String} opts.includeFields Fields to include, in a comma-separated list. The ID and the specified fields will be returned. 
      * @param {String} opts.excludeFields Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. 
-     * @param {module:Api/CatalogApi~getOptionValueByIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/OptionValueResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/OptionValueResponse} if callback is null
      */
     this.getOptionValueById = function(productId, optionId, valueId, opts, callback) {
       opts = opts || {};
@@ -3853,23 +3421,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getOptionValues operation.
-     * @callback module:Api/CatalogApi~getOptionValuesCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/OptionValueCollectionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Gets an array of &#x60;OptionValue&#x60; objects.
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {Number} optionId The ID of the &#x60;Option&#x60;. 
+     * Gets an array of `OptionValue` objects.
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {Number} optionId The ID of the `Option`. 
      * @param {Object} opts Optional parameters
      * @param {String} opts.includeFields Fields to include, in a comma-separated list. The ID and the specified fields will be returned. 
      * @param {String} opts.excludeFields Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. 
-     * @param {module:Api/CatalogApi~getOptionValuesCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/OptionValueCollectionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/OptionValueCollectionResponse} if callback is null
      */
     this.getOptionValues = function(productId, optionId, opts, callback) {
       opts = opts || {};
@@ -3911,24 +3473,18 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getOptions operation.
-     * @callback module:Api/CatalogApi~getOptionsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/OptionCollectionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Gets an array of &#x60;Option&#x60; objects.
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
+     * Gets an array of `Option` objects.
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
      * @param {Object} opts Optional parameters
      * @param {Number} opts.page Specifies the page number in a limited (paginated) list of products. 
      * @param {Number} opts.limit Controls the number of items per page in a limited (paginated) list of products. 
      * @param {String} opts.includeFields Fields to include, in a comma-separated list. The ID and the specified fields will be returned. 
      * @param {String} opts.excludeFields Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. 
-     * @param {module:Api/CatalogApi~getOptionsCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/OptionCollectionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/OptionCollectionResponse} if callback is null
      */
     this.getOptions = function(productId, opts, callback) {
       opts = opts || {};
@@ -3966,24 +3522,18 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getProductById operation.
-     * @callback module:Api/CatalogApi~getProductByIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ProductResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Returns a &#x60;Product&#x60; from the BigCommerce Catalog. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
+     * Returns a `Product` from the BigCommerce Catalog. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.include Sub-resources to include on a product, in a comma-separated list. Valid expansions currently include &#x60;variants&#x60;, &#x60;images&#x60;, &#39;primary_image&#x60;, &#x60;custom_fields&#x60;, and &#x60;bulk_pricing_rules&#x60;. 
+     * @param {String} opts.include Sub-resources to include on a product, in a comma-separated list. Valid expansions currently include `variants`, `images`, 'primary_image`, `custom_fields`, and `bulk_pricing_rules`. 
      * @param {String} opts.includeFields Fields to include, in a comma-separated list. The ID and the specified fields will be returned. 
      * @param {String} opts.excludeFields Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. 
-     * @param {Number} opts.priceListId The ID of the &#x60;Price List&#x60;. 
-     * @param {module:Api/CatalogApi~getProductByIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {Number} opts.priceListId The ID of the `Price List`. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ProductResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ProductResponse} if callback is null
      */
     this.getProductById = function(productId, opts, callback) {
       opts = opts || {};
@@ -4021,23 +3571,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getProductImageById operation.
-     * @callback module:Api/CatalogApi~getProductImageByIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ProductImageResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Gets image on a product. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {Number} imageId The ID of the &#x60;Image&#x60; that is being operated on. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {Number} imageId The ID of the `Image` that is being operated on. 
      * @param {Object} opts Optional parameters
      * @param {String} opts.includeFields Fields to include, in a comma-separated list. The ID and the specified fields will be returned. 
      * @param {String} opts.excludeFields Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. 
-     * @param {module:Api/CatalogApi~getProductImageByIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ProductImageResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ProductImageResponse} if callback is null
      */
     this.getProductImageById = function(productId, imageId, opts, callback) {
       opts = opts || {};
@@ -4079,24 +3623,18 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getProductImages operation.
-     * @callback module:Api/CatalogApi~getProductImagesCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ProductImageCollectionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Gets all images on a product. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
      * @param {Object} opts Optional parameters
      * @param {Number} opts.page Specifies the page number in a limited (paginated) list of products. 
      * @param {Number} opts.limit Controls the number of items per page in a limited (paginated) list of products. 
      * @param {String} opts.includeFields Fields to include, in a comma-separated list. The ID and the specified fields will be returned. 
      * @param {String} opts.excludeFields Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. 
-     * @param {module:Api/CatalogApi~getProductImagesCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ProductImageCollectionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ProductImageCollectionResponse} if callback is null
      */
     this.getProductImages = function(productId, opts, callback) {
       opts = opts || {};
@@ -4134,23 +3672,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getProductMetafieldByProductId operation.
-     * @callback module:Api/CatalogApi~getProductMetafieldByProductIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/MetafieldResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Gets a &#x60;Metafield&#x60;, by &#x60;product_id&#x60;. 
-     * @param {Number} metafieldId The ID of the &#x60;Metafield&#x60;. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
+     * Gets a `Metafield`, by `product_id`. 
+     * @param {Number} metafieldId The ID of the `Metafield`. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
      * @param {Object} opts Optional parameters
      * @param {String} opts.includeFields Fields to include, in a comma-separated list. The ID and the specified fields will be returned. 
      * @param {String} opts.excludeFields Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. 
-     * @param {module:Api/CatalogApi~getProductMetafieldByProductIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/MetafieldResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/MetafieldResponse} if callback is null
      */
     this.getProductMetafieldByProductId = function(metafieldId, productId, opts, callback) {
       opts = opts || {};
@@ -4192,26 +3724,20 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getProductMetafieldsByProductId operation.
-     * @callback module:Api/CatalogApi~getProductMetafieldsByProductIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/MetaFieldCollectionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Gets a &#x60;Metafield&#x60; object list, by &#x60;product_id&#x60;. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
+     * Gets a `Metafield` object list, by `product_id`. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
      * @param {Object} opts Optional parameters
      * @param {Number} opts.page Specifies the page number in a limited (paginated) list of products. 
      * @param {Number} opts.limit Controls the number of items per page in a limited (paginated) list of products. 
-     * @param {String} opts.key Filter based on a metafield&#39;s key. 
-     * @param {String} opts.namespace Filter based on a metafield&#39;s key. 
+     * @param {String} opts.key Filter based on a metafield's key. 
+     * @param {String} opts.namespace Filter based on a metafield's key. 
      * @param {String} opts.includeFields Fields to include, in a comma-separated list. The ID and the specified fields will be returned. 
      * @param {String} opts.excludeFields Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. 
-     * @param {module:Api/CatalogApi~getProductMetafieldsByProductIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/MetaFieldCollectionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/MetaFieldCollectionResponse} if callback is null
      */
     this.getProductMetafieldsByProductId = function(productId, opts, callback) {
       opts = opts || {};
@@ -4251,23 +3777,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getProductReviewById operation.
-     * @callback module:Api/CatalogApi~getProductReviewByIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ProductReviewResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Gets a product review. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {Number} reviewId The ID of the &#x60;review&#x60; that is being operated on. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {Number} reviewId The ID of the `review` that is being operated on. 
      * @param {Object} opts Optional parameters
      * @param {String} opts.includeFields Fields to include, in a comma-separated list. The ID and the specified fields will be returned. 
      * @param {String} opts.excludeFields Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. 
-     * @param {module:Api/CatalogApi~getProductReviewByIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ProductReviewResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ProductReviewResponse} if callback is null
      */
     this.getProductReviewById = function(productId, reviewId, opts, callback) {
       opts = opts || {};
@@ -4309,24 +3829,18 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getProductReviews operation.
-     * @callback module:Api/CatalogApi~getProductReviewsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ProductReviewCollectionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Gets all reviews on a product. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
      * @param {Object} opts Optional parameters
      * @param {String} opts.includeFields Fields to include, in a comma-separated list. The ID and the specified fields will be returned. 
      * @param {String} opts.excludeFields Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. 
      * @param {Number} opts.page Specifies the page number in a limited (paginated) list of products. 
      * @param {Number} opts.limit Controls the number of items per page in a limited (paginated) list of products. 
-     * @param {module:Api/CatalogApi~getProductReviewsCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ProductReviewCollectionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ProductReviewCollectionResponse} if callback is null
      */
     this.getProductReviews = function(productId, opts, callback) {
       opts = opts || {};
@@ -4364,23 +3878,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getProductVideoById operation.
-     * @callback module:Api/CatalogApi~getProductVideoByIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ProductVideoResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Gets video on a product. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {String} videoId The ID of the &#x60;Video&#x60; that is being operated on. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {String} videoId The ID of the `Video` that is being operated on. 
      * @param {Object} opts Optional parameters
      * @param {String} opts.includeFields Fields to include, in a comma-separated list. The ID and the specified fields will be returned. 
      * @param {String} opts.excludeFields Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. 
-     * @param {module:Api/CatalogApi~getProductVideoByIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ProductVideoResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ProductVideoResponse} if callback is null
      */
     this.getProductVideoById = function(productId, videoId, opts, callback) {
       opts = opts || {};
@@ -4422,22 +3930,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getProductVideos operation.
-     * @callback module:Api/CatalogApi~getProductVideosCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ProductVideoCollectionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Gets all videos on a product. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
      * @param {Object} opts Optional parameters
      * @param {String} opts.includeFields Fields to include, in a comma-separated list. The ID and the specified fields will be returned. 
      * @param {String} opts.excludeFields Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. 
-     * @param {module:Api/CatalogApi~getProductVideosCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ProductVideoCollectionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ProductVideoCollectionResponse} if callback is null
      */
     this.getProductVideos = function(productId, opts, callback) {
       opts = opts || {};
@@ -4473,16 +3975,9 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getProducts operation.
-     * @callback module:Api/CatalogApi~getProductsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ProductCollectionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Returns a paginated collection of &#x60;Products&#x60; objects from the BigCommerce Catalog. 
+     * Returns a paginated collection of `Products` objects from the BigCommerce Catalog. 
      * @param {Object} opts Optional parameters
      * @param {Number} opts.id Filter items by id. 
      * @param {String} opts.name Filter items by name. 
@@ -4499,24 +3994,25 @@
      * @param {Number} opts.isFreeShipping Filter items by is_free_shipping. 
      * @param {Number} opts.inventoryLevel Filter items by inventory_level. 
      * @param {Number} opts.inventoryLow Filter items by inventory_low. Values: 1, 0. 
-     * @param {Number} opts.outOfStock Filter items by out_of_stock. To enable the filter, pass &#x60;out_of_stock&#x60;&#x3D;&#x60;1&#x60;. 
+     * @param {Number} opts.outOfStock Filter items by out_of_stock. To enable the filter, pass `out_of_stock`=`1`. 
      * @param {Number} opts.totalSold Filter items by total_sold. 
-     * @param {String} opts.type Filter items by type: &#x60;physical&#x60; or &#x60;digital&#x60;. 
+     * @param {String} opts.type Filter items by type: `physical` or `digital`. 
      * @param {Number} opts.categories Filter items by categories. 
-     * @param {String} opts.keyword Filter items by keywords found in the &#x60;name&#x60;, &#x60;description&#x60;, or &#x60;sku&#x60; fields, or in the brand name. 
+     * @param {String} opts.keyword Filter items by keywords found in the `name`, `description`, or `sku` fields, or in the brand name. 
      * @param {String} opts.keywordContext Set context for a product search. 
      * @param {Number} opts.status Filter items by status. 
-     * @param {String} opts.include Sub-resources to include on a product, in a comma-separated list. Valid expansions currently include &#x60;variants&#x60;, &#x60;images&#x60;, &#39;primary_image&#x60;, &#x60;custom_fields&#x60;, and &#x60;bulk_pricing_rules&#x60;. 
+     * @param {String} opts.include Sub-resources to include on a product, in a comma-separated list. Valid expansions currently include `variants`, `images`, 'primary_image`, `custom_fields`, and `bulk_pricing_rules`. 
      * @param {String} opts.includeFields Fields to include, in a comma-separated list. The ID and the specified fields will be returned. 
      * @param {String} opts.excludeFields Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. 
      * @param {String} opts.availability Filter items by availability. Values are: available, disabled, preorder. 
-     * @param {Number} opts.priceListId The ID of the &#x60;Price List&#x60;. 
+     * @param {Number} opts.priceListId The ID of the `Price List`. 
      * @param {Number} opts.page Specifies the page number in a limited (paginated) list of products. 
      * @param {Number} opts.limit Controls the number of items per page in a limited (paginated) list of products. 
-     * @param {String} opts.direction Sort direction. Acceptable values are: &#x60;asc&#x60;, &#x60;desc&#x60;. 
+     * @param {String} opts.direction Sort direction. Acceptable values are: `asc`, `desc`. 
      * @param {String} opts.sort Field name to sort by. 
-     * @param {module:Api/CatalogApi~getProductsCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ProductCollectionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ProductCollectionResponse} if callback is null
      */
     this.getProducts = function(opts, callback) {
       opts = opts || {};
@@ -4575,23 +4071,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getVariantById operation.
-     * @callback module:Api/CatalogApi~getVariantByIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/VariantResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Gets a &#x60;Variant&#x60; object.
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
+     * Gets a `Variant` object.
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
      * @param {Number} variantId ID of the variant on a product, or on an associated Price List Record. 
      * @param {Object} opts Optional parameters
      * @param {String} opts.includeFields Fields to include, in a comma-separated list. The ID and the specified fields will be returned. 
      * @param {String} opts.excludeFields Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. 
-     * @param {module:Api/CatalogApi~getVariantByIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/VariantResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/VariantResponse} if callback is null
      */
     this.getVariantById = function(productId, variantId, opts, callback) {
       opts = opts || {};
@@ -4633,24 +4123,18 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getVariantMetafieldByProductIdAndVariantId operation.
-     * @callback module:Api/CatalogApi~getVariantMetafieldByProductIdAndVariantIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/MetafieldResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Gets a &#x60;Metafield&#x60;, by &#x60;product_id&#x60; and &#x60;variant_id&#x60;. 
-     * @param {Number} metafieldId The ID of the &#x60;Metafield&#x60;. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
+     * Gets a `Metafield`, by `product_id` and `variant_id`. 
+     * @param {Number} metafieldId The ID of the `Metafield`. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
      * @param {Number} variantId ID of the variant on a product, or on an associated Price List Record. 
      * @param {Object} opts Optional parameters
      * @param {String} opts.includeFields Fields to include, in a comma-separated list. The ID and the specified fields will be returned. 
      * @param {String} opts.excludeFields Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. 
-     * @param {module:Api/CatalogApi~getVariantMetafieldByProductIdAndVariantIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/MetafieldResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/MetafieldResponse} if callback is null
      */
     this.getVariantMetafieldByProductIdAndVariantId = function(metafieldId, productId, variantId, opts, callback) {
       opts = opts || {};
@@ -4698,27 +4182,21 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getVariantMetafieldsByProductIdAndVariantId operation.
-     * @callback module:Api/CatalogApi~getVariantMetafieldsByProductIdAndVariantIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/MetaFieldCollectionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Gets a &#x60;Metafield&#x60; object list, by &#x60;product_id&#x60; and &#x60;variant_id&#x60;. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
+     * Gets a `Metafield` object list, by `product_id` and `variant_id`. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
      * @param {Number} variantId ID of the variant on a product, or on an associated Price List Record. 
      * @param {Object} opts Optional parameters
      * @param {Number} opts.page Specifies the page number in a limited (paginated) list of products. 
      * @param {Number} opts.limit Controls the number of items per page in a limited (paginated) list of products. 
-     * @param {String} opts.key Filter based on a metafield&#39;s key. 
-     * @param {String} opts.namespace Filter based on a metafield&#39;s key. 
+     * @param {String} opts.key Filter based on a metafield's key. 
+     * @param {String} opts.namespace Filter based on a metafield's key. 
      * @param {String} opts.includeFields Fields to include, in a comma-separated list. The ID and the specified fields will be returned. 
      * @param {String} opts.excludeFields Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. 
-     * @param {module:Api/CatalogApi~getVariantMetafieldsByProductIdAndVariantIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/MetaFieldCollectionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/MetaFieldCollectionResponse} if callback is null
      */
     this.getVariantMetafieldsByProductIdAndVariantId = function(productId, variantId, opts, callback) {
       opts = opts || {};
@@ -4764,16 +4242,9 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getVariants operation.
-     * @callback module:Api/CatalogApi~getVariantsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/VariantCollectionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Returns a &#x60;Variant&#x60; object list from the BigCommerce Catalog. 
+     * Returns a `Variant` object list from the BigCommerce Catalog. 
      * @param {Object} opts Optional parameters
      * @param {Number} opts.id Filter items by id. 
      * @param {String} opts.sku Filter items by sku. 
@@ -4781,8 +4252,9 @@
      * @param {Number} opts.limit Controls the number of items per page in a limited (paginated) list of products. 
      * @param {String} opts.includeFields Fields to include, in a comma-separated list. The ID and the specified fields will be returned. 
      * @param {String} opts.excludeFields Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. 
-     * @param {module:Api/CatalogApi~getVariantsCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/VariantCollectionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/VariantCollectionResponse} if callback is null
      */
     this.getVariants = function(opts, callback) {
       opts = opts || {};
@@ -4816,24 +4288,18 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getVariantsByProductId operation.
-     * @callback module:Api/CatalogApi~getVariantsByProductIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/VariantCollectionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Returns a &#x60;Variant&#x60; object list from the BigCommerce Catalog. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
+     * Returns a `Variant` object list from the BigCommerce Catalog. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
      * @param {Object} opts Optional parameters
      * @param {Number} opts.page Specifies the page number in a limited (paginated) list of products. 
      * @param {Number} opts.limit Controls the number of items per page in a limited (paginated) list of products. 
      * @param {String} opts.includeFields Fields to include, in a comma-separated list. The ID and the specified fields will be returned. 
      * @param {String} opts.excludeFields Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. 
-     * @param {module:Api/CatalogApi~getVariantsByProductIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/VariantCollectionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/VariantCollectionResponse} if callback is null
      */
     this.getVariantsByProductId = function(productId, opts, callback) {
       opts = opts || {};
@@ -4871,22 +4337,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the updateBrand operation.
-     * @callback module:Api/CatalogApi~updateBrandCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/BrandResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Updates a &#x60;Brand&#x60; in the BigCommerce Catalog. 
-     * @param {Number} brandId The ID of the &#x60;Brand&#x60; to which the resource belongs. 
-     * @param {module:Model/BrandPut} brand Returns a &#x60;Brand&#x60; from the BigCommerce Catalog. 
-     * @param {module:Api/CatalogApi~updateBrandCallback} callback The callback function, accepting three arguments: error, data, response
+     * Updates a `Brand` in the BigCommerce Catalog. 
+     * @param {Number} brandId The ID of the `Brand` to which the resource belongs. 
+     * @param {module:Model/BrandPut} brand Returns a `Brand` from the BigCommerce Catalog. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/BrandResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/BrandResponse} if callback is null
      */
-    this.updateBrand = function(brandId, brand, callback) {
+    this.updateBrand = function(brandId, brand, opts, callback) {
       var postBody = brand;
 
       // verify the required parameter 'brandId' is set
@@ -4922,23 +4382,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the updateBrandMetafield operation.
-     * @callback module:Api/CatalogApi~updateBrandMetafieldCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/MetafieldResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Updates a &#x60;Metafield&#x60; object.
-     * @param {Number} metafieldId The ID of the &#x60;Metafield&#x60;. 
-     * @param {Number} brandId The ID of the &#x60;Brand&#x60; to which the resource belongs. 
-     * @param {module:Model/MetafieldPut} metafield A &#x60;Metafield&#x60; object. 
-     * @param {module:Api/CatalogApi~updateBrandMetafieldCallback} callback The callback function, accepting three arguments: error, data, response
+     * Updates a `Metafield` object.
+     * @param {Number} metafieldId The ID of the `Metafield`. 
+     * @param {Number} brandId The ID of the `Brand` to which the resource belongs. 
+     * @param {module:Model/MetafieldPut} metafield A `Metafield` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/MetafieldResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/MetafieldResponse} if callback is null
      */
-    this.updateBrandMetafield = function(metafieldId, brandId, metafield, callback) {
+    this.updateBrandMetafield = function(metafieldId, brandId, metafield, opts, callback) {
       var postBody = metafield;
 
       // verify the required parameter 'metafieldId' is set
@@ -4980,23 +4434,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the updateBulkPricingRule operation.
-     * @callback module:Api/CatalogApi~updateBulkPricingRuleCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/BulkPricingRuleResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Updates a Product&#39;s &#x60;BulkPricingRule&#x60;, based on the &#x60;product_id&#x60; and &#x60;bulk_pricing_rule_id&#x60;. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {Number} bulkPricingRuleId The ID of the &#x60;BulkPricingRule&#x60;. 
-     * @param {module:Model/BulkPricingRulePut} bulkPricingRule &#x60;BulkPricingRule&#x60; object. 
-     * @param {module:Api/CatalogApi~updateBulkPricingRuleCallback} callback The callback function, accepting three arguments: error, data, response
+     * Updates a Product's `BulkPricingRule`, based on the `product_id` and `bulk_pricing_rule_id`. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {Number} bulkPricingRuleId The ID of the `BulkPricingRule`. 
+     * @param {module:Model/BulkPricingRulePut} bulkPricingRule `BulkPricingRule` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/BulkPricingRuleResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/BulkPricingRuleResponse} if callback is null
      */
-    this.updateBulkPricingRule = function(productId, bulkPricingRuleId, bulkPricingRule, callback) {
+    this.updateBulkPricingRule = function(productId, bulkPricingRuleId, bulkPricingRule, opts, callback) {
       var postBody = bulkPricingRule;
 
       // verify the required parameter 'productId' is set
@@ -5038,22 +4486,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the updateCategory operation.
-     * @callback module:Api/CatalogApi~updateCategoryCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/CategoryResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Updates a &#x60;Category&#x60; in the BigCommerce Catalog. 
-     * @param {Number} categoryId The ID of the &#x60;Category&#x60; to which the resource belongs. 
-     * @param {module:Model/CategoryPut} category A BigCommerce &#x60;Category&#x60; object. 
-     * @param {module:Api/CatalogApi~updateCategoryCallback} callback The callback function, accepting three arguments: error, data, response
+     * Updates a `Category` in the BigCommerce Catalog. 
+     * @param {Number} categoryId The ID of the `Category` to which the resource belongs. 
+     * @param {module:Model/CategoryPut} category A BigCommerce `Category` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/CategoryResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/CategoryResponse} if callback is null
      */
-    this.updateCategory = function(categoryId, category, callback) {
+    this.updateCategory = function(categoryId, category, opts, callback) {
       var postBody = category;
 
       // verify the required parameter 'categoryId' is set
@@ -5089,23 +4531,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the updateCategoryMetafield operation.
-     * @callback module:Api/CatalogApi~updateCategoryMetafieldCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/MetafieldResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Updates a &#x60;Metafield&#x60; object.
-     * @param {Number} metafieldId The ID of the &#x60;Metafield&#x60;. 
-     * @param {Number} categoryId The ID of the &#x60;Category&#x60; to which the resource belongs. 
-     * @param {module:Model/MetafieldPut} metafield A &#x60;Metafield&#x60; object. 
-     * @param {module:Api/CatalogApi~updateCategoryMetafieldCallback} callback The callback function, accepting three arguments: error, data, response
+     * Updates a `Metafield` object.
+     * @param {Number} metafieldId The ID of the `Metafield`. 
+     * @param {Number} categoryId The ID of the `Category` to which the resource belongs. 
+     * @param {module:Model/MetafieldPut} metafield A `Metafield` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/MetafieldResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/MetafieldResponse} if callback is null
      */
-    this.updateCategoryMetafield = function(metafieldId, categoryId, metafield, callback) {
+    this.updateCategoryMetafield = function(metafieldId, categoryId, metafield, opts, callback) {
       var postBody = metafield;
 
       // verify the required parameter 'metafieldId' is set
@@ -5147,23 +4583,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the updateComplexRule operation.
-     * @callback module:Api/CatalogApi~updateComplexRuleCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ComplexRuleResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Updates a Product&#39;s &#x60;ComplexRule&#x60;, based on the &#x60;product_id&#x60; and &#x60;complex_rule_id&#x60;. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {Number} complexRuleId The ID of the &#x60;ComplexRule&#x60;. 
-     * @param {module:Model/ComplexRulePut} complexRule &#x60;ComplexRule&#x60; object. 
-     * @param {module:Api/CatalogApi~updateComplexRuleCallback} callback The callback function, accepting three arguments: error, data, response
+     * Updates a Product's `ComplexRule`, based on the `product_id` and `complex_rule_id`. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {Number} complexRuleId The ID of the `ComplexRule`. 
+     * @param {module:Model/ComplexRulePut} complexRule `ComplexRule` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ComplexRuleResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ComplexRuleResponse} if callback is null
      */
-    this.updateComplexRule = function(productId, complexRuleId, complexRule, callback) {
+    this.updateComplexRule = function(productId, complexRuleId, complexRule, opts, callback) {
       var postBody = complexRule;
 
       // verify the required parameter 'productId' is set
@@ -5205,23 +4635,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the updateConfigurableField operation.
-     * @callback module:Api/CatalogApi~updateConfigurableFieldCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ConfigurableFieldResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Updates a Product&#39;s &#x60;ConfigurableField&#x60;, based on the &#x60;product_id&#x60; and &#x60;configurable_field_id&#x60;. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {Number} configurableFieldId The ID of the &#x60;ConfigurableField&#x60;. 
-     * @param {module:Model/ConfigurableFieldPut} configurableField &#x60;ConfigurableField&#x60; object. 
-     * @param {module:Api/CatalogApi~updateConfigurableFieldCallback} callback The callback function, accepting three arguments: error, data, response
+     * Updates a Product's `ConfigurableField`, based on the `product_id` and `configurable_field_id`. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {Number} configurableFieldId The ID of the `ConfigurableField`. 
+     * @param {module:Model/ConfigurableFieldPut} configurableField `ConfigurableField` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ConfigurableFieldResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ConfigurableFieldResponse} if callback is null
      */
-    this.updateConfigurableField = function(productId, configurableFieldId, configurableField, callback) {
+    this.updateConfigurableField = function(productId, configurableFieldId, configurableField, opts, callback) {
       var postBody = configurableField;
 
       // verify the required parameter 'productId' is set
@@ -5263,23 +4687,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the updateCustomField operation.
-     * @callback module:Api/CatalogApi~updateCustomFieldCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/CustomFieldResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Updates a Product&#39;s &#x60;CustomField&#x60;, based on the &#x60;product_id&#x60; and &#x60;custom_field_id&#x60;. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {Number} customFieldId The ID of the &#x60;CustomField&#x60;. 
-     * @param {module:Model/CustomFieldPut} customField &#x60;CustomField&#x60; object. 
-     * @param {module:Api/CatalogApi~updateCustomFieldCallback} callback The callback function, accepting three arguments: error, data, response
+     * Updates a Product's `CustomField`, based on the `product_id` and `custom_field_id`. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {Number} customFieldId The ID of the `CustomField`. 
+     * @param {module:Model/CustomFieldPut} customField `CustomField` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/CustomFieldResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/CustomFieldResponse} if callback is null
      */
-    this.updateCustomField = function(productId, customFieldId, customField, callback) {
+    this.updateCustomField = function(productId, customFieldId, customField, opts, callback) {
       var postBody = customField;
 
       // verify the required parameter 'productId' is set
@@ -5321,23 +4739,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the updateModifier operation.
-     * @callback module:Api/CatalogApi~updateModifierCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ModifierResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Updates a Product&#39;s &#x60;Modifier&#x60; based on the &#x60;product_id&#x60; and &#x60;modifier_id&#x60;. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {Number} modifierId The ID of the &#x60;Modifier&#x60;. 
-     * @param {module:Model/ModifierPut} modifier A BigCommerce &#x60;Modifier&#x60; object. 
-     * @param {module:Api/CatalogApi~updateModifierCallback} callback The callback function, accepting three arguments: error, data, response
+     * Updates a Product's `Modifier` based on the `product_id` and `modifier_id`. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {Number} modifierId The ID of the `Modifier`. 
+     * @param {module:Model/ModifierPut} modifier A BigCommerce `Modifier` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ModifierResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ModifierResponse} if callback is null
      */
-    this.updateModifier = function(productId, modifierId, modifier, callback) {
+    this.updateModifier = function(productId, modifierId, modifier, opts, callback) {
       var postBody = modifier;
 
       // verify the required parameter 'productId' is set
@@ -5379,24 +4791,18 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the updateModifierValue operation.
-     * @callback module:Api/CatalogApi~updateModifierValueCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ModifierValueResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Updates a Product&#39;s &#x60;ModifierValue&#x60; based on the &#x60;product_id&#x60;, &#x60;modifier_id&#x60;, and &#x60;value_id&#x60;. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {Number} modifierId The ID of the &#x60;Modifier&#x60;. 
-     * @param {Number} valueId The ID of the &#x60;Modifier/Option Value&#x60;. 
-     * @param {module:Model/ModifierValuePut} modifierValue A BigCommerce &#x60;ModifierValue&#x60; object. 
-     * @param {module:Api/CatalogApi~updateModifierValueCallback} callback The callback function, accepting three arguments: error, data, response
+     * Updates a Product's `ModifierValue` based on the `product_id`, `modifier_id`, and `value_id`. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {Number} modifierId The ID of the `Modifier`. 
+     * @param {Number} valueId The ID of the `Modifier/Option Value`. 
+     * @param {module:Model/ModifierValuePut} modifierValue A BigCommerce `ModifierValue` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ModifierValueResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ModifierValueResponse} if callback is null
      */
-    this.updateModifierValue = function(productId, modifierId, valueId, modifierValue, callback) {
+    this.updateModifierValue = function(productId, modifierId, valueId, modifierValue, opts, callback) {
       var postBody = modifierValue;
 
       // verify the required parameter 'productId' is set
@@ -5444,23 +4850,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the updateOption operation.
-     * @callback module:Api/CatalogApi~updateOptionCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/OptionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Updates a Product&#39;s &#x60;Option&#x60;, based on the &#x60;product_id&#x60; and &#x60;option_id&#x60;. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {Number} optionId The ID of the &#x60;Option&#x60;. 
-     * @param {module:Model/OptionPut} option A BigCommerce &#x60;Option&#x60; object. 
-     * @param {module:Api/CatalogApi~updateOptionCallback} callback The callback function, accepting three arguments: error, data, response
+     * Updates a Product's `Option`, based on the `product_id` and `option_id`. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {Number} optionId The ID of the `Option`. 
+     * @param {module:Model/OptionPut} option A BigCommerce `Option` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/OptionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/OptionResponse} if callback is null
      */
-    this.updateOption = function(productId, optionId, option, callback) {
+    this.updateOption = function(productId, optionId, option, opts, callback) {
       var postBody = option;
 
       // verify the required parameter 'productId' is set
@@ -5502,24 +4902,18 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the updateOptionValue operation.
-     * @callback module:Api/CatalogApi~updateOptionValueCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/OptionValueResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Updates a Product&#39;s &#x60;OptionValue&#x60; based on the &#x60;product_id&#x60;, &#x60;option_id&#x60;, and &#x60;value_id&#x60;. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {Number} optionId The ID of the &#x60;Option&#x60;. 
-     * @param {Number} valueId The ID of the &#x60;Modifier/Option Value&#x60;. 
-     * @param {module:Model/OptionValuePut} optionValue A BigCommerce &#x60;OptionValue&#x60; object. 
-     * @param {module:Api/CatalogApi~updateOptionValueCallback} callback The callback function, accepting three arguments: error, data, response
+     * Updates a Product's `OptionValue` based on the `product_id`, `option_id`, and `value_id`. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {Number} optionId The ID of the `Option`. 
+     * @param {Number} valueId The ID of the `Modifier/Option Value`. 
+     * @param {module:Model/OptionValuePut} optionValue A BigCommerce `OptionValue` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/OptionValueResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/OptionValueResponse} if callback is null
      */
-    this.updateOptionValue = function(productId, optionId, valueId, optionValue, callback) {
+    this.updateOptionValue = function(productId, optionId, valueId, optionValue, opts, callback) {
       var postBody = optionValue;
 
       // verify the required parameter 'productId' is set
@@ -5567,22 +4961,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the updateProduct operation.
-     * @callback module:Api/CatalogApi~updateProductCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ProductResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Updates a &#x60;Product&#x60; in the BigCommerce Catalog. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {module:Model/ProductPut} product A BigCommerce &#x60;Product&#x60; object. 
-     * @param {module:Api/CatalogApi~updateProductCallback} callback The callback function, accepting three arguments: error, data, response
+     * Updates a `Product` in the BigCommerce Catalog. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {module:Model/ProductPut} product A BigCommerce `Product` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ProductResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ProductResponse} if callback is null
      */
-    this.updateProduct = function(productId, product, callback) {
+    this.updateProduct = function(productId, product, opts, callback) {
       var postBody = product;
 
       // verify the required parameter 'productId' is set
@@ -5618,23 +5006,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the updateProductImage operation.
-     * @callback module:Api/CatalogApi~updateProductImageCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ProductImageResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Updates an image on a product. Publicly accessible URLs and files (form post) are valid parameters. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {Number} imageId The ID of the &#x60;Image&#x60; that is being operated on. 
-     * @param {module:Model/ProductImagePut} productImage A BigCommerce &#x60;ProductImage&#x60; object. 
-     * @param {module:Api/CatalogApi~updateProductImageCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {Number} imageId The ID of the `Image` that is being operated on. 
+     * @param {module:Model/ProductImagePut} productImage A BigCommerce `ProductImage` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ProductImageResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ProductImageResponse} if callback is null
      */
-    this.updateProductImage = function(productId, imageId, productImage, callback) {
+    this.updateProductImage = function(productId, imageId, productImage, opts, callback) {
       var postBody = productImage;
 
       // verify the required parameter 'productId' is set
@@ -5676,23 +5058,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the updateProductMetafield operation.
-     * @callback module:Api/CatalogApi~updateProductMetafieldCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/MetafieldResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Updates a &#x60;Metafield&#x60; object.
-     * @param {Number} metafieldId The ID of the &#x60;Metafield&#x60;. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {module:Model/MetafieldPut} metafield A &#x60;Metafield&#x60; object. 
-     * @param {module:Api/CatalogApi~updateProductMetafieldCallback} callback The callback function, accepting three arguments: error, data, response
+     * Updates a `Metafield` object.
+     * @param {Number} metafieldId The ID of the `Metafield`. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {module:Model/MetafieldPut} metafield A `Metafield` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/MetafieldResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/MetafieldResponse} if callback is null
      */
-    this.updateProductMetafield = function(metafieldId, productId, metafield, callback) {
+    this.updateProductMetafield = function(metafieldId, productId, metafield, opts, callback) {
       var postBody = metafield;
 
       // verify the required parameter 'metafieldId' is set
@@ -5734,23 +5110,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the updateProductReview operation.
-     * @callback module:Api/CatalogApi~updateProductReviewCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ProductReviewResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Updates a product review. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {Number} reviewId The ID of the &#x60;review&#x60; that is being operated on. 
-     * @param {module:Model/ProductReviewPut} productReview A BigCommerce &#x60;ProductReview&#x60; object. 
-     * @param {module:Api/CatalogApi~updateProductReviewCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {Number} reviewId The ID of the `review` that is being operated on. 
+     * @param {module:Model/ProductReviewPut} productReview A BigCommerce `ProductReview` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ProductReviewResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ProductReviewResponse} if callback is null
      */
-    this.updateProductReview = function(productId, reviewId, productReview, callback) {
+    this.updateProductReview = function(productId, reviewId, productReview, opts, callback) {
       var postBody = productReview;
 
       // verify the required parameter 'productId' is set
@@ -5792,23 +5162,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the updateProductVideo operation.
-     * @callback module:Api/CatalogApi~updateProductVideoCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ProductVideoResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Updates a video on a product. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
-     * @param {String} videoId The ID of the &#x60;Video&#x60; that is being operated on. 
-     * @param {module:Model/ProductVideoPut} productVideo A BigCommerce &#x60;ProductVideo&#x60; object. 
-     * @param {module:Api/CatalogApi~updateProductVideoCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
+     * @param {String} videoId The ID of the `Video` that is being operated on. 
+     * @param {module:Model/ProductVideoPut} productVideo A BigCommerce `ProductVideo` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ProductVideoResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ProductVideoResponse} if callback is null
      */
-    this.updateProductVideo = function(productId, videoId, productVideo, callback) {
+    this.updateProductVideo = function(productId, videoId, productVideo, opts, callback) {
       var postBody = productVideo;
 
       // verify the required parameter 'productId' is set
@@ -5850,23 +5214,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the updateVariant operation.
-     * @callback module:Api/CatalogApi~updateVariantCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/VariantResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Updates a &#x60;Variant&#x60; object.
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
+     * Updates a `Variant` object.
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
      * @param {Number} variantId ID of the variant on a product, or on an associated Price List Record. 
-     * @param {module:Model/VariantPut} variant A &#x60;Variant&#x60; object. 
-     * @param {module:Api/CatalogApi~updateVariantCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:Model/VariantPut} variant A `Variant` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/VariantResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/VariantResponse} if callback is null
      */
-    this.updateVariant = function(productId, variantId, variant, callback) {
+    this.updateVariant = function(productId, variantId, variant, opts, callback) {
       var postBody = variant;
 
       // verify the required parameter 'productId' is set
@@ -5908,24 +5266,18 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the updateVariantMetafield operation.
-     * @callback module:Api/CatalogApi~updateVariantMetafieldCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/MetafieldResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Updates a &#x60;Metafield&#x60; object.
-     * @param {Number} metafieldId The ID of the &#x60;Metafield&#x60;. 
-     * @param {Number} productId The ID of the &#x60;Product&#x60; to which the resource belongs. 
+     * Updates a `Metafield` object.
+     * @param {Number} metafieldId The ID of the `Metafield`. 
+     * @param {Number} productId The ID of the `Product` to which the resource belongs. 
      * @param {Number} variantId ID of the variant on a product, or on an associated Price List Record. 
-     * @param {module:Model/MetafieldPut} metafield A &#x60;Metafield&#x60; object. 
-     * @param {module:Api/CatalogApi~updateVariantMetafieldCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:Model/MetafieldPut} metafield A `Metafield` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/MetafieldResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/MetafieldResponse} if callback is null
      */
-    this.updateVariantMetafield = function(metafieldId, productId, variantId, metafield, callback) {
+    this.updateVariantMetafield = function(metafieldId, productId, variantId, metafield, opts, callback) {
       var postBody = metafield;
 
       // verify the required parameter 'metafieldId' is set

@@ -45,21 +45,15 @@
     this.apiClient = apiClient || ApiClient.instance;
 
 
-    /**
-     * Callback function to receive the result of the activateStoreTheme operation.
-     * @callback module:Api/ThemesApi~activateStoreThemeCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/NoContent} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Activates a store theme.
      * @param {module:Model/Activate} body Request parameters.
-     * @param {module:Api/ThemesApi~activateStoreThemeCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/NoContent}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/NoContent} if callback is null
      */
-    this.activateStoreTheme = function(body, callback) {
+    this.activateStoreTheme = function(body, opts, callback) {
       var postBody = body;
 
       // verify the required parameter 'body' is set
@@ -89,21 +83,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteStoreTheme operation.
-     * @callback module:Api/ThemesApi~deleteStoreThemeCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/NoContent} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Deletes a specified store theme.
      * @param {String} themeId The theme identifier.
-     * @param {module:Api/ThemesApi~deleteStoreThemeCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/NoContent}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/NoContent} if callback is null
      */
-    this.deleteStoreTheme = function(themeId, callback) {
+    this.deleteStoreTheme = function(themeId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'themeId' is set
@@ -134,22 +122,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the downloadTheme operation.
-     * @callback module:Api/ThemesApi~downloadThemeCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/JobId} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Downloads a specified store theme.
      * @param {String} themeId The theme identifier.
-     * @param {module:Model/WhichThemeToDownload} which A BigCommerce object specifying which theme to download. One of: &#x60;original&#x60;: the original Marketplace or uploaded custom theme; &#x60;last_activated&#x60;: the theme version most recently applied to the store; &#x60;last_created&#x60;: the theme version most recently created. If &#x60;which&#x60; is missing or invalid in the request, its value will default to &#x60;last_activated&#x60;. 
-     * @param {module:Api/ThemesApi~downloadThemeCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:Model/WhichThemeToDownload} which A BigCommerce object specifying which theme to download. One of: `original`: the original Marketplace or uploaded custom theme; `last_activated`: the theme version most recently applied to the store; `last_created`: the theme version most recently created. If `which` is missing or invalid in the request, its value will default to `last_activated`. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/JobId}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/JobId} if callback is null
      */
-    this.downloadTheme = function(themeId, which, callback) {
+    this.downloadTheme = function(themeId, which, opts, callback) {
       var postBody = which;
 
       // verify the required parameter 'themeId' is set
@@ -185,21 +167,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getJob operation.
-     * @callback module:Api/ThemesApi~getJobCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/JobResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Gets a specified job.
      * @param {String} jobId The job identifier.
-     * @param {module:Api/ThemesApi~getJobCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/JobResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/JobResponse} if callback is null
      */
-    this.getJob = function(jobId, callback) {
+    this.getJob = function(jobId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'jobId' is set
@@ -230,21 +206,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getStoreTheme operation.
-     * @callback module:Api/ThemesApi~getStoreThemeCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ThemeResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Gets a specified store theme.
      * @param {String} themeId The theme identifier.
-     * @param {module:Api/ThemesApi~getStoreThemeCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ThemeResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ThemeResponse} if callback is null
      */
-    this.getStoreTheme = function(themeId, callback) {
+    this.getStoreTheme = function(themeId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'themeId' is set
@@ -275,20 +245,14 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getStoreThemes operation.
-     * @callback module:Api/ThemesApi~getStoreThemesCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ThemesCollectionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Gets all store themes.
-     * @param {module:Api/ThemesApi~getStoreThemesCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ThemesCollectionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ThemesCollectionResponse} if callback is null
      */
-    this.getStoreThemes = function(callback) {
+    this.getStoreThemes = function(opts, callback) {
       var postBody = null;
 
 
@@ -313,21 +277,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the uploadTheme operation.
-     * @callback module:Api/ThemesApi~uploadThemeCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/JobId} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Uploads a new theme to a BigCommerce store.
      * @param {File} file The file.
-     * @param {module:Api/ThemesApi~uploadThemeCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/JobId}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/JobId} if callback is null
      */
-    this.uploadTheme = function(file, callback) {
+    this.uploadTheme = function(file, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'file' is set

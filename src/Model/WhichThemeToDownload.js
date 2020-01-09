@@ -39,7 +39,7 @@
 
   /**
    * Constructs a new <code>WhichThemeToDownload</code>.
-   * An object specifying which theme to download. One of: &#x60;original&#x60;: the original Marketplace or uploaded custom theme; &#x60;last_activated&#x60;: the theme version most recently applied to the store; &#x60;last_created&#x60;: the theme version most recently created. 
+   * An object specifying which theme to download. One of: `original`: the original Marketplace or uploaded custom theme; `last_activated`: the theme version most recently applied to the store; `last_created`: the theme version most recently created. 
    * @alias module:Model/WhichThemeToDownload
    * @class
    */

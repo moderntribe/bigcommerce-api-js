@@ -45,21 +45,15 @@
     this.apiClient = apiClient || ApiClient.instance;
 
 
-    /**
-     * Callback function to receive the result of the createChannel operation.
-     * @callback module:Api/ChannelsApi~createChannelCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ChannelResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Create a Channel
      * @param {module:Model/CreateChannelRequest} body 
-     * @param {module:Api/ChannelsApi~createChannelCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ChannelResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ChannelResponse} if callback is null
      */
-    this.createChannel = function(body, callback) {
+    this.createChannel = function(body, opts, callback) {
       var postBody = body;
 
       // verify the required parameter 'body' is set
@@ -89,22 +83,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the createChannelListings operation.
-     * @callback module:Api/ChannelsApi~createChannelListingsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ListingCollectionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Create Channel Listings
      * @param {Number} channelId 
      * @param {Array.<module:Model/Listing>} body If state is omitted in the variants object, it inherits the top-level state
-     * @param {module:Api/ChannelsApi~createChannelListingsCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ListingCollectionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ListingCollectionResponse} if callback is null
      */
-    this.createChannelListings = function(channelId, body, callback) {
+    this.createChannelListings = function(channelId, body, opts, callback) {
       var postBody = body;
 
       // verify the required parameter 'channelId' is set
@@ -140,21 +128,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getChannel operation.
-     * @callback module:Api/ChannelsApi~getChannelCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ChannelResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Get Channel
-     * @param {Number} channelId The ID of a Channel that&#39;s available through GET /channels
-     * @param {module:Api/ChannelsApi~getChannelCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {Number} channelId The ID of a Channel that's available through GET /channels
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ChannelResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ChannelResponse} if callback is null
      */
-    this.getChannel = function(channelId, callback) {
+    this.getChannel = function(channelId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'channelId' is set
@@ -185,22 +167,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getChannelListing operation.
-     * @callback module:Api/ChannelsApi~getChannelListingCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ListingResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Get Channel Listing
      * @param {Number} channelId 
-     * @param {Number} listingId The ID of a Channel Listing that&#39;s available through GET /channels/listings
-     * @param {module:Api/ChannelsApi~getChannelListingCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {Number} listingId The ID of a Channel Listing that's available through GET /channels/listings
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ListingResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ListingResponse} if callback is null
      */
-    this.getChannelListing = function(channelId, listingId, callback) {
+    this.getChannelListing = function(channelId, listingId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'channelId' is set
@@ -237,13 +213,6 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the listChannelListings operation.
-     * @callback module:Api/ChannelsApi~listChannelListingsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ListingCollectionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * List all Channels Listings
@@ -251,8 +220,9 @@
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit Controls the number of items per page in a limited (paginated) list of products. 
      * @param {Number} opts.after Specifies the prior ID number in a limited (paginated) list of listings. 
-     * @param {module:Api/ChannelsApi~listChannelListingsCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ListingCollectionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ListingCollectionResponse} if callback is null
      */
     this.listChannelListings = function(channelId, opts, callback) {
       opts = opts || {};
@@ -288,20 +258,14 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the listChannels operation.
-     * @callback module:Api/ChannelsApi~listChannelsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ChannelCollectionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * List all Channels
-     * @param {module:Api/ChannelsApi~listChannelsCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ChannelCollectionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ChannelCollectionResponse} if callback is null
      */
-    this.listChannels = function(callback) {
+    this.listChannels = function(opts, callback) {
       var postBody = null;
 
 
@@ -326,22 +290,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the updateChannel operation.
-     * @callback module:Api/ChannelsApi~updateChannelCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ChannelResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Update Channel
-     * @param {Number} channelId The ID of a Channel that&#39;s available through GET /channels
+     * @param {Number} channelId The ID of a Channel that's available through GET /channels
      * @param {module:Model/UpdateChannelRequest} body 
-     * @param {module:Api/ChannelsApi~updateChannelCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ChannelResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ChannelResponse} if callback is null
      */
-    this.updateChannel = function(channelId, body, callback) {
+    this.updateChannel = function(channelId, body, opts, callback) {
       var postBody = body;
 
       // verify the required parameter 'channelId' is set
@@ -377,22 +335,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the updateChannelListings operation.
-     * @callback module:Api/ChannelsApi~updateChannelListingsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ListingCollectionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Update Channel Listings
      * @param {Number} channelId 
      * @param {Array.<module:Model/UpdateListingRequest>} body 
-     * @param {module:Api/ChannelsApi~updateChannelListingsCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ListingCollectionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ListingCollectionResponse} if callback is null
      */
-    this.updateChannelListings = function(channelId, body, callback) {
+    this.updateChannelListings = function(channelId, body, opts, callback) {
       var postBody = body;
 
       // verify the required parameter 'channelId' is set

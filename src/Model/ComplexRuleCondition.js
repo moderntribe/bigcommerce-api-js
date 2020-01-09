@@ -39,7 +39,7 @@
 
   /**
    * Constructs a new <code>ComplexRuleCondition</code>.
-   * Complex rules may return with conditions that apply to one or more variants, or with a single modifier value (if the rules were created using the v2 API or the control panel). Complex rules created or updated in the v3 API must have conditions that either reference multiple &#x60;modifier_value_id&#x60;&#39;s, or else reference a &#x60;modifier_value_id&#x60; and a &#x60;variant_id&#x60;. 
+   * Complex rules may return with conditions that apply to one or more variants, or with a single modifier value (if the rules were created using the v2 API or the control panel). Complex rules created or updated in the v3 API must have conditions that either reference multiple `modifier_value_id`'s, or else reference a `modifier_value_id` and a `variant_id`. 
    * @alias module:Model/ComplexRuleCondition
    * @class
    * @implements module:Model/ComplexRuleConditionBase

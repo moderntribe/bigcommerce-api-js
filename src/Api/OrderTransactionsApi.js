@@ -45,22 +45,16 @@
     this.apiClient = apiClient || ApiClient.instance;
 
 
-    /**
-     * Callback function to receive the result of the createTransaction operation.
-     * @callback module:Api/OrderTransactionsApi~createTransactionCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/TransactionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Creates a new &#x60;Transaction&#x60; related to a BigCommerce Order. 
-     * @param {Number} orderId The ID of the &#x60;Order&#x60; to which the transactions belong. 
-     * @param {module:Model/TransactionPost} transaction A BigCommerce &#x60;Transaction&#x60; object. 
-     * @param {module:Api/OrderTransactionsApi~createTransactionCallback} callback The callback function, accepting three arguments: error, data, response
+     * Creates a new `Transaction` related to a BigCommerce Order. 
+     * @param {Number} orderId The ID of the `Order` to which the transactions belong. 
+     * @param {module:Model/TransactionPost} transaction A BigCommerce `Transaction` object. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/TransactionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/TransactionResponse} if callback is null
      */
-    this.createTransaction = function(orderId, transaction, callback) {
+    this.createTransaction = function(orderId, transaction, opts, callback) {
       var postBody = transaction;
 
       // verify the required parameter 'orderId' is set
@@ -96,21 +90,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getTransactions operation.
-     * @callback module:Api/OrderTransactionsApi~getTransactionsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/TransactionCollectionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
-     * Returns a collection of &#x60;Transaction&#x60; objects related to a BigCommerce Order. 
-     * @param {Number} orderId The ID of the &#x60;Order&#x60; to which the transactions belong. 
-     * @param {module:Api/OrderTransactionsApi~getTransactionsCallback} callback The callback function, accepting three arguments: error, data, response
+     * Returns a collection of `Transaction` objects related to a BigCommerce Order. 
+     * @param {Number} orderId The ID of the `Order` to which the transactions belong. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/TransactionCollectionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/TransactionCollectionResponse} if callback is null
      */
-    this.getTransactions = function(orderId, callback) {
+    this.getTransactions = function(orderId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'orderId' is set

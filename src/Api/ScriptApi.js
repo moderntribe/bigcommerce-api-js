@@ -45,21 +45,15 @@
     this.apiClient = apiClient || ApiClient.instance;
 
 
-    /**
-     * Callback function to receive the result of the createScript operation.
-     * @callback module:Api/ScriptApi~createScriptCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ScriptResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Creates a script.
      * @param {module:Model/ScriptPost} scriptBody 
-     * @param {module:Api/ScriptApi~createScriptCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ScriptResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ScriptResponse} if callback is null
      */
-    this.createScript = function(scriptBody, callback) {
+    this.createScript = function(scriptBody, opts, callback) {
       var postBody = scriptBody;
 
       // verify the required parameter 'scriptBody' is set
@@ -89,20 +83,14 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteScript operation.
-     * @callback module:Api/ScriptApi~deleteScriptCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Deletes a script.
      * @param {String} uuid The identifier for a specific script.
-     * @param {module:Api/ScriptApi~deleteScriptCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deleteScript = function(uuid, callback) {
+    this.deleteScript = function(uuid, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'uuid' is set
@@ -133,21 +121,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getScript operation.
-     * @callback module:Api/ScriptApi~getScriptCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ScriptResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Gets a script.
      * @param {String} uuid The identifier for a specific script.
-     * @param {module:Api/ScriptApi~getScriptCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ScriptResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ScriptResponse} if callback is null
      */
-    this.getScript = function(uuid, callback) {
+    this.getScript = function(uuid, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'uuid' is set
@@ -178,13 +160,6 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getScripts operation.
-     * @callback module:Api/ScriptApi~getScriptsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ScriptsResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Gets all scripts.
@@ -192,9 +167,10 @@
      * @param {Number} opts.page Specifies the page number in a limited (paginated) list of products. 
      * @param {Number} opts.limit Controls the number of items per page in a limited (paginated) list of products. 
      * @param {String} opts.sort Scripts field name to sort by. 
-     * @param {String} opts.direction Sort direction. Acceptable values are: &#x60;asc&#x60;, &#x60;desc&#x60;. 
-     * @param {module:Api/ScriptApi~getScriptsCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {String} opts.direction Sort direction. Acceptable values are: `asc`, `desc`. 
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ScriptsResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ScriptsResponse} if callback is null
      */
     this.getScripts = function(opts, callback) {
       opts = opts || {};
@@ -226,22 +202,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the updateScript operation.
-     * @callback module:Api/ScriptApi~updateScriptCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ScriptResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Updates a script.
      * @param {String} uuid The identifier for a specific script.
      * @param {module:Model/ScriptPut} scriptBody 
-     * @param {module:Api/ScriptApi~updateScriptCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ScriptResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ScriptResponse} if callback is null
      */
-    this.updateScript = function(uuid, scriptBody, callback) {
+    this.updateScript = function(uuid, scriptBody, opts, callback) {
       var postBody = scriptBody;
 
       // verify the required parameter 'uuid' is set

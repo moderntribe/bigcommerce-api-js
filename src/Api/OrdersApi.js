@@ -45,22 +45,16 @@
     this.apiClient = apiClient || ApiClient.instance;
 
 
-    /**
-     * Callback function to receive the result of the createOrder operation.
-     * @callback module:Api/OrdersApi~createOrderCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/Order} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Create an Order
      * Create an Order
      * @param {module:Model/OrderRequest} body 
-     * @param {module:Api/OrdersApi~createOrderCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/Order}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/Order} if callback is null
      */
-    this.createOrder = function(body, callback) {
+    this.createOrder = function(body, opts, callback) {
       var postBody = body;
 
       // verify the required parameter 'body' is set
@@ -90,23 +84,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the createOrderShipment operation.
-     * @callback module:Api/OrdersApi~createOrderShipmentCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/OrderShipment} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Create A New Order Shipment
      * Creates an Order Shipment.
      * @param {Number} orderId ID of the order
      * @param {module:Model/OrderShipmentRequest} body 
-     * @param {module:Api/OrdersApi~createOrderShipmentCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/OrderShipment}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/OrderShipment} if callback is null
      */
-    this.createOrderShipment = function(orderId, body, callback) {
+    this.createOrderShipment = function(orderId, body, opts, callback) {
       var postBody = body;
 
       // verify the required parameter 'orderId' is set
@@ -142,21 +130,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteAllOrderShipments operation.
-     * @callback module:Api/OrdersApi~deleteAllOrderShipmentsCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Delete All Order Shipments
      * Deletes all shipments associated with an order.
      * @param {Number} orderId ID of the order
-     * @param {module:Api/OrdersApi~deleteAllOrderShipmentsCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deleteAllOrderShipments = function(orderId, callback) {
+    this.deleteAllOrderShipments = function(orderId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'orderId' is set
@@ -187,20 +169,14 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteAllOrders operation.
-     * @callback module:Api/OrdersApi~deleteAllOrdersCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Delete All Orders
      * Archives all orders.
-     * @param {module:Api/OrdersApi~deleteAllOrdersCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deleteAllOrders = function(callback) {
+    this.deleteAllOrders = function(opts, callback) {
       var postBody = null;
 
 
@@ -225,21 +201,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteOrder operation.
-     * @callback module:Api/OrdersApi~deleteOrderCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Archive an Order
-     * Archives an order.  Any attempt to archive an order on a store with automatic tax enabled will fail, and will return &#x60;405 Method not allowed.&#x60;
+     * Archives an order.  Any attempt to archive an order on a store with automatic tax enabled will fail, and will return `405 Method not allowed.`
      * @param {Number} orderId ID of the order
-     * @param {module:Api/OrdersApi~deleteOrderCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deleteOrder = function(orderId, callback) {
+    this.deleteOrder = function(orderId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'orderId' is set
@@ -270,22 +240,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the deleteOrderShipment operation.
-     * @callback module:Api/OrdersApi~deleteOrderShipmentCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Delete an Order Shipment
      * Deletes a shipment associated with an order.
      * @param {Number} orderId ID of the order
      * @param {Number} shipmentId Shipment ID
-     * @param {module:Api/OrdersApi~deleteOrderShipmentCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise} if callback is null
      */
-    this.deleteOrderShipment = function(orderId, shipmentId, callback) {
+    this.deleteOrderShipment = function(orderId, shipmentId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'orderId' is set
@@ -322,22 +286,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getOrder operation.
-     * @callback module:Api/OrdersApi~getOrderCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/Order} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Get an Order
      * Gets the collection of orders.
      * @param {Number} orderId ID of the order
-     * @param {module:Api/OrdersApi~getOrderCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/Order}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/Order} if callback is null
      */
-    this.getOrder = function(orderId, callback) {
+    this.getOrder = function(orderId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'orderId' is set
@@ -368,21 +326,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getOrderCount operation.
-     * @callback module:Api/OrdersApi~getOrderCountCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/OrdersCountResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Get a Count of Orders
      * Gets an array of the orders in the store organized by order status.
-     * @param {module:Api/OrdersApi~getOrderCountCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/OrdersCountResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/OrdersCountResponse} if callback is null
      */
-    this.getOrderCount = function(callback) {
+    this.getOrderCount = function(opts, callback) {
       var postBody = null;
 
 
@@ -407,13 +359,6 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getOrderCoupons operation.
-     * @callback module:Api/OrdersApi~getOrderCouponsCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:Model/OrderCoupon>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * List Order Coupons
@@ -422,8 +367,9 @@
      * @param {Object} opts Optional parameters
      * @param {Number} opts.page The page to return in the response.
      * @param {Number} opts.limit Number of results to return.
-     * @param {module:Api/OrdersApi~getOrderCouponsCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:Model/OrderCoupon>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:Model/OrderCoupon>} if callback is null
      */
     this.getOrderCoupons = function(orderId, opts, callback) {
       opts = opts || {};
@@ -459,13 +405,6 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getOrderMessages operation.
-     * @callback module:Api/OrdersApi~getOrderMessagesCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:Model/OrderMessage>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Get Order Messages
@@ -475,14 +414,15 @@
      * @param {Number} opts.minId The minimum order ID.
      * @param {Number} opts.maxId The maximum order ID.
      * @param {Number} opts.customerId Customer ID
-     * @param {String} opts.minDateCreated Minimum date the order was created in RFC-2822 or ISO-8601.  RFC-2822: &#x60;Thu, 20 Apr 2017 11:32:00 -0400&#x60;  ISO-8601: &#x60;2017-04-20T11:32:00.000-04:00&#x60;
-     * @param {String} opts.maxDateCreated Maximum date the order was created in RFC-2822 or ISO-8601.  RFC-2822: &#x60;Thu, 20 Apr 2017 11:32:00 -0400&#x60;  ISO-8601: &#x60;2017-04-20T11:32:00.000-04:00&#x60;
+     * @param {String} opts.minDateCreated Minimum date the order was created in RFC-2822 or ISO-8601.  RFC-2822: `Thu, 20 Apr 2017 11:32:00 -0400`  ISO-8601: `2017-04-20T11:32:00.000-04:00`
+     * @param {String} opts.maxDateCreated Maximum date the order was created in RFC-2822 or ISO-8601.  RFC-2822: `Thu, 20 Apr 2017 11:32:00 -0400`  ISO-8601: `2017-04-20T11:32:00.000-04:00`
      * @param {Boolean} opts.isFlagged If the message is [flagged](https://support.bigcommerce.com/s/article/Communicating-with-Customers#Messages).
      * @param {String} opts.status Status of the order message.
      * @param {Number} opts.page The page to return in the response.
      * @param {Number} opts.limit Number of results to return.
-     * @param {module:Api/OrdersApi~getOrderMessagesCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:Model/OrderMessage>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:Model/OrderMessage>} if callback is null
      */
     this.getOrderMessages = function(orderId, opts, callback) {
       opts = opts || {};
@@ -525,23 +465,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getOrderProduct operation.
-     * @callback module:Api/OrdersApi~getOrderProductCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/OrderProduct} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Get an Order Product
      * Gets a product line item associated with the order.
      * @param {Number} orderId ID of the order
      * @param {Number} productId ID of the product
-     * @param {module:Api/OrdersApi~getOrderProductCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/OrderProduct}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/OrderProduct} if callback is null
      */
-    this.getOrderProduct = function(orderId, productId, callback) {
+    this.getOrderProduct = function(orderId, productId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'orderId' is set
@@ -578,23 +512,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getOrderProducts operation.
-     * @callback module:Api/OrdersApi~getOrderProductsCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:Model/OrderProduct>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * List Order Products
-     * Lists all order products on an order using &#x60;order_id&#x60;. By default, items sort from lowest to highest according to a newly created ID, separate from the &#x60;order_id&#x60; and the &#x60;product_id&#x60;.
+     * Lists all order products on an order using `order_id`. By default, items sort from lowest to highest according to a newly created ID, separate from the `order_id` and the `product_id`.
      * @param {Number} orderId ID of the order
      * @param {Object} opts Optional parameters
      * @param {Number} opts.page The page to return in the response.
      * @param {Number} opts.limit Number of results to return.
-     * @param {module:Api/OrdersApi~getOrderProductsCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:Model/OrderProduct>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:Model/OrderProduct>} if callback is null
      */
     this.getOrderProducts = function(orderId, opts, callback) {
       opts = opts || {};
@@ -630,23 +558,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getOrderShipment operation.
-     * @callback module:Api/OrdersApi~getOrderShipmentCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/OrderShipment} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Get a Shipment
      * Gets an order shipment. 
      * @param {Number} orderId ID of the order
      * @param {Number} shipmentId Shipment ID
-     * @param {module:Api/OrdersApi~getOrderShipmentCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/OrderShipment}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/OrderShipment} if callback is null
      */
-    this.getOrderShipment = function(orderId, shipmentId, callback) {
+    this.getOrderShipment = function(orderId, shipmentId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'orderId' is set
@@ -683,13 +605,6 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getOrderShipments operation.
-     * @callback module:Api/OrdersApi~getOrderShipmentsCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:Model/OrderShipment>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Get A List of Order Shipments
@@ -698,8 +613,9 @@
      * @param {Object} opts Optional parameters
      * @param {Number} opts.page The page to return in the response.
      * @param {Number} opts.limit Number of results to return.
-     * @param {module:Api/OrdersApi~getOrderShipmentsCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:Model/OrderShipment>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:Model/OrderShipment>} if callback is null
      */
     this.getOrderShipments = function(orderId, opts, callback) {
       opts = opts || {};
@@ -735,24 +651,18 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getOrderTaxes operation.
-     * @callback module:Api/OrdersApi~getOrderTaxesCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:Model/OrderTax>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Get All Order Taxes
-     * Gets all order taxes using &#x60;order_id&#x60;. Each tax applied to an order. This information can be useful for reporting purposes.  Pass in the query parameter &#x60;?details&#x3D;true&#x60; to return extra details about order taxes. &#x60;order_product_id&#x60; and &#x60;line_item_type&#x60; are also returned  All values are read-only.
+     * Gets all order taxes using `order_id`. Each tax applied to an order. This information can be useful for reporting purposes.  Pass in the query parameter `?details=true` to return extra details about order taxes. `order_product_id` and `line_item_type` are also returned  All values are read-only.
      * @param {Number} orderId ID of the order
      * @param {Object} opts Optional parameters
      * @param {Number} opts.page The page to return in the response.
      * @param {Number} opts.limit Number of results to return.
      * @param {String} opts.details To return detailed tax information, pass in the details query. (default to true)
-     * @param {module:Api/OrdersApi~getOrderTaxesCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:Model/OrderTax>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:Model/OrderTax>} if callback is null
      */
     this.getOrderTaxes = function(orderId, opts, callback) {
       opts = opts || {};
@@ -789,22 +699,16 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getShipmentCount operation.
-     * @callback module:Api/OrdersApi~getShipmentCountCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/OrderShipmentCount} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Get A Count of Shipments Per Order
      * Gets a count of the number of shipments that have been made for a single order.
      * @param {Number} orderId ID of the order
-     * @param {module:Api/OrdersApi~getShipmentCountCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/OrderShipmentCount}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/OrderShipmentCount} if callback is null
      */
-    this.getShipmentCount = function(orderId, callback) {
+    this.getShipmentCount = function(orderId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'orderId' is set
@@ -835,23 +739,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getShippingAddress operation.
-     * @callback module:Api/OrdersApi~getShippingAddressCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/OrderShippingAddress} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Get a Shipping Address
      * Gets a shipping address associated with an order.  Returned in the response is shipping_quotes object. Please use the Get Shipping Quotes Endpoint. Using the response will return a 204 for the shipping quote. 
      * @param {String} orderId 
      * @param {String} id 
-     * @param {module:Api/OrdersApi~getShippingAddressCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/OrderShippingAddress}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/OrderShippingAddress} if callback is null
      */
-    this.getShippingAddress = function(orderId, id, callback) {
+    this.getShippingAddress = function(orderId, id, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'orderId' is set
@@ -888,23 +786,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the getShippingQuote operation.
-     * @callback module:Api/OrdersApi~getShippingQuoteCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/ShippingQuote} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Get a Shipping Quote
      * Gets any shipping quotes assocated to an order.   This is a read only enpoint and the output can vary based on the shipping quote. A shipping quote can only be generated using the storefront at this time. Orders that are created in the control panel or via api return a 204 for this endpoint since a shipping quote is not generated during that process.
      * @param {Number} orderId ID of the order
      * @param {Number} shippingAddressId Shipping address ID
-     * @param {module:Api/OrdersApi~getShippingQuoteCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/ShippingQuote}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/ShippingQuote} if callback is null
      */
-    this.getShippingQuote = function(orderId, shippingAddressId, callback) {
+    this.getShippingQuote = function(orderId, shippingAddressId, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'orderId' is set
@@ -941,21 +833,15 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the listOrderStatuses operation.
-     * @callback module:Api/OrdersApi~listOrderStatusesCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:Model/OrderStatus>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Get All Order Statuses
      * Gets a list of order statues.
-     * @param {module:Api/OrdersApi~listOrderStatusesCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:Model/OrderStatus>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:Model/OrderStatus>} if callback is null
      */
-    this.listOrderStatuses = function(callback) {
+    this.listOrderStatuses = function(opts, callback) {
       var postBody = null;
 
 
@@ -980,13 +866,6 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the listOrders operation.
-     * @callback module:Api/OrdersApi~listOrdersCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:Model/Order>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * List Orders
@@ -998,18 +877,19 @@
      * @param {Number} opts.maxTotal The maximum order total in float format. eg. 12.50
      * @param {Number} opts.customerId Customer ID
      * @param {String} opts.email The email of the customer.
-     * @param {Number} opts.statusId The staus ID of the order. You can get the status id from the &#x60;/orders&#x60; endpoints.
+     * @param {Number} opts.statusId The staus ID of the order. You can get the status id from the `/orders` endpoints.
      * @param {String} opts.cartId The cart ID of the order.
      * @param {String} opts.paymentMethod The payment method used on the order.
-     * @param {String} opts.minDateCreated Minimum date the order was created in RFC-2822 or ISO-8601.  RFC-2822: &#x60;Thu, 20 Apr 2017 11:32:00 -0400&#x60;  ISO-8601: &#x60;2017-04-20T11:32:00.000-04:00&#x60;
-     * @param {String} opts.maxDateCreated Maximum date the order was created in RFC-2822 or ISO-8601.  RFC-2822: &#x60;Thu, 20 Apr 2017 11:32:00 -0400&#x60;  ISO-8601: &#x60;2017-04-20T11:32:00.000-04:00&#x60;
-     * @param {String} opts.maxDateModified Maximum date the order was modified in RFC-2822 or ISO-8601.  RFC-2822: &#x60;Thu, 20 Apr 2017 11:32:00 -0400&#x60;  ISO-8601: &#x60;2017-04-20T11:32:00.000-04:00&#x60;
+     * @param {String} opts.minDateCreated Minimum date the order was created in RFC-2822 or ISO-8601.  RFC-2822: `Thu, 20 Apr 2017 11:32:00 -0400`  ISO-8601: `2017-04-20T11:32:00.000-04:00`
+     * @param {String} opts.maxDateCreated Maximum date the order was created in RFC-2822 or ISO-8601.  RFC-2822: `Thu, 20 Apr 2017 11:32:00 -0400`  ISO-8601: `2017-04-20T11:32:00.000-04:00`
+     * @param {String} opts.maxDateModified Maximum date the order was modified in RFC-2822 or ISO-8601.  RFC-2822: `Thu, 20 Apr 2017 11:32:00 -0400`  ISO-8601: `2017-04-20T11:32:00.000-04:00`
      * @param {Number} opts.page The page to return in the response.
      * @param {Number} opts.limit Number of results to return.
-     * @param {String} opts.sort Direction to sort orders asc or desc. Ex. sort&#x3D;date_created:desc
+     * @param {String} opts.sort Direction to sort orders asc or desc. Ex. sort=date_created:desc
      * @param {Boolean} opts.isDeleted If the order was deleted or archived.
-     * @param {module:Api/OrdersApi~listOrdersCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:Model/Order>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:Model/Order>} if callback is null
      */
     this.listOrders = function(opts, callback) {
       opts = opts || {};
@@ -1053,23 +933,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the listShippingAddresses operation.
-     * @callback module:Api/OrdersApi~listShippingAddressesCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:Model/OrderShippingAddress>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Get A List of Order Shipping Address
-     * Get all shipping address on an order using the &#x60;order_id&#x60;.  Returned in the response is shipping_quotes object. Please use the Get Shipping Quotes Endpoint. Using the response will return a 204 for the shipping quote. 
+     * Get all shipping address on an order using the `order_id`.  Returned in the response is shipping_quotes object. Please use the Get Shipping Quotes Endpoint. Using the response will return a 204 for the shipping quote. 
      * @param {Number} orderId ID of the order
      * @param {Object} opts Optional parameters
      * @param {Number} opts.page The page to return in the response.
      * @param {Number} opts.limit Number of results to return.
-     * @param {module:Api/OrdersApi~listShippingAddressesCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:Model/OrderShippingAddress>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:Model/OrderShippingAddress>} if callback is null
      */
     this.listShippingAddresses = function(orderId, opts, callback) {
       opts = opts || {};
@@ -1105,23 +979,17 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the updateOrder operation.
-     * @callback module:Api/OrdersApi~updateOrderCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/Order} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Update an Order
      * Update an Order
      * @param {module:Model/OrderRequest} body 
      * @param {Number} orderId ID of the order
-     * @param {module:Api/OrdersApi~updateOrderCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/Order}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/Order} if callback is null
      */
-    this.updateOrder = function(body, orderId, callback) {
+    this.updateOrder = function(body, orderId, opts, callback) {
       var postBody = body;
 
       // verify the required parameter 'body' is set
@@ -1157,13 +1025,6 @@
       );
     }
 
-    /**
-     * Callback function to receive the result of the updateOrderShipment operation.
-     * @callback module:Api/OrdersApi~updateOrderShipmentCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/OrderShipment} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Update A Shipment
@@ -1171,10 +1032,11 @@
      * @param {Number} orderId ID of the order
      * @param {Number} shipmentId Shipment ID
      * @param {module:Model/OrderShipmentRequest} body 
-     * @param {module:Api/OrdersApi~updateOrderShipmentCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/OrderShipment}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/OrderShipment} if callback is null
      */
-    this.updateOrderShipment = function(orderId, shipmentId, body, callback) {
+    this.updateOrderShipment = function(orderId, shipmentId, body, opts, callback) {
       var postBody = body;
 
       // verify the required parameter 'orderId' is set

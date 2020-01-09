@@ -45,21 +45,15 @@
     this.apiClient = apiClient || ApiClient.instance;
 
 
-    /**
-     * Callback function to receive the result of the recoverCart operation.
-     * @callback module:Api/AbandonedCartApi~recoverCartCallback
-     * @param {String} error Error message, if any.
-     * @param {module:Model/AbandonedCartResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Returns abandoned cart id.
      * @param {String} token Unique token.
-     * @param {module:Api/AbandonedCartApi~recoverCartCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:Model/AbandonedCartResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Model/AbandonedCartResponse} if callback is null
      */
-    this.recoverCart = function(token, callback) {
+    this.recoverCart = function(token, opts, callback) {
       var postBody = null;
 
       // verify the required parameter 'token' is set

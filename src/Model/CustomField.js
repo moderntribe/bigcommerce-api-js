@@ -39,7 +39,7 @@
 
   /**
    * Constructs a new <code>CustomField</code>.
-   * Gets custom fields associated with a product. These allow you to specify additional information that will appear on the product&#39;s page, such as a book&#39;s ISBN or a DVD&#39;s release date. 
+   * Gets custom fields associated with a product. These allow you to specify additional information that will appear on the product's page, such as a book's ISBN or a DVD's release date. 
    * @alias module:Model/CustomField
    * @class
    * @implements module:Model/CustomFieldBase
