@@ -1,11 +1,30 @@
 # BigCommerce API JS Client Library
 
+## Installation
+
+You can either clone this repository and include the src files with your project,
+or include them as a dependency using npm.
+
+### NPM
+
+In your `package.json`:
+
+```json
+...
+"dependencies": {
+  "bigcommerce-api-js": "moderntribe/bigcommerce-api-js#v1.0",
+}
+....
+
+```
+
 ## Usage
 The package needs to be configured with your account's client id, client
 secret, store id, and access token which is available in your Bigcommerce Account:
 
 ```js
 const bc = require('./src');
+// or const bc = require('bigcommerce-api-js');
 
 const config = {
   clientId: 'CLIENT_ID',
