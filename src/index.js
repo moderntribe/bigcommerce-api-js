@@ -699,8 +699,11 @@
 
 	var exports = function(config) {
 		var apis = {};
-		var client = new ApiClient(config);
 		for (var name in Apis) {
+  		var client = new ApiClient(config);
+      if (name === 'StoreInfoApi' || name === 'OrdersApi') {
+        client.version = 'v2';
+      }
 			apis[name] = new Apis[name](client);
 		}
 

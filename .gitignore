@@ -6,3 +6,8 @@
 /swagger-codegen
 /composer.lock
 /vendor
+node_modules/
+
+notes.txt
+
+samples/config.js

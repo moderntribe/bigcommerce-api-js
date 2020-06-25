@@ -46,7 +46,14 @@
      * @type {String}
      * @default https://api.bigcommerce.com/stores/{store_id}/v3
      */
-    this.basePath = config ? 'https://api.bigcommerce.com/stores/{store_id}/v3'.replace(/\{store_id}/g, config.storeId) : 'https://api.bigcommerce.com/stores/{store_id}/v3';
+    this.basePath = 'https://api.bigcommerce.com/stores/{store_id}/{version}';
+
+    /**
+     * Orders and storeInfo are still v2 only.
+     * @type {String}
+     * @default v3
+     */
+    this.version = (config && config.version) ? config.version : 'v3';
 
     /**
      * The authentication methods to be included for all API calls.
@@ -105,7 +112,8 @@
     if (!path.match(/^\//)) {
       path = '/' + path;
     }
-    var url = this.basePath + path;
+    var basePath = this.basePath.replace(/\{store_id}/g, this.config.storeId).replace(/\{version}/g, this.version);
+    var url = basePath + path;
     var _this = this;
     url = url.replace(/\{([\w-]+)\}/g, function(fullMatch, key) {
       var value;
