@@ -1,0 +1,27 @@
+{
+  "name": "widgets",
+  "version": "3.0",
+  "description": "Widgets_API_allows_developers_to_programatically_inject_content_into_a_BigCommerce_theme__To_learn_how_to_use_Widgets_see_our__Widgets_Overview_api_docsstorefrontwidgetswidgets_overview_",
+  "license": "Unlicense",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha --compilers js:babel-core/register --recursive"
+  },
+  "browser": {
+    "fs": false
+  },
+  "dependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "superagent": "3.7.0"
+  },
+  "devDependencies": {
+    "babel-core": "6.26.0",
+    "babel-plugin-transform-builtin-extend": "^1.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "expect.js": "~0.3.1",
+    "mocha": "~2.3.4",
+    "sinon": "1.17.3"
+  }
+}

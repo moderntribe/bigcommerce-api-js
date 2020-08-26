@@ -1,0 +1,27 @@
+{
+  "name": "subscribers",
+  "version": "3.0",
+  "description": "_OAuth_Scopes__UI_Name__Permission__Parameter__________________Customers__modify__store_v2_customers___Customers__read_only__store_v2_customers_read_only__HeadersHeaderParameterDescription___X_Auth_Clientclient_idObtained_by_creating_an_API_account_or_installing_an_app_in_a_BigCommerce_control_panel_X_Auth_Tokenaccess_token_Obtained_by_creating_an_API_account_or_installing_an_app_in_a_BigCommerce_control_panel__ExamplehttpGET_stores_env_store_hashv3catalogsummaryhost_api_bigcommerce_comContent_Type_applicationjsonX_Auth_Client_client_idX_Auth_Token_access_token_For_more_information_on_Authenticating_BigCommerce_APIs_see__Authentication_httpsdeveloper_bigcommerce_comapi_docsgetting_startedauthentication__",
+  "license": "Unlicense",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha --compilers js:babel-core/register --recursive"
+  },
+  "browser": {
+    "fs": false
+  },
+  "dependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "superagent": "3.7.0"
+  },
+  "devDependencies": {
+    "babel-core": "6.26.0",
+    "babel-plugin-transform-builtin-extend": "^1.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "expect.js": "~0.3.1",
+    "mocha": "~2.3.4",
+    "sinon": "1.17.3"
+  }
+}

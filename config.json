@@ -1,9 +1,0 @@
-{
-  "variableNamingConvention": "camelCase",
-  "invokerPackage": "",
-  "apiPackage": "Api",
-  "modelPackage": "Model",
-  "srcBasePath": "src",
-  "gitUserId": "moderntribe",
-  "gitRepoId": "bigcommerce-api-js"
-}

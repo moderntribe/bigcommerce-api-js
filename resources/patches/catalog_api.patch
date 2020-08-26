@@ -1,0 +1,11 @@
+diff -ur src.orig/model/CategoriesTreeNodeFull.js src/model/CategoriesTreeNodeFull.js
+--- src.orig/model/CategoriesTreeNodeFull.js	2020-08-26 10:51:00.000000000 -0600
++++ src/model/CategoriesTreeNodeFull.js	2020-08-26 10:53:11.000000000 -0600
+@@ -12,7 +12,6 @@
+  */
+ 
+ import ApiClient from '../ApiClient';
+-import CategoriesTreeNodeFull from './CategoriesTreeNodeFull';
+ 
+ /**
+ * The CategoriesTreeNodeFull model module.

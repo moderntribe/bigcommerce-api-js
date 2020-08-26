@@ -1,0 +1,59 @@
+{{>licenseInfo}}
+(function(root, factory) {
+{{#loadTestDataFromFile}}
+  var testDataFile = process.env.TEST_DATA_FILE
+    ? process.env.TEST_DATA_FILE
+    : '{{testDataFile}}';
+{{/loadTestDataFromFile}}
+  if (typeof define === 'function' && define.amd) {
+    // AMD.
+    define(['expect.js'{{#loadTestDataFromFile}}, 'json-pointer', '{{#invokerPackage}}../{{/invokerPackage}}../assert-equals'{{/loadTestDataFromFile}}, '../{{#invokerPackage}}../{{/invokerPackage}}../{{sourceFolder}}/{{#invokerPackage}}{{invokerPackage}}/{{/invokerPackage}}index'{{#loadTestDataFromFile}}, testDataFile{{/loadTestDataFromFile}}], factory);
+  } else if (typeof module === 'object' && module.exports) {
+    // CommonJS-like environments that support module.exports, like Node.
+    factory(require('expect.js'){{#loadTestDataFromFile}}, require('json-pointer'), require('{{#invokerPackage}}../{{/invokerPackage}}../assert-equals'){{/loadTestDataFromFile}}, require('../{{#invokerPackage}}../{{/invokerPackage}}../{{sourceFolder}}/{{#invokerPackage}}{{invokerPackage}}/{{/invokerPackage}}index'), require('../../src/BCApiClient'), require('../config'){{#loadTestDataFromFile}}, require(testDataFile){{/loadTestDataFromFile}});
+  } else {
+    // Browser globals (root is window)
+{{#loadTestDataFromFile}}
+    // TODO: load browser test data from file. Maybe via FileSystem (Mozilla, chrome.fileSystem)?
+    var testData = null;
+{{/loadTestDataFromFile}}
+    factory(root.expect{{#loadTestDataFromFile}}, root.JsonPointer, root.assertEquals{{/loadTestDataFromFile}}, root.{{moduleName}}{{#loadTestDataFromFile}}, testData{{/loadTestDataFromFile}});
+  }
+}(this, function(expect{{#loadTestDataFromFile}}, pointer, assertEquals{{/loadTestDataFromFile}}, {{moduleName}}{{#loadTestDataFromFile}}, testData{{/loadTestDataFromFile}}, BCApiClient, config) {
+  'use strict';
+
+  var instance;
+{{#loadTestDataFromFile}}
+  var testDataCache;
+
+  function getTestData(pointer) {
+    return testDataCache.get('{{#invokerPackage}}/{{invokerPackage}}{{/invokerPackage}}/{{classname}}' + pointer);
+  }
+
+  before(function() {
+    testDataCache = pointer(testData);
+  });
+
+{{/loadTestDataFromFile}}
+
+  beforeEach(function() {
+    instance = new {{moduleName}}.{{classname}}(new BCApiClient(config));
+  });
+
+  describe({{#invokerPackage}}'{{invokerPackage}}'{{/invokerPackage}}{{^invokerPackage}}'(package)'{{/invokerPackage}}, function() {
+    describe('{{classname}}', function() {
+{{#operations}}
+  {{#operation}}
+      describe('{{operationId}}', function() {
+        it('should call {{operationId}} successfully', async function() {
+          // const {{operationId}}Response = await instance.{{operationId}}();
+          // expect({{operationId}}Response.ok).to.be(true);
+          // expect({{operationId}}Response.body.data).to.be.an('array');
+        });
+      });
+  {{/operation}}
+{{/operations}}
+    });
+  });
+
+}));

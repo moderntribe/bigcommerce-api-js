@@ -1,0 +1,27 @@
+{
+  "name": "wishlist",
+  "version": "3.0",
+  "description": "_Wishlist_API__The_Wishlist_API_allows_a_developer_to_create_and_manage_customer__Wishlists_httpssupport_bigcommerce_comsarticleWishlists__A_Wishlist_allows_you_to_see_what_your_customers_are_interested_in_and_saving_on_the_store__With_this_information_youll_be_able_to_create_targeted_campaigns_to_help_merchants_grow_their_business__Customer_API_OAuth_scopes_give_you_access_to_Wishlists_API__See__OAuth_Scopes_httpsdeveloper_bigcommerce_comapi_docsgetting_startedauthenticationauthentication_oauth_scopes_",
+  "license": "Unlicense",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha --compilers js:babel-core/register --recursive"
+  },
+  "browser": {
+    "fs": false
+  },
+  "dependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "superagent": "3.7.0"
+  },
+  "devDependencies": {
+    "babel-core": "6.26.0",
+    "babel-plugin-transform-builtin-extend": "^1.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "expect.js": "~0.3.1",
+    "mocha": "~2.3.4",
+    "sinon": "1.17.3"
+  }
+}

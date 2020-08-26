@@ -11,3 +11,7 @@ node_modules/
 notes.txt
 
 samples/config.js
+
+bin/
+
+gulpfile.config.json
