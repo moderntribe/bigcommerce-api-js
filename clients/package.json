@@ -1,6 +1,6 @@
 {
 	"name": "bcapi",
-	"version": "1.0.0",
+	"version": "1.0.2",
 	"description": "Test runner for all BC API codegen",
 	"license": "Unlicense",
 	"scripts": {

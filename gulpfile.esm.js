@@ -35,6 +35,10 @@ const apis = [
     name: 'StoreInfoApi',
     url: 'https://developer.bigcommerce.com/api-reference/store-management/store-information-api/BigCommerce_Store_Information_API.oas2.json',
   },
+  {
+    name: 'Scripts',
+    url: 'https://developer.bigcommerce.com/api-reference/store-management/scripts/BigCommerce_Scripts_API.oas2.json',
+  },
 ];
 
 const installSwagger = (done) => (
