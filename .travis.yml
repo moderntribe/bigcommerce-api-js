@@ -12,9 +12,11 @@ before_install:
 stages:
   - name: test
 jobs:
+  allow_failures:
+    - test  
   include:
     - stage: test
       script:
         - cd clients
         - yarn install
-        - yarn test
+        - yarn test --timeout=5000
