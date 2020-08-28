@@ -13,9 +13,10 @@ stages:
   - name: test
 jobs:
   allow_failures:
-    - test  
+    - name: test  
   include:
     - stage: test
+      name: test
       script:
         - cd clients
         - yarn install
