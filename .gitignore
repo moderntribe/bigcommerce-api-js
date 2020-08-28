@@ -15,3 +15,5 @@ samples/config.js
 bin/
 
 gulpfile.config.json
+
+**/test/config.js

@@ -220,10 +220,17 @@ const buildOne = async (done) => {
 };
 const buildAll = gulp.series(apis.map(api => buildClean(api)));
 
+const testSupport = async (done) => {
+  for (const api of apis) {
+    await processTestSupportFiles(api)();
+  }
+  done();
+}
+
 
 // export tasks
 export {
-  buildAll, buildOne,
+  buildAll, buildOne, testSupport,
 };
 
 export default buildAll;
