@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+  - "10"
+os: linux
+arch: arm64
+dist: xenial
+stages:
+  - name: test
+jobs:
+  include:
+    - stage: test
+      script:
+        - cd clients
+        - yarn install
+        - yarn test
