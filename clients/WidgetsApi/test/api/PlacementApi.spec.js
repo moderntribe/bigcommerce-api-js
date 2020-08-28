@@ -57,9 +57,9 @@
       });
       describe('getPlacements', function() {
         it('should call getPlacements successfully', async function() {
-          // const getPlacementsResponse = await instance.getPlacements();
-          // expect(getPlacementsResponse.ok).to.be(true);
-          // expect(getPlacementsResponse.body.data).to.be.an('array');
+          const response = await instance.getPlacements();
+          expect(response.ok).to.be(true);
+          expect(response.body.data).to.be.an('array');
         });
       });
       describe('updatePlacement', function() {

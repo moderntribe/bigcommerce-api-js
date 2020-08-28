@@ -57,9 +57,9 @@
       });
       describe('wishlistsGet', function() {
         it('should call wishlistsGet successfully', async function() {
-          // const wishlistsGetResponse = await instance.wishlistsGet();
-          // expect(wishlistsGetResponse.ok).to.be(true);
-          // expect(wishlistsGetResponse.body.data).to.be.an('array');
+          const wishlistsGetResponse = await instance.wishlistsGet();
+          expect(wishlistsGetResponse.ok).to.be(true);
+          expect(wishlistsGetResponse.body.data).to.be.an('array');
         });
       });
       describe('wishlistsPost', function() {

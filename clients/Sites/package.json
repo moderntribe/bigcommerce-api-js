@@ -1,0 +1,27 @@
+{
+  "name": "sites",
+  "version": "3.0",
+  "description": "___OAuth_Scopes_oauth_scopes___Authentication_authentication___Available_Endpoints_available_endpoints___Usage_Notes_usage_notes___Resources_resourcesCreate_and_manage_sites_and_routes_for_headless_storefronts__OAuth_Scopes_UI_Name_________Permission__Parameter_____________________________________________________________________Sites__Routes__modify______store_sites____________Sites__Routess_read_only___store_sites_read_only_For_more_information_on_OAuth_Scopes_see__Authentication_httpsdeveloper_bigcommerce_comapi_docsgetting_startedauthentication__AuthenticationRequests_can_be_authenticated_by_sending_a_client_id_and_access_token_via_X_Auth_Client_and_X_Auth_Token_HTTP_headershttpGET_stores_env_store_hashv3catalogsummaryhost_api_bigcommerce_comAccept_applicationjsonX_Auth_Client_client_idX_Auth_Token_access_tokenHeaderParameterDescription___X_Auth_Clientclient_idObtained_by_creating_an_API_account_or_installing_an_app_in_a_BigCommerce_control_panel_X_Auth_Tokenaccess_token_Obtained_by_creating_an_API_account_or_installing_an_app_in_a_BigCommerce_control_panel_For_more_information_on_Authenticating_BigCommerce_APIs_see__Authentication_httpsdeveloper_bigcommerce_comapi_docsgetting_startedauthentication__Available_Endpoints_Resource__Endpoint______________________Description__________________________________________________________________________________________________________________________________________________________________________________Channels_________________________________Create_and_manage_catalog_listings_and_channels___________________________Channel_Site_____________________________Manage_sites_and_routing_for_headless_storefronts_________________________Channel_Listings_________________________Manage_catalog_differences_among_different_storefronts_or_marketplaces____Usage_NotesSites_and_Site_Routes_Sites_and_routes_control_the_paths_that_make_up_a_headless_storefront_Site_refers_to_the_domain_associated_with_a_channel_Routes_point_to_the_URLs_for_key_pages_on_the_headless_storefront__They_define_where_the_homepage_is_where_the_cart_page_is_etc__Sites_and_routes_ensure_links_point_where_theyre_supposed_to_and_sales_are_attributed_correctly__For_example_a_shoppers_order_confirmation_email_should_link_back_to_Storefront_A_where_they_placed_their_order_not_Storefront_B_which_theyve_never_visited__Resources_Related_Endpoints__Channels_httpsdeveloper_bigcommerce_comapi_referencecart_checkoutchannels_listings_api",
+  "license": "Unlicense",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha --compilers js:babel-core/register --recursive"
+  },
+  "browser": {
+    "fs": false
+  },
+  "dependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "superagent": "3.7.0"
+  },
+  "devDependencies": {
+    "babel-core": "6.26.0",
+    "babel-plugin-transform-builtin-extend": "^1.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "expect.js": "~0.3.1",
+    "mocha": "~2.3.4",
+    "sinon": "1.17.3"
+  }
+}

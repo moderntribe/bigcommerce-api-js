@@ -57,9 +57,9 @@
       });
       describe('getWidgets', function() {
         it('should call getWidgets successfully', async function() {
-          // const getWidgetsResponse = await instance.getWidgets();
-          // expect(getWidgetsResponse.ok).to.be(true);
-          // expect(getWidgetsResponse.body.data).to.be.an('array');
+          const response = await instance.getWidgets();
+          expect(response.ok).to.be(true);
+          expect(response.body.data).to.be.an('array');
         });
       });
       describe('updateWidget', function() {

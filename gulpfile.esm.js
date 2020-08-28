@@ -36,9 +36,33 @@ const apis = [
     url: 'https://developer.bigcommerce.com/api-reference/store-management/store-information-api/BigCommerce_Store_Information_API.oas2.json',
   },
   {
-    name: 'Scripts',
+    name: 'ScriptsApi',
     url: 'https://developer.bigcommerce.com/api-reference/store-management/scripts/BigCommerce_Scripts_API.oas2.json',
   },
+  {
+    name: 'PriceListsApi',
+    url: 'https://developer.bigcommerce.com/api-reference/store-management/price-lists/BigCommerce_Price_Lists_API.oas2.json',
+  },
+  {
+    name: 'OrdersV2Api',
+    url: 'https://developer.bigcommerce.com/api-reference/store-management/orders/BigCommerce_Orders_API.oas2.json',
+  },
+  {
+    name: 'OrdersV3Api',
+    url: 'https://developer.bigcommerce.com/api-reference/store-management/order-transactions/BigCommerce_Order_Transactions_API.oas2.json',
+  },
+  {
+    name: 'Sites',
+    url: 'https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api/BigCommerce_Sites_Routes_API.oas2.json',
+  },
+  // {
+  //   name: 'Channels',
+  //   url: 'https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/BigCommerce_Channels_Listings_API.oas2.json'
+  // },
+  {
+    name: 'Carts',
+    url: 'https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api/BigCommerce_Server_to_Server_Cart_API.oas2.json',
+  }
 ];
 
 const installSwagger = (done) => (

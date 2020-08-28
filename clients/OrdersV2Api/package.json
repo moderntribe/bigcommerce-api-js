@@ -1,0 +1,27 @@
+{
+  "name": "orders_v2",
+  "version": "2.0",
+  "description": "ordersendpoints_integrate_with_point_of_sale_shipping_distribution_and_inventory_management_systems__OrderThe_Order_object_contains_a_record_of_the_purchase_agreement_between_a_shopper_and_a_merchant__To_learn_more_about_creating_orders_see__Orders_API_Guide_api_docsordersorders_api_overview__Currency_Fields_currency_code___the_display_currency_used_to_present_prices_to_the_shopper_on_the_storefront__currency_exchange_rate_the_exchange_rate_between_the_stores_default_currency_and_the_display_currency_when_the_order_is_created_by_means_of_the_V2_endpoints_this_value_is_always_1__only_in_the_storefront_this_value_can_be_different_to_1_The_following_additional_fields_are_returned_on_orders_when_Multi_Currency_is_enabled_on_the_store_store_default_currency_code___the_stores_default_currency_store_default_to_transactional_exchange_rate___the_exchange_rate_between_the_stores_default_currency_and_the_transactional_currency_used_in_the_order_Examplejson_______currency_id_4__currency_code_EUR__currency_exchange_rate_1__default_currency_id_4__default_currency_code_EUR__store_default_currency_code_USD__store_default_to_transactional_exchange_rate_100_0000000000______Order_CouponsCoupon_code_applied_to_an_order__Order_MessagesMessages_associated_with_an_order__Order_ProductsProduct_line_items_belonging_to_an_order__Order_Shipping_AddressesCustomer_shipping_address_belonging_to_an_order__Order_StatusesEach_order_status_represents_a_state_in_the_order_fulfillment_workflow__Order_TaxesEach_tax_applied_to_an_order__This_information_can_be_useful_for_reporting_purposes__All_values_are_read_only__Order_ShipmentsTracks_a_package_consignment_from_an_order_that_is_shipped_from_the_seller_to_the_buyer__Order_Shipping_Addresses_QuotesRead_Only__Gets_all_shipping_quotes_from_an_order_",
+  "license": "Unlicense",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha --compilers js:babel-core/register --recursive"
+  },
+  "browser": {
+    "fs": false
+  },
+  "dependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "superagent": "3.7.0"
+  },
+  "devDependencies": {
+    "babel-core": "6.26.0",
+    "babel-plugin-transform-builtin-extend": "^1.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "expect.js": "~0.3.1",
+    "mocha": "~2.3.4",
+    "sinon": "1.17.3"
+  }
+}

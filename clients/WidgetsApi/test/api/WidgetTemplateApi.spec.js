@@ -57,9 +57,9 @@
       });
       describe('getWidgetTemplates', function() {
         it('should call getWidgetTemplates successfully', async function() {
-          // const getWidgetTemplatesResponse = await instance.getWidgetTemplates();
-          // expect(getWidgetTemplatesResponse.ok).to.be(true);
-          // expect(getWidgetTemplatesResponse.body.data).to.be.an('array');
+          const response = await instance.getWidgetTemplates();
+          expect(response.ok).to.be(true);
+          expect(response.body.data).to.be.an('array');
         });
       });
       describe('updateWidgetTemplate', function() {
