@@ -220,13 +220,22 @@ const buildOne = async (done) => {
 };
 const buildAll = gulp.series(apis.map(api => buildClean(api)));
 
+
+// given some env props, creates a master config, then creates all the test support config files, so they can run
+// just keep your gulpfile.config.json around, and you don't have to run this
 const testSupport = async (done) => {
+  const config = {
+    clientId: process.env.clientId,
+    accessToken: process.env.accessToken,
+    storeId: process.env.storeId,
+  };
+  await fs.writeFileSync('gulpfile.config.json', JSON.stringify(config));
+
   for (const api of apis) {
     await processTestSupportFiles(api)();
   }
   done();
-}
-
+};
 
 // export tasks
 export {
