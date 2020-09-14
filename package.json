@@ -1,8 +1,8 @@
 {
-  "name": "bigcommerce-api-js",
-  "version": "1.0.3",
+  "name": "bigcommerce-api-js-jw",
+  "version": "1.0.4",
   "description": "Collection of Big Commerce API clients in javascript.",
-  "main": "gulpfile.esm.js",
+  "main": "index.js",
   "author": "Julian Wood <julian@tri.be>",
   "license": "ISC",
   "devDependencies": {
@@ -17,6 +17,12 @@
     "gulp-rename": "^2.0.0",
     "lodash": "^4.17.20"
   },
-  "dependencies": {},
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" }
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "superagent": "3.7.0"
+  },
+  "scripts": {
+    "build": "babel clients -d dist --ignore node_modules,test"
+  },
+  "repository": "git://github.com/moderntribe/bigcommerce-api-js.git"
 }

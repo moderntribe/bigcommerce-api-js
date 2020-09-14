@@ -26,7 +26,7 @@ yarn test
 Or to test one api, for instance:
 
 ```
-cd clients/ThemesAPI
+cd clients/Themes
 yarn install
 yarn test
 ```
@@ -48,7 +48,49 @@ yarn test --grep wishlistsGet
 
 ## Including a client in your project
 
-* todo
+### Create a new project or add deps to an existing project
+
+```bash
+npm init
+npm install --save babel-cli babel-plugin-transform-builtin-extend babel-preset-env babel-preset-stage-0 big-commerce-js
+```
+### Add authentication **`config.js`**
+
+```js
+const config = {
+  clientId: '<your client id>',
+  accessToken: '<your access token>',
+  storeId: '<your store id>',
+};
+
+module.exports = config;
+```
+
+### Sample code **`index.js`**
+
+```js
+import { Wishlists, BCApiClient } from 'bigcommerce-api-js';
+import config from './config';
+
+const api = new Wishlists.WishlistsApi(new BCApiClient(config));
+
+const getWishlists = async () => {
+  try {
+    const wishlists = await api.wishlistsGet();
+    console.info(wishlists);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+getWishlists();
+```
+
+### Run sample code
+
+```bash
+babel-node index.js
+```
 
 ## Updating the client libraries
 
@@ -58,10 +100,27 @@ there is no need to download or maintain them. The swagger codegen tool will als
 ```
 npm install
 gulp buildAll
+cd clients && npm install
 ```
 
 or
 
 ```
 gulp buildOne --name StoreInfoApi
+```
+
+## Adding a new API
+
+Make sure it is in the gulpfile.esm.js and in the index.js. Update as above.
+
+## Publishing
+
+Update the version number in package.json.
+
+```
+npm install
+gulp buildAll
+cd clients && npm install && cd ..
+npm run build
+npm publish
 ```

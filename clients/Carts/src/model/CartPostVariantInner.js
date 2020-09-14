@@ -53,11 +53,11 @@ export default class CartPostVariantInner {
             if (data.hasOwnProperty('product_id')) {
                 obj['product_id'] = ApiClient.convertToType(data['product_id'], 'Number');
             }
-            if (data.hasOwnProperty('variant_id')) {
-                obj['variant_id'] = ApiClient.convertToType(data['variant_id'], 'Number');
-            }
             if (data.hasOwnProperty('list_price')) {
                 obj['list_price'] = ApiClient.convertToType(data['list_price'], 'Number');
+            }
+            if (data.hasOwnProperty('variant_id')) {
+                obj['variant_id'] = ApiClient.convertToType(data['variant_id'], 'Number');
             }
         }
         return obj;
@@ -72,14 +72,15 @@ export default class CartPostVariantInner {
     */
     'product_id' = undefined;
     /**
-    * @member {Number} variant_id
-    */
-    'variant_id' = undefined;
-    /**
     * Optional price override
     * @member {Number} list_price
     */
     'list_price' = undefined;
+    /**
+    * Exists only in Catalog V3
+    * @member {Number} variant_id
+    */
+    'variant_id' = undefined;
 
 
 

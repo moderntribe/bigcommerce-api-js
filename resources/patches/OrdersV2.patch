@@ -1,0 +1,13 @@
+diff -ur src.orig/api/OrderProductsApi.js src/api/OrderProductsApi.js
+--- src.orig/api/OrderProductsApi.js	2020-09-13 20:21:58.000000000 -0600
++++ src/api/OrderProductsApi.js	2020-09-13 20:21:44.000000000 -0600
+@@ -91,7 +91,7 @@
+      * @param {module:api/OrderProductsApi~getAnOrderProductCallback} callback The callback function, accepting three arguments: error, data, response
+      * data is of type: {@link module:model/OrderProducts2}
+      */
+-    getAnOrderProduct(orderId, productId, orderId, id, accept, contentType, callback) {
++    getAnOrderProduct(orderId, productId, id, accept, contentType, callback) {
+       let postBody = null;
+ 
+       let pathParams = {
+Only in src.orig: src

@@ -138,7 +138,7 @@ export default class SitesApi {
 
       let authNames = ['X-Auth-Client', 'X-Auth-Token'];
       let contentTypes = ['application/json'];
-      let accepts = ['*/*', 'application/json'];
+      let accepts = ['application/json'];
       let returnType = Site1;
 
       return this.apiClient.callApi(

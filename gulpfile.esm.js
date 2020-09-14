@@ -11,44 +11,45 @@ import merge from 'gulp-merge-json';
 
 const apis = [
   {
-    name: 'WishlistsApi',
+    name: 'Wishlists',
     url: 'https://developer.bigcommerce.com/api-reference/customer-subscribers/wishlist-api/BigCommerce_Wishlist_API.oas2.json',
   },
   {
-    name: 'WidgetsApi',
+    name: 'Widgets',
     url: 'https://developer.bigcommerce.com/api-reference/store-management/widgets/BigCommerce_Widgets_API.oas2.json',
   },
   {
-    name: 'ThemesApi',
+    name: 'Themes',
     url: 'https://developer.bigcommerce.com/api-reference/store-management/themes/BigCommerce_Themes_API.oas2.json',
   },
   {
-    name: 'CatalogApi',
+    name: 'Catalog',
     url: 'https://developer.bigcommerce.com/api-reference/catalog/catalog-api/BigCommerce_Catalog_API.oas2.json',
     patch: 'catalog_api.patch',
   },
   {
-    name: 'SubscribersApi',
+    name: 'Subscribers',
     url: 'https://developer.bigcommerce.com/api-reference/store-management/subscribers/BigCommerce_Subscribers_API.oas2.json',
   },
   {
-    name: 'StoreInfoApi',
+    name: 'StoreInfo',
     url: 'https://developer.bigcommerce.com/api-reference/store-management/store-information-api/BigCommerce_Store_Information_API.oas2.json',
   },
   {
-    name: 'ScriptsApi',
+    name: 'Scripts',
     url: 'https://developer.bigcommerce.com/api-reference/store-management/scripts/BigCommerce_Scripts_API.oas2.json',
   },
   {
-    name: 'PriceListsApi',
+    name: 'PriceLists',
     url: 'https://developer.bigcommerce.com/api-reference/store-management/price-lists/BigCommerce_Price_Lists_API.oas2.json',
   },
   {
-    name: 'OrdersV2Api',
+    name: 'OrdersV2',
     url: 'https://developer.bigcommerce.com/api-reference/store-management/orders/BigCommerce_Orders_API.oas2.json',
+    patch: 'OrdersV2.patch',
   },
   {
-    name: 'OrdersV3Api',
+    name: 'OrdersV3',
     url: 'https://developer.bigcommerce.com/api-reference/store-management/order-transactions/BigCommerce_Order_Transactions_API.oas2.json',
   },
   {

@@ -48,14 +48,14 @@
         // expect(instance.product_id).to.be(expectedValueLiteral);
       });
 
-      it('should have the property variant_id (base name: "variant_id")', function() {
-        expect(instance).to.have.property('variant_id');
-        // expect(instance.variant_id).to.be(expectedValueLiteral);
-      });
-
       it('should have the property list_price (base name: "list_price")', function() {
         expect(instance).to.have.property('list_price');
         // expect(instance.list_price).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property variant_id (base name: "variant_id")', function() {
+        expect(instance).to.have.property('variant_id');
+        // expect(instance.variant_id).to.be(expectedValueLiteral);
       });
 
     });

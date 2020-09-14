@@ -77,6 +77,7 @@ export default class CartPostModifierInner {
     */
     'list_price' = undefined;
     /**
+    * Needed for Catalog V2
     * @member {Array.<Object>} option_selections
     */
     'option_selections' = undefined;
