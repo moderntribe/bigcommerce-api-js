@@ -1,5 +1,5 @@
 {
-  "name": "bigcommerce-api-js-jw",
+  "name": "bigcommerce-api-js",
   "version": "1.0.4",
   "description": "Collection of Big Commerce API clients in javascript.",
   "main": "index.js",
