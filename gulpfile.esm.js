@@ -66,18 +66,18 @@ const apis = [
   }
 ];
 
-const installSwagger = (done) => (
-  fs.access('./bin/swagger-codegen-cli.jar', (err) => {
-    if (err) {
-      download({
-          url: 'https://repo1.maven.org/maven2/io/swagger/codegen/v3/swagger-codegen-cli/3.0.21/swagger-codegen-cli-3.0.21.jar',
-          file: 'swagger-codegen-cli.jar',
-         })
-        .pipe(gulp.dest('bin'));
-    }
+const installSwagger = (done) => {
+  try {
+    fs.accessSync('./bin/swagger-codegen-cli.jar');
     return done();
-  })
-)
+  } catch (err) {
+    return download({
+        url: 'https://repo1.maven.org/maven2/io/swagger/codegen/v3/swagger-codegen-cli/3.0.21/swagger-codegen-cli-3.0.21.jar',
+        file: 'swagger-codegen-cli.jar',
+       })
+      .pipe(gulp.dest('bin'));    
+  }
+};
 
 const clean = api => (
   () => (

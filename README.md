@@ -52,7 +52,7 @@ yarn test --grep wishlistsGet
 
 ```bash
 npm init
-npm install --save babel-cli babel-plugin-transform-builtin-extend babel-preset-env babel-preset-stage-0 big-commerce-js
+npm install --save babel-cli babel-plugin-transform-builtin-extend babel-preset-env babel-preset-stage-0 bigcommerce-api-js
 ```
 ### Add authentication **`config.js`**
 
