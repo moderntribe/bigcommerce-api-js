@@ -54,6 +54,20 @@ yarn test --grep wishlistsGet
 npm init
 npm install --save babel-cli babel-plugin-transform-builtin-extend babel-preset-env babel-preset-stage-0 bigcommerce-api-js
 ```
+
+### Add ES2015 presets **`.babelrc`**
+
+```json
+{
+  "plugins": [
+    ["babel-plugin-transform-builtin-extend", {
+      "globals": ["Error", "Array"]
+    }]
+  ],
+  "presets": [["env", {"exclude": ["transform-regenerator"]}], ["stage-0"]]
+}
+```
+
 ### Add authentication **`config.js`**
 
 ```js
