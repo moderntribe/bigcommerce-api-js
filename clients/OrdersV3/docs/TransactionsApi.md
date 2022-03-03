@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 Get Transactions
 
-Returns an **order&#x27;s** transactions.   **Usage Notes** * Depending on the payment method, different information will be available (not all payment gateways return full card or fraud detail). * Transactions are not created for the following payment methods:  * Test Payment Gateway  * PayPal Express  * Amazon Pay
+Returns an **order&#x27;s** transactions.   **Usage Notes** * Depending on the payment method, different information will be available (not all payment gateways return full card or fraud detail).
 
 ### Example
 ```javascript
@@ -32,10 +32,10 @@ X-Auth-Token.apiKey = 'YOUR API KEY';
 //X-Auth-Token.apiKeyPrefix = 'Token';
 
 let apiInstance = new OrdersV3.TransactionsApi();
-let orderId = 56; // Number | The ID of the `Order` to which the transactions belong. 
-let opts = { 
-  'accept': "application/json", // String | 
-  'contentType': "application/json" // String | 
+let orderId = 56; // Number | The ID of the `Order` to which the transactions belong.
+let opts = {
+  'accept': "application/json", // String |
+  'contentType': "application/json" // String |
 };
 apiInstance.getTransactions(orderId, opts, (error, data, response) => {
   if (error) {
@@ -50,7 +50,7 @@ apiInstance.getTransactions(orderId, opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderId** | **Number**| The ID of the &#x60;Order&#x60; to which the transactions belong.  | 
+ **orderId** | **Number**| The ID of the &#x60;Order&#x60; to which the transactions belong.  |
  **accept** | **String**|  | [optional] [default to application/json]
  **contentType** | **String**|  | [optional] [default to application/json]
 
